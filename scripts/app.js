@@ -1,3 +1,9 @@
+'use strict'
+
+require([
+	'data'
+	]);
+
 var MainController = function($scope){
 
 	/*******************/
