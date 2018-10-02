@@ -1,0 +1,16 @@
+<div class="hero-header main--header">
+	<div class="black-layer"></div>
+	<div class="text-layer">
+		<h1>{{control.titles['header'][0]}}</h1>
+		<h3>{{control.titles['header'][1]}}</h3>
+	</div>
+</div>
+<div ng-repeat="article in control.articles" class="hero-header main--article-blurb" ng-style="{'background-image': 'url(articles/'+ article.id +'/header.jpg)'}">
+	<div class="black-layer"></div>
+	<div class="text-layer">
+		<h2>{{article.title}}</h2>
+		<p>{{article.blurb}}</p>
+
+		<a class="main--read-more" ui-sref="adult-seo">Read More</a>
+	</div>
+</div>
