@@ -1,1 +1,1 @@
-r.js -o build.js
+r.js -o build-prod.js
