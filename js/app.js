@@ -6,6 +6,8 @@ require([
 	/* Controllers */
 	'MainCtrl',
 
+	/* Components & Directives */
+	'cg-figure.component'
 	]);
 
 var requiredServices = [
@@ -17,6 +19,7 @@ var requiredServices = [
 
 angular.module('app',requiredServices)
 	.controller('MainController', ['$scope', MainController])
+	.component('cgFigureComponent', figureComponent)
 
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */
