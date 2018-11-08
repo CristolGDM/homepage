@@ -126,6 +126,12 @@ h3 {
 	justify-content: center;
 	overflow-y: auto;
 	z-index: 3;
+	opacity: 1;
+	transition: opacity linear .1s, z-index linear .1s;
+}
+.full-screen-image.hide {
+	opacity: 0;
+	z-index: -1;
 }
 
 .full-screen-image--background {
@@ -140,6 +146,5 @@ h3 {
 }
 .full-screen-image img {
 	max-width: 100%;
-	transition: width linear .2s;
 	cursor: pointer;
 }

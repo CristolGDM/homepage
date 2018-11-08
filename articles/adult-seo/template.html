@@ -1,5 +1,5 @@
 <div class="article">
-	<div class="full-screen-image" ng-if="control.imageService.shouldShowFullscreen()">
+	<div class="full-screen-image" ng-class="{'hide': !control.imageService.shouldShowFullscreen()}">
 		<img ng-src="{{control.imageService.getCurrentImage()}}"
 			ng-style="{'max-height': showFullSize ? 'unset': '100%'}"
 			ng-click="showFullSize = !showFullSize"/>
