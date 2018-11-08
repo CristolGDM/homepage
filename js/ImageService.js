@@ -23,6 +23,7 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		}
 
 		function hideFullScreen(){
+			currentImage = "";
 			fullScreenShown = false;
 		}
 

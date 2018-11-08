@@ -1,5 +1,5 @@
 <div class="article">
-	<div class="full-screen-image" ng-if="control.imageService.shouldShowFullscreen()">
+	<div class="full-screen-image" ng-if="control.imageService.shouldShowFullscreen()" ng-click="control.imageService.hideFullScreen()">
 		<img ng-src="{{control.imageService.getCurrentImage()}}" />
 	</div>
 	<div class="hero-header" style="background-image: url('articles/adult-seo/header.jpg')">

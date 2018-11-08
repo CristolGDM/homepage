@@ -92,7 +92,7 @@ h3 {
 	margin: auto;
 }
 .full-screen-image {
-	background: red;
+	background: rgba(0,0,0,0.7);
 	position: fixed;
 	top: 0;
 	bottom: 0;
