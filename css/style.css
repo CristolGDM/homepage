@@ -112,3 +112,13 @@ h3 {
 	max-width: 100%;
 	margin: auto;
 }
+
+/* FULLSCREEN IMAGE */
+.full-screen-image {
+	background: red;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

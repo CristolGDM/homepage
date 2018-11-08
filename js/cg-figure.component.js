@@ -1,7 +1,7 @@
 'use strict';
 
 var figureComponent = {
-	controller: figureComponentController,
+	controller: ['ImageService', figureComponentController],
 	controllerAs: "figure",
 	bindings: {
 		src: '=',
@@ -10,7 +10,7 @@ var figureComponent = {
 	templateUrl: "/js/cg-figure.template.html"
 }
 
-function figureComponentController(){
+function figureComponentController(ImageService){
 	/************** LOCAL VARIABLES **************/
 	var view = this;
 

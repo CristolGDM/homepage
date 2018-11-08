@@ -6,6 +6,9 @@ require([
 	/* Controllers */
 	'MainCtrl',
 
+	/* Services */
+	'ImageService',
+
 	/* Components & Directives */
 	'cg-figure.component'
 	]);
@@ -15,10 +18,12 @@ var requiredServices = [
 	'ui.router',
 
 	/* Local Services */
+	'ImageServiceProvider'
 ];
 
 angular.module('app',requiredServices)
-	.controller('MainController', ['$scope', MainController])
+	.controller('MainController', ['$scope', 'ImageService', MainController])
+
 	.component('cgFigureComponent', figureComponent)
 
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
