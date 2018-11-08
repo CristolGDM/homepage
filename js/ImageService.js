@@ -4,19 +4,30 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 
 		/************** CONSTANTS **************/
 		var fullScreenShown = false;
+		var currentImage = "";
 
 		/************ START PROCESS ************/
 		// onInit();
 
 		return {
+			getCurrentImage: getCurrentImage,
 			hideFullScreen: hideFullScreen,
+			setCurrentImage: setCurrentImage,
 			shouldShowFullscreen: shouldShowFullscreen,
 			showFullScreen: showFullScreen
 		};
 
 		/******** FUNCTION DECLARATIONS ********/
+		function getCurrentImage() {
+			return currentImage;
+		}
+
 		function hideFullScreen(){
 			fullScreenShown = false;
+		}
+
+		function setCurrentImage(url) {
+			currentImage = url;
 		}
 
 		function shouldShowFullscreen(){

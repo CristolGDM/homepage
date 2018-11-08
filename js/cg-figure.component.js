@@ -22,7 +22,8 @@ function figureComponentController(ImageService){
 	/***************** LISTENERS *****************/
 
 	/********** FUNCTIONS DECLARATIONS ***********/
-	function maximizePicture() {
+	function maximizePicture(src) {
+		ImageService.setCurrentImage(src);
 		ImageService.showFullScreen();
 	}
 }
