@@ -17,8 +17,12 @@ function figureComponentController(ImageService){
 	/************** SCOPE VARIABLES **************/
 
 	/************** SCOPE FUNCTIONS **************/
+	view.maximizePicture = maximizePicture;
 
 	/***************** LISTENERS *****************/
 
 	/********** FUNCTIONS DECLARATIONS ***********/
+	function maximizePicture() {
+		ImageService.showFullScreen();
+	}
 }
