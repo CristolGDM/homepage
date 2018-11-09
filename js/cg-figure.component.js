@@ -4,8 +4,8 @@ var figureComponent = {
 	controller: ['ImageService', figureComponentController],
 	controllerAs: "figure",
 	bindings: {
-		src: '=',
-		caption: '='
+		src: '@',
+		caption: '@'
 	},
 	templateUrl: "/js/cg-figure.template.html"
 }

@@ -108,9 +108,13 @@ h3 {
 	margin: auto;
 }
 
-.article-content img {
+.article-content--image {
+	text-align: center;
+}
+.article-content--image img {
 	max-width: 100%;
 	margin: auto;
+	max-height: 400px;
 }
 
 /* FULLSCREEN IMAGE */
@@ -128,6 +132,8 @@ h3 {
 	z-index: 3;
 	opacity: 1;
 	transition: opacity linear .1s, z-index linear .1s;
+	display: flex;
+	align-items: center;
 }
 .full-screen-image.hide {
 	opacity: 0;
