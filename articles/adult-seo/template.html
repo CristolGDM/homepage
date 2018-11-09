@@ -1,10 +1,11 @@
 <div class="article">
 	<div class="full-screen-image" ng-class="{'hide': !control.imageService.shouldShowFullscreen()}">
 		<img ng-src="{{control.imageService.getCurrentImage()}}"
-			ng-style="{'max-height': showFullSize ? 'unset': '100%'}"
+			ng-class="{'max-height': showFullSize}"
 			ng-click="showFullSize = !showFullSize"/>
 		<div class="full-screen-image--background" ng-click="control.imageService.hideFullScreen()"></div>
 	</div>
+
 	<div class="hero-header" style="background-image: url('articles/adult-seo/header.jpg')">
 		<div class="black-layer"></div>
 		<div class="text-layer">
