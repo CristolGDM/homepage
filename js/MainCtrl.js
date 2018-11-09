@@ -1,4 +1,4 @@
-var MainController = function($scope, ImageService){
+var MainController = function($scope){
 
 	/*******************/
 	/* Local variables */
@@ -10,7 +10,6 @@ var MainController = function($scope, ImageService){
 	/* Scope variables */
 	/*******************/
 	view.articles = data.articles;
-	view.imageService = ImageService;
 	view.titles = {};
 
 	/*******************/

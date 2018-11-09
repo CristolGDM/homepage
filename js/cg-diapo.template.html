@@ -1,0 +1,6 @@
+<div class="full-screen-image" ng-class="{'hide': !diaporama.imageService.shouldShowFullscreen()}">
+	<img ng-src="{{diaporama.imageService.getCurrentImage()}}"
+		ng-class="{'max-height': diaporama.showFullSize}"
+		ng-click="diaporama.showFullSize = !diaporama.showFullSize"/>
+	<div class="full-screen-image--background" ng-click="diaporama.imageService.hideFullScreen()"></div>
+</div>

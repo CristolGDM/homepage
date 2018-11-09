@@ -1,10 +1,5 @@
 <div class="article">
-	<div class="full-screen-image" ng-class="{'hide': !control.imageService.shouldShowFullscreen()}">
-		<img ng-src="{{control.imageService.getCurrentImage()}}"
-			ng-class="{'max-height': showFullSize}"
-			ng-click="showFullSize = !showFullSize"/>
-		<div class="full-screen-image--background" ng-click="control.imageService.hideFullScreen()"></div>
-	</div>
+	<cg-diapo></cg-diapo>
 
 	<div class="hero-header" style="background-image: url('articles/adult-seo/header.jpg')">
 		<div class="black-layer"></div>
@@ -46,7 +41,7 @@
 			<p>This is what the website originally looked like:</p>
 		</div>
 
-		<cg-figure-component src="'articles/adult-seo/adult1-old.jpg'" caption="'The old Design'"></cg-figure-component>
+		<cg-figure src="'articles/adult-seo/adult1-old.jpg'" caption="'The old Design'"></cg-figure>
 
 		<div class="article--text-block">
 			<p>I then studied our site’s statistics to find out more detailed information. This included a SEO analysis, as well as bounce rate, user flow, and general traffic analysis. This revealed the following:</p>

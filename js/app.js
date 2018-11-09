@@ -10,6 +10,7 @@ require([
 	'ImageService',
 
 	/* Components & Directives */
+	'cg-diapo.component',
 	'cg-figure.component'
 	]);
 
@@ -22,9 +23,10 @@ var requiredServices = [
 ];
 
 angular.module('app',requiredServices)
-	.controller('MainController', ['$scope', 'ImageService', MainController])
+	.controller('MainController', ['$scope', MainController])
 
-	.component('cgFigureComponent', figureComponent)
+	.component('cgDiapo', diapoComponent)
+	.component('cgFigure', figureComponent)
 
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */
