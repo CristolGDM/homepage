@@ -3,6 +3,6 @@
 		<span class="diaporama--click-open-message">(Click on the image to open it in a new tab)</span>
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
 	</a>
-	<span class="diaporama--legend" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
+	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
 	<div class="diaporama--background" ng-click="diaporama.imageService.hideFullScreen()"></div>
 </div>

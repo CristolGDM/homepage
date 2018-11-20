@@ -176,7 +176,7 @@ h3 {
 	transform: scale(1.01);
 }
 
-.diaporama--legend {
+.diaporama--caption {
 	position: fixed;
 	bottom: 0;
 	left: 0;
