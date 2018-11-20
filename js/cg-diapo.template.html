@@ -1,4 +1,6 @@
 <div class="diaporama" ng-class="{'hide': !diaporama.imageService.shouldShowFullscreen()}">
+	<img src="/icons/thick-close.png" class="diaporama--close" ng-click="diaporama.imageService.hideFullScreen()"/>
+
 	<a ng-href="{{diaporama.imageService.getCurrentImage().src}}" target="_blank" class="diaporama--image-link">
 		<span class="diaporama--click-open-message">(Click on the image to open it in a new tab)</span>
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
