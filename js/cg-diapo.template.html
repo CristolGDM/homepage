@@ -3,11 +3,13 @@
 
 	<a ng-href="{{diaporama.imageService.getCurrentImage().src}}" target="_blank" class="diaporama--image-link">
 		<span class="diaporama--click-open-message">(Click on the image to open it in a new tab)</span>
-		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
+		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" 
+			class="diaporama--main-image"
+			ng-class="{'while-loading': diaporama.isLoading}"></img>
 	</a>
 
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.imageService.selectPreviousImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.imageService.selectNextImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.selectPreviousImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.selectNextImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
 
 	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
 
@@ -16,7 +18,7 @@
 			class="diaporama--other-picture"
 			ng-class="{'selected': preview.src === diaporama.imageService.getCurrentImage().src}"
 			ng-style="{'background-image' : 'url(' + preview.src + ')'}"
-			ng-click="diaporama.imageService.setCurrentImage(preview.src, preview.caption)">
+			ng-click="diaporama.setCurrentImage(preview.src, preview.caption)">
 		</div>
 	</div>
 

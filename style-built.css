@@ -146,16 +146,20 @@ h3 {
 	max-width: 100%;
 	max-height: 100%;
 	cursor: pointer;
-	transition: max-width linear .1s, max-height linear .2s, transform linear .1s;
+	transition: transform linear .1s, opacity linear .2s;
 	margin: auto;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
+	opacity: 1;
 }
 .diaporama--main-image:hover {
 	transform: scale(1.01);
+}
+.diaporama--main-image.while-loading{
+	opacity: 0;
 }
 .diaporama--arrow {
 	position: fixed;
