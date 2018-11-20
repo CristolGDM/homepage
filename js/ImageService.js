@@ -5,7 +5,7 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		/************** CONSTANTS **************/
 		var allImages = [];
 		var allImagesDictionary = {};
-		var currentImage = "";
+		var currentImage = {};
 		var fullScreenShown = false;
 
 		/************ START PROCESS ************/
@@ -36,12 +36,17 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		}
 
 		function hideFullScreen(){
-			currentImage = "";
+			currentImage = {};
 			fullScreenShown = false;
 		}
 
-		function setCurrentImage(url) {
-			currentImage = url;
+		function setCurrentImage(src, caption) {
+			caption = caption == null? "" : caption;
+			currentImage = {
+				src: src,
+				caption: caption
+			};
+
 		}
 
 		function shouldShowFullscreen(){
