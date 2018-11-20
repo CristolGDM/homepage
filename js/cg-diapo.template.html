@@ -6,8 +6,8 @@
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
 	</a>
 
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.imageService.selectPreviousImage()"/>
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.imageService.selectNextImage()"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.imageService.selectPreviousImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.imageService.selectNextImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
 
 	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
 
