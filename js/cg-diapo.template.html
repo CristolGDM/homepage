@@ -8,7 +8,8 @@
 		<div ng-repeat="preview in diaporama.imageService.getAllImages()"
 			class="diaporama--other-picture"
 			ng-class="{'selected': preview.src === diaporama.imageService.getCurrentImage().src}"
-			ng-style="{'background-image' : 'url(' + preview.src + ')'}">
+			ng-style="{'background-image' : 'url(' + preview.src + ')'}"
+			ng-click="diaporama.imageService.setCurrentImage(preview.src, preview.caption)">
 		</div>
 	</div>
 	<div class="diaporama--background" ng-click="diaporama.imageService.hideFullScreen()"></div>
