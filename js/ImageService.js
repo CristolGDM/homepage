@@ -23,6 +23,7 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		})
 
 		return {
+			getAllImages: getAllImages,
 			getCurrentImage: getCurrentImage,
 			hideFullScreen: hideFullScreen,
 			setCurrentImage: setCurrentImage,
@@ -31,6 +32,10 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		};
 
 		/******** FUNCTION DECLARATIONS ********/
+		function getAllImages() {
+			return allImages;
+		}
+
 		function getCurrentImage() {
 			return currentImage;
 		}

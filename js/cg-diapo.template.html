@@ -4,5 +4,12 @@
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
 	</a>
 	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
+	<div class="diaporama--other-pictures">
+		<div ng-repeat="preview in diaporama.imageService.getAllImages()"
+			class="diaporama--other-picture"
+			ng-class="{'selected': preview.src === diaporama.imageService.getCurrentImage().src}"
+			ng-style="{'background-image' : 'url(' + preview.src + ')'}">
+		</div>
+	</div>
 	<div class="diaporama--background" ng-click="diaporama.imageService.hideFullScreen()"></div>
 </div>
