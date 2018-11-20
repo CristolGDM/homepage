@@ -175,3 +175,13 @@ h3 {
 .diaporama--main-image:hover {
 	transform: scale(1.01);
 }
+
+.diaporama--legend {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #DDD;
+	background: rgba(0,0,0,.7);
+	padding: 15px;
+}
