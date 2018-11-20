@@ -11,7 +11,7 @@
 
 	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
 
-	<div class="diaporama--other-pictures">
+	<div class="diaporama--other-pictures" ng-if="diaporama.imageService.getAllImages().length > 1">
 		<div ng-repeat="preview in diaporama.imageService.getAllImages()"
 			class="diaporama--other-picture"
 			ng-class="{'selected': preview.src === diaporama.imageService.getCurrentImage().src}"
