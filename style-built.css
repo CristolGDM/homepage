@@ -95,49 +95,38 @@ h3 {
 	margin: auto;
 	max-height: 400px;
 }
-.full-screen-image {
+.diaporama {
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	text-align: center;
-	flex: 1 0 auto;
-	flex-direction: column;
-	justify-content: center;
-	overflow-y: scroll;
 	z-index: 3;
 	opacity: 1;
 	transition: opacity linear .1s, z-index linear .1s;
-	display: flex;
-	align-items: center;
 }
-.full-screen-image.hide {
+.diaporama.hide {
 	opacity: 0;
 	z-index: -1;
 }
-.full-screen-image--background {
+.diaporama--background {
 	background: black;
 	opacity: .7;
 	position: fixed;
+	z-index: -1;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: -1;
 }
-.full-screen-image img {
+.diaporama--main-image {
 	max-width: 100%;
 	max-height: 100%;
 	cursor: pointer;
 	transition: max-width linear .1s, max-height linear .2s, transform linear .1s;
+	margin: auto;
 }
-.full-screen-image img:hover {
+.diaporama--main-image:hover {
 	transform: scale(1.01);
-}
-.full-screen-image img.max-height{
-	max-height: 8000px !important;
-}
-.full-screen-image img.max-height {
-	transform: scale(1);
 }
