@@ -149,6 +149,20 @@ h3 {
 .diaporama--main-image:hover {
 	transform: scale(1.01);
 }
+.diaporama--arrow {
+	position: fixed;
+	top: calc(50% - 50px);
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+.diaporama--arrow.left {
+	left: 0;
+	transform: rotate(180deg);
+}
+.diaporama--arrow.right {
+	right: 0;
+}
 .diaporama--caption {
 	position: fixed;
 	bottom: 0;
@@ -171,14 +185,15 @@ h3 {
 	display: inline-block;
 	width: 100px;
 	height: 100px;
-	border: #08907D 2px solid;
+	border: #6495ed 3px solid;
 	border-radius: 15px;
 	background-size: cover;
 	cursor: pointer;
+	transition: border-color linear .1s;
 }
 .diaporama--other-picture:hover {
-	border-color: #46AD9F;
+	border-color: #8BB0F4;
 }
 .diaporama--other-picture.selected {
-	border-color: #E6670D;
+	border-color: #FFC65C;
 }

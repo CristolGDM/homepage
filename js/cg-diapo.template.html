@@ -3,7 +3,12 @@
 		<span class="diaporama--click-open-message">(Click on the image to open it in a new tab)</span>
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" class="diaporama--main-image"></img>
 	</a>
+
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.imageService.selectPreviousImage()"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.imageService.selectNextImage()"/>
+
 	<span class="diaporama--caption" ng-if="diaporama.imageService.getCurrentImage().caption.length > 0">{{diaporama.imageService.getCurrentImage().caption}}</span>
+
 	<div class="diaporama--other-pictures">
 		<div ng-repeat="preview in diaporama.imageService.getAllImages()"
 			class="diaporama--other-picture"
@@ -12,5 +17,6 @@
 			ng-click="diaporama.imageService.setCurrentImage(preview.src, preview.caption)">
 		</div>
 	</div>
+
 	<div class="diaporama--background" ng-click="diaporama.imageService.hideFullScreen()"></div>
 </div>
