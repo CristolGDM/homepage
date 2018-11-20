@@ -3,6 +3,8 @@ body {
 	margin: 0;
 	font-family: sans-serif;
 	font-weight: 300;
+	line-height: 1.4;
+	color: #444;
 }
 .hero-header {
 	text-align: center;
@@ -69,7 +71,7 @@ h3 {
 	transition: background linear .2s, color linear .2s;
 }
 .main--read-more:hover {
-	color: black;
+	color: #444;
 	background: white;
 }
 .article h1 {
@@ -120,12 +122,29 @@ h3 {
 	left: 0;
 	right: 0;
 }
+.diaporama--click-open-message {
+	color: #DDD;
+	font-style: italic;
+	position: fixed;
+	top: 5%;
+	right: 5%;
+	opacity: 0;
+	transition: opacity linear .2s;
+}
+.diaporama--image-link:hover .diaporama--click-open-message {
+	opacity: 1
+}
 .diaporama--main-image {
 	max-width: 100%;
 	max-height: 100%;
 	cursor: pointer;
 	transition: max-width linear .1s, max-height linear .2s, transform linear .1s;
 	margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 .diaporama--main-image:hover {
 	transform: scale(1.01);
