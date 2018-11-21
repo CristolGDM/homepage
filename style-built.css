@@ -178,6 +178,7 @@ h3 {
 .diaporama--caption {
 	color: #DDD;
 	padding: 15px;
+	position: relative;
 }
 .diaporama--other-pictures {
 	position: fixed;
@@ -195,12 +196,29 @@ h3 {
 	border: #6495ed 3px solid;
 	border-radius: 15px;
 	background-size: cover;
+	background-position: 50%;
 	cursor: pointer;
-	transition: border-color linear .1s;
+	transition: border-color linear .1s, height linear .2s;
 }
 .diaporama--other-picture:hover {
 	border-color: #8BB0F4;
 }
 .diaporama--other-picture.selected {
 	border-color: #FFC65C;
+}
+.diaporama--close-preview {
+	transform: rotate(90deg);
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	height: 25px;
+	width: 25px;
+	cursor: pointer;
+	transition: transform linear .2s;
+}
+.no-preview .diaporama--close-preview {
+	transform: rotate(-90deg);
+}
+.no-preview .diaporama--other-picture {
+	height: 0;
 }
