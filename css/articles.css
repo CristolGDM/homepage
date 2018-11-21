@@ -1,0 +1,20 @@
+/* ARTICLES */
+
+.article h1 {
+	font-size: 42px;
+}
+
+.article h2 {
+	padding: 15px 0;
+	border-bottom: 1px dashed #CACACA;
+	margin: 15px 0 45px;
+}
+
+.article p {
+	font-size: 18px;
+}
+
+.article-content {
+	max-width: 660px;
+	margin: auto;
+}

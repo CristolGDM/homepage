@@ -1,0 +1,26 @@
+/* MAIN PAGE */
+.main--header {
+	background-image: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
+.main--article-blurb p {
+	font-size: 20px;
+	margin: 0;
+}
+
+.main--read-more {
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 700;
+	border: white solid 2px;
+	padding: 15px 120px;
+	cursor: pointer;
+	transition: background linear .2s, color linear .2s;
+}
+
+.main--read-more:hover {
+	color: #444;
+	background: white;
+}
