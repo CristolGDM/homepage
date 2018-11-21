@@ -180,13 +180,18 @@ h3 {
 	padding: 15px;
 	position: relative;
 }
-.diaporama--other-pictures {
+.diaporama--bottom-section {
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	background: rgba(0,0,0,.7);
+}
+.diaporama--other-pictures {
 	padding: 5px;
+	max-height: 130px;
+	white-space: nowrap;
+	overflow-x: auto;
 }
 .diaporama--other-picture {
 	margin: 0 5px;
