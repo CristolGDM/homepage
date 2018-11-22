@@ -43,6 +43,10 @@ angular.module('app',requiredServices)
 				url: '/adult-seo',
 				templateUrl: 'articles/adult-seo/template.html'
 			})
+			.state('robohat', {
+				url: '/robohat',
+				templateUrl: 'articles/robohat/template.html'
+			})
 
 		}]);
 

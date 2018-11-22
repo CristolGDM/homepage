@@ -164,6 +164,18 @@
 	margin-top: 10px;
 	font-size: 14px;
 }
+.image-component--line {
+	white-space: nowrap;
+}
+.image-component--line .article-content--image {
+	display: inline-block;
+	width: 33.3%;
+	margin: auto;
+	padding: 0;
+}
+.image-component--line figcaption {
+	display: none;
+}
 .main--header {
 	background-image: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }

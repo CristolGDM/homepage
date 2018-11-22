@@ -1,0 +1,104 @@
+<div class="article">
+	<cg-diapo></cg-diapo>
+
+	<div class="hero-header" style="background-image: url('articles/robohat/header.jpg')">
+		<div class="black-layer"></div>
+		<div class="text-layer">
+			<h1>{{control.titles['robohat']}}</h1>
+		</div>
+	</div>
+
+	<div class="article-content">
+		<div class="article--text-block">
+			<p>This first project comes from a training course by <a href="http://www.wiklundrd.com/">Wiklund & Kendler</a>. The task was to create an interface for an automatic hat-making machine. The user had to be able to design a hat, preview it, and buy it. The design options were size of the hat, fabric used, color for the front panel, color for the bill, type of closure, type of bill, and customizable artowrk. Target audience was sports fans and families, especially for minor leagues. For this project, the design goal was to produce a high fidelity mockup.</p>
+		</div>
+
+		<h2>FIRST STEP: RESEARCH</h2>
+
+		<div class="article--text-block">
+			<p>The first step was to do some research. Before even doing user research, I usually like to go through an observation step, see what has been done before.</p>
+
+			<p>Vending machines have the kind of interfaces you use every day without really paying attention to. What makes a vending machine interface usable? By observing ATMs, ticket machines, and mall kiosks, I identified a couple of common characteristics:</p>
+
+			<ul>
+				<li>Huge buttons</li>
+				<li>Limited options on each screen</li>
+				<li>Linear process</li>
+				<li>Very short and explicit text</li>
+				<li>Language option</li>
+			</ul>
+		</div>
+
+		<cg-figure src="articles/robohat/ATM.jpg" caption="Sample screen from a Bank of America ATM"></cg-figure>
+
+		<div class="article--text-block">
+			<p>Second part of my research was to go talk to users. Even though the market research had been done beforehand, I always try to talk to potential users myself, as you get a better idea of the actual requirements – which are not always conveyed by market research reports.</p>
+
+			<p>Finding potential users was actually difficult, but I managed after a while to find people who would be interested by the idea. Points that came up the most often were:</p>
+
+			<ul>
+				<li>Users wanted to be able to play with it and experiment easily, and then decide whether they wanted it or not</li>
+				<li>Users also wanted to see what the final result would look like. They were unlikely to purchase anything without seeing the final result.</li>
+			</ul>
+		</div>
+
+		<h2>SECOND STEP: LOW-FI MOCKUP</h2>
+
+		<div class="article--text-block">
+			<p>Now that I had a better idea of what I wanted to do, it was time to start some mockups. I like to start with very low-fi mockups through <a href="https://balsamiq.com/">Balsamiq</a> or even sketching,as it helps everyone focus on the <b>usability</b>, and not on which color so and so should be.</p>
+
+			<p>I ended up with the following:</p>
+		</div>
+
+		<cg-figure src="articles/robohat/mockup.png" caption="Low-fi mockup: Global layout"></cg-figure>
+
+		<div class="article--text-block">
+			<p>Tabs on the left allow the user to know exactly where he is in the process. Tabs farther down are not available until reached. The user can however go back to previously completed tabs, for example to do some corrections.</p>
+
+			<p>A representation of the hat is displayed on the left, and takes into account the user choices.</p>
+
+			<p>A language menu is also available, using flags to represent language options (you will understand why I insist on that point in a moment).</p>
+		</div>
+
+		<cg-figure src="articles/robohat/robohatmockup.png" caption="Low-fi mockup: language menu"></cg-figure>
+
+		<h2>THIRD STEP: USER-TESTING</h2>
+
+		<div class="article--text-block">
+			<p>This tends to be my favorite part of the design process, as it is where all the flaws I suspect exist or didn't even think about appear clear as day. I dislike being wrong as much as anyone, but I dislike even more not knowing whether there are flaws and mistakes in my design or not. To say it another way, I would rather be sure I’m wrong than believe I’m right.</p>
+
+			<p>User testing was in this case, for once, not disastrous. Users actually liked the design, and were able to complete sample tasks (make a hat for your child, make a hat for yourself with your son’s team logo, etc).</p>
+
+			<p>The issue that came the most was about… the flags.Users got either confused or offended by the flags. Does the Spanish flag represent Spanish or Catalan? Why is Portugese represented by Portugal, when there are more Portugese speakers in Brazil? This goes to prove that once again, <a href="http://uxmyths.com/post/715009009/myth-icons-enhance-usability">icons do not enhance usability</a>.</p>
+
+			<p>Users also often made the request of being able to order several sets of the same hat. This was mentioned to the client, who unfortunately informed us this was not a feature they were interested in implementing.</p>
+		</div>
+
+		<h2>FOURTH STEP: HI-FI MOCKUP</h2>
+
+		<p>The last step for this project. Based on my preliminary sketches, and using user feedback, I designed a higher fidelity mockup through Photoshop.</p>
+
+		<cg-figure src="articles/robohat/ascreen1-size.jpg" caption="High fidelity mockup"></cg-figure>
+
+		<p>Some small adjustments were made. Tab titles were replaced with icons once selected. Since the title was displayed in the tab, the icons’ infamous lack of clarity was not important here.</p>
+
+		<p>The head was made out of wood, in order to be as neutral as possible.</p>
+
+		<p>The language menu was remade to focus on text rather than icons.</p>
+
+		<cg-figure src="articles/robohat/ascreen3-panel-color-language.jpg" caption="High fidelity mockup, language screen"></cg-figure>
+
+		<p>The final result as shown as a physical mockup, which helps illustrate how the actual setup would look like in regular usage:</p>
+
+		<cg-figure src="articles/robohat/robohat_actual_setup.jpg" caption="Preview of the setup in real life usage"></cg-figure>
+
+		<p>You will find more sample screens in the following gallery.</p>
+
+		<h2>ANNEX: SAMPLE SCREENS</h2>
+		<div class="image-component--line">
+			<cg-figure src="articles/robohat/screen0-start-screen.jpg" caption=""></cg-figure>
+			<cg-figure src="articles/robohat/ascreen7-artwork.jpg" caption=""></cg-figure>
+			<cg-figure src="articles/robohat/screen99-waiting-screen.jpg" caption=""></cg-figure>
+		</div>
+	</div>
+</div>

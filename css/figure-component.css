@@ -15,3 +15,16 @@
 	margin-top: 10px;
 	font-size: 14px;
 }
+
+.image-component--line {
+	white-space: nowrap;
+}
+.image-component--line .article-content--image {
+	display: inline-block;
+	width: 33.3%;
+	margin: auto;
+	padding: 0;
+}
+.image-component--line figcaption {
+	display: none;
+}
