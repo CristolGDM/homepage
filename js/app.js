@@ -40,15 +40,15 @@ angular.module('app',requiredServices)
 				templateUrl: 'mainTemplate.html'
 			})
 			.state('adult-seo', {
-				url: '/adult-seo',
+				url: '/dark-side-internet-adult-seo',
 				templateUrl: 'articles/adult-seo/template.html'
 			})
 			.state('robohat', {
-				url: '/robohat',
+				url: '/robohat-an-interface-to-make-hats',
 				templateUrl: 'articles/robohat/template.html'
 			})
 			.state('red-cross', {
-				url: '/red-cross',
+				url: '/red-cross-donor-app',
 				templateUrl: 'articles/red-cross/template.html'
 			})
 
