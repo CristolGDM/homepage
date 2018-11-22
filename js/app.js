@@ -47,6 +47,10 @@ angular.module('app',requiredServices)
 				url: '/robohat',
 				templateUrl: 'articles/robohat/template.html'
 			})
+			.state('red-cross', {
+				url: '/red-cross',
+				templateUrl: 'articles/red-cross/template.html'
+			})
 
 		}]);
 
