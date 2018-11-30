@@ -17,7 +17,17 @@
 
 		<p>This is the standard method. The app would look something like this:</p>
 
-		CODE1
+		<cg-code name="myApp.js">
+			require(['_templatesAngular/LoginCtrl']);
+
+			var myApp = angular.module('myApp');
+
+			myApp.controller('LoginCtrl', ['$scope', '$http', LoginCtrl]);
+
+			angular.element(document).ready(function () {
+			    angular.bootstrap(document, ['myApp']);
+			});
+		</cg-code>
 
 		<p>And a Controller would look like:</p>
 

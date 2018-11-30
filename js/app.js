@@ -11,7 +11,8 @@ require([
 
 	/* Components & Directives */
 	'cg-diapo.component',
-	'cg-figure.component'
+	'cg-figure.component',
+	'cg-code.directive'
 	]);
 
 var requiredServices = [
@@ -27,6 +28,8 @@ angular.module('app',requiredServices)
 
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)
+
+	.directive('cgCode', codeDirective)
 
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */
