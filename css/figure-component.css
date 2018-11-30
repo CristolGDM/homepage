@@ -17,14 +17,22 @@
 }
 
 .image-component--line {
-	white-space: nowrap;
-	margin-bottom: 45px;
+	display: inline-block;
 }
 .image-component--line .article-content--image {
-	display: inline-block;
+	display: block;
 	width: 33.3%;
 	margin: auto;
 	padding: 0;
+	float: left;
+	border: 1px solid white;
+	box-sizing: border-box;
+}
+.image-component--line.line2 .article-content--image {
+	width: 50%;
+}
+.image-component--line.line4 .article-content--image {
+	width: 25%;
 }
 .image-component--line figcaption {
 	display: none;
