@@ -51,6 +51,10 @@ angular.module('app',requiredServices)
 				url: '/red-cross-donor-app',
 				templateUrl: 'articles/red-cross/template.html'
 			})
+			.state('red-sox', {
+				url: '/red-sox-companion-app',
+				templateUrl: 'articles/red-sox/template.html'
+			})
 			.state('robohat', {
 				url: '/robohat-an-interface-to-make-hats',
 				templateUrl: 'articles/robohat/template.html'
