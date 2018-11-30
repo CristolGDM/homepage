@@ -54,6 +54,7 @@
 	top: 5%;
 	right: 5%;
 	opacity: 0;
+	z-index: 2;
 	transition: opacity linear .2s;
 }
 .diaporama--image-link:hover .diaporama--click-open-message {

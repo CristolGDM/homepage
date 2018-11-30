@@ -59,6 +59,10 @@ angular.module('app',requiredServices)
 				url: '/robohat-an-interface-to-make-hats',
 				templateUrl: 'articles/robohat/template.html'
 			})
+			.state('self-loading-cont', {
+				url: '/self-loading-controller-angularjs',
+				templateUrl: 'articles/self-loading-cont/template.html'
+			})
 
 		}]);
 

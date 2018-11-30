@@ -1,0 +1,138 @@
+<div class="article">
+	<cg-diapo></cg-diapo>
+
+	<div class="hero-header" style="background-image: url('articles/self-loading-cont/header.jpg')">
+		<div class="black-layer"></div>
+		<div class="text-layer">
+			<h1>{{control.titles['self-loading-cont']}}</h1>
+		</div>
+	</div>
+
+	<div class="article-content">
+		<p>In this article, we are going to talk about controllers, their parent app, and freedom.</p>
+
+		<p>Should controllers be able to load themselves? And if so, how?</p>
+
+		<h3>The basic solution: the app loads all the controllers</h3>
+
+		<p>This is the standard method. The app would look something like this:</p>
+
+		CODE1
+
+		<p>And a Controller would look like:</p>
+
+		CODE2
+
+		<p>Then just add a <code>ng-controller="SettingsController"</code> in the relevant page, compile, push, merge, deploy, and go get yourself a well-deserved coffee.</p>
+
+		<p>Right?</p>
+
+		<p>…right…?</p>
+
+		<p>While the coffee machine is warming up, you’re thinking. Your company is making a lot of seasonal pages, each with their own functions and capabilities. Sure, you could try and make one giant Controller able to handle them all, but you know that would be bad. You <b><i>need</i></b> a Controller for each.</p>
+
+		<p>And so, soon enough, your app looks like:</p>
+
+		CODE3
+
+		<p>You’re looking at a dozen Controllers per year. Not only is it hell to maintain, it means your compiled file is going to get more and more bloated with time. And on top of that, it means your users are downloading dozens of Controllers for pages that are not even advertised anymore, and that they might never visit. Not good.</p>
+
+		<p>
+			<b>How good is it for you?</b> 4/10. Your code is more difficult to maintain, and can’t be reduced or simplified. On the contrary, it will keep on growing.<br />
+			<b>How good is it for your users?</b> 4/10. They have to download an evergrowing file full of stuff they might never use. It’s slow, and not efficient.
+		</p>
+
+		<h3>The lazy solution: just kill them.</h3>
+
+		<p>You shrug. It’s easy: just remove those controllers that are not likely to be visited anymore.</p>
+
+		<p>You start deleting them from your main app. It looks like this:</p>
+
+		CODE
+
+		<p>Fast fix, literally five seconds of your time. Easy-peasy. Every time you roll out a new page, you will delete the oldest Controller, and be done with it. Nobody will know.</p>
+
+		<p>A part of you is telling you it’s wrong, but you ignore it and go back to reddit. Your mind starts wandering. You’re thinking about what you are going to eat tonight. When you look back at your computer, you realize that you opened a tab, and googled the name of your company.</p>
+
+		<p>Damn you, work ethic.</p>
+
+		<p>Well, it can’t be that bad, what- Oh, the second highest ranked result is the Cristmas2015 sale, which was a huge success? And half of the first page of results is from previous campaigns that you just deleted? Let’s check Google Analytics… One third of your new users came to your site through a previous campaign. If you go through with this, all those new users will find a broken page, and half of your Google results will lead to similarly broken pages.</p>
+
+		<p>Sigh. Revert commit. No coffee yet.</p>
+
+		<p>
+			<b>How good is it for you?</b> 7/10. Your code is easier to maintain, and it prevents bloating.<br />
+			<b>How good is it for your users?</b> 3/10. Good for most of your users, as they get only relevant files. Absolutely blocking for the others.
+		</p>
+
+		<h3>The merciful solution: set them free.</h3>
+
+		<p>To be fair, it’s not your fault. Why do you even have to front-load all your Controllers? Each page should have its own Controller, and that Controller should be loaded only when a user visits that page. That’s How It Should Be. Too bad you can’t do that.</p>
+
+		<p>…or can you? The mad scientist in you, that same mad scientist that separates front-end devs from back-end devs and even multiplies booleans, that mad lad starts thinking.</p>
+
+		<p>You just need to load the script only on the relevant page. Easy:</p>
+
+		CODE
+
+		<p>Now you don’t need to <code>@require</code> it in the app. However, since you don’t @require it, you can’t add it to the app anymore, so you remove that too:</p>
+
+		CODE
+
+		<p>By Odin, it’s so clean. If that works, you’re definitely posting it on your blog. Now, you just need to find a way for your Controller to add itself to its master app. And that’s where the mad scientist kicks in:</p>
+
+		CODE
+
+		<p>Would that even work? Compile, deploy on a test server, test: it works. You’re a genius. You’re definitely getting at least 10 upvotes on Reddit for this, and maybe even a badge on SO.</p>
+
+		<p>You commit, push, merge, deploy, and finally pour yourself that sweet cup of coffee. You’re halfway through your subtly smug self-deprecating humble-bragging reddit post when you start getting emails from customer support. The website doesn’t work, users are complaining, half of them end up on a broken page.</p>
+
+		<p>You shrug. They’re wrong. It worked on a local server running on your powerful machine with a 30Mbps connection, so of course it would work on every device, accessing a remote server through slower connections, right? Loading separately two things that need to be loaded in a specific order can’t go wrong, right?</p>
+
+		<p>Damn work ethic whispers again in your ear: “Race condition…”</p>
+
+		<p>Shit.</p>
+
+		<p>
+			<b>How good is it for you?</b> 10/10. Nothing to maintain, and your code is as clean as can be. Perfect<br />
+			<b>How good is it for your users?</b> 10/10 when it works. 0/10 when it doesn’t. Depending on their device and their connection, your users can either have a great experience, or not get the page at all. “User Experience Lottery” is not a fun game, so we go with the lowest experience: 0/10.
+		</p>
+
+		<h3>The democratic solution: freedom with a leash.</h3>
+
+		<p>Sure, you could roll back. You could just go back to loading all Controllers, and accept that it’s your fate. But the two best qualities of a web developer are laziness and stubbornness (at least, that’s what you tell yourself). You’ve been lazy enough, now it’s time to be stubborn. You’re not giving up.</p>
+
+		<p>The race condition issue comes from situations where the Controller is loaded before the app could finish loading. It doesn’t find an app to attach itself, so it stops. And when the app finally loads, it doesn’t have the Controller, it crashes. You could try to make sure the app loads faster, but this would just reduce the odds of an error happening. You need to eliminate those odds. So you need to find a way to attach the Controller to the App only after the app has finished loading. You just add the following:</p>
+
+		CODE
+
+		CODE
+
+		<p>Well, that’s nice and all, and it works, but it means you either load it twice, or you get an error and then load it anyway. Not that clean, you can do better.</p>
+
+		<p>Enter the last tool you need: <code>myApp['_invokeQueue'][i][2][0]. myApp['_invokeQueue']</code> is an array of all the elements attached to your myApp module. <code>[2][0]</code> is where each element stores its name. With this, you can know which Controllers have been attached to your App, either from a Controller, or from the App itself.</p>
+
+		<p>Your app then becomes the following:</p>
+
+		CODE
+
+		CODE
+
+		<p>If the app loads first, she doesn’t see a Controller, so she doesn’t do anything. Then when the Controller loads, he will see the app, and see that she doesn’t have a Controller like him yet, so he will attach himself to the app.</p>
+
+		<p>On the other hand, if the Controller loads first, he doesn’t see an app, so he doesn’t do anything. When the app starts, she will see the Controller, and will notice that she doesn’t have a Controller like that yet, so she will attach that Controller to herself.</p>
+
+		<p><i>(Pronouns used for clarity, as “it will see that it doesn’t have a Controller like it yet and so it will attach itself to it” was a bit confusing).</i></p>
+
+		<p>As far as you can see, this is good. A bit wordy, and you’re not a 100% sure it works, but for now that will do. Hopefully you can try to get insight from better programmers. You wait a bit. Customer support leaves you alone. Victory. You finally enjoy your coffee.</p>
+
+		<p>
+			<b>How good is it for you?</b> 6/10. It’s wordy, and that loading method is going to become huge. At least it separates better who does what, and you might just outsource it to a separate service.<br />
+			<b>How good is it for your users?</b> 10/10, hopefully. If we check our objectives, users don’t get data for pages they don’t visit, users do get data for pages they do visit, and it loads correctly for all users.
+		</p>
+
+		<hr />
+
+		<p><i>As always, any feedback from better coders is more than welcome! I feel like this is a bit experimental, so any advice would be helpful.</i></p>
+	</div>
+</div>
