@@ -43,13 +43,17 @@ angular.module('app',requiredServices)
 				url: '/dark-side-internet-adult-seo',
 				templateUrl: 'articles/adult-seo/template.html'
 			})
-			.state('robohat', {
-				url: '/robohat-an-interface-to-make-hats',
-				templateUrl: 'articles/robohat/template.html'
+			.state('imensana', {
+				url: '/imensana-social-fitness-app',
+				templateUrl: 'articles/imensana/template.html'
 			})
 			.state('red-cross', {
 				url: '/red-cross-donor-app',
 				templateUrl: 'articles/red-cross/template.html'
+			})
+			.state('robohat', {
+				url: '/robohat-an-interface-to-make-hats',
+				templateUrl: 'articles/robohat/template.html'
 			})
 
 		}]);
