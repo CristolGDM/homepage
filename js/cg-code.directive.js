@@ -34,7 +34,7 @@ function codeDirective() {
 
 	function createHtmlCode(rawCode) {
 		var returnCode = '<div class="code-component">';
-		if(fileName.length > 0) returnCode += '<div class="code-filename">' + fileName + '</div>';
+		if(fileName != null) returnCode += '<div class="code-filename">' + fileName + '</div>';
 
 		for (var i = 0; i < rawCode.length; i++) {
 			returnCode += processLine(rawCode[i]);
