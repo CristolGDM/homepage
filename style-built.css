@@ -191,6 +191,9 @@
 .code-component .function-name {
 	color: #a6e22c;
 }
+.code-component .escape-char {
+	color: #ac80ff;
+}
 .article-content--image {
 	text-align: center;
 	margin: 45px auto;

@@ -75,6 +75,11 @@ function codeDirective() {
 			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
 			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 
+			if(rawLine.indexOf("\\") > -1) {
+				var additionalChar = rawLine[rawLine.indexOf("\\") +1];
+				rawLine = rawLine.replace("\\" + additionalChar, '<span class="escape-char">\\' + additionalChar + '</span>');
+			}
+
 			if(rawLine.indexOf("function") > -1) {
 				rawLine = processFunction(rawLine);
 			}

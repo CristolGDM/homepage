@@ -50,3 +50,7 @@
 .code-component .function-name {
 	color: #a6e22c;
 }
+
+.code-component .escape-char {
+	color: #ac80ff;
+}
