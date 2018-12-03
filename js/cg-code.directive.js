@@ -8,6 +8,26 @@ function codeDirective() {
 		link: parseCode
 	}
 
+	function createHtmlCode(rawCode) {
+		var returnCode = '<div class="code-component">';
+		if(fileName != null) returnCode += '<div class="code-filename">' + fileName + '</div>';
+
+		for (var i = 0; i < rawCode.length; i++) {
+			returnCode += processLine(rawCode[i]);
+		}
+
+		returnCode += '</div>';
+
+		return returnCode;
+	}
+
+	function isComment(line){
+		line = line.replace(" ", "");
+		line = line.replace("	", "");
+
+		return line.indexOf("//") > -1 || line.indexOf("/*") > -1 || line.indexOf("*/") > -1 || line[0] === "*";
+	}
+
 	function parseCode(scope, element){
 		var innerHTML = element[0].innerHTML;
 		var textParsed = innerHTML.split("\n");
@@ -32,24 +52,38 @@ function codeDirective() {
 		element[0].innerHTML = createdCode;
 	}
 
-	function createHtmlCode(rawCode) {
-		var returnCode = '<div class="code-component">';
-		if(fileName != null) returnCode += '<div class="code-filename">' + fileName + '</div>';
+	function processFunction(rawLine) {
+		var functionPosition = rawLine.indexOf("function");
+		var parenthesisPosition = functionPosition + 8;
+		var endPosition = functionPosition + 9;
 
-		for (var i = 0; i < rawCode.length; i++) {
-			returnCode += processLine(rawCode[i]);
+		for (var i = parenthesisPosition; i < rawLine.length; i++) {
+			if (rawLine[i] == ("(")) {
+				parenthesisPosition = i;
+			}
+			else if (rawLine[i] == (")")) {
+				endPosition = i;
+				break;
+			}
 		}
 
-		returnCode += '</div>';
+		if (endPosition - parenthesisPosition > 1) {
+			var argsString = rawLine.substring(parenthesisPosition+1, endPosition);
+			var args = argsString.replace(" ", "").split(",");
 
-		return returnCode;
-	}
+			for (var i = 0; i < args.length; i++) {
+				args[i] = '<span class="function-arg">' + args[i] + "</span>";
+			}
 
-	function isComment(line){
-		line = line.replace(" ", "");
-		line = line.replace("	", "");
+			rawLine = rawLine.replace(argsString, args.join(", "));
+		}
+		if (parenthesisPosition - functionPosition > 9) {
+			var functionName = rawLine.substring(functionPosition + 9, parenthesisPosition).replace(" ", "");
+			rawLine = rawLine.replace("function", '<span class="function-dec">function</span>')
+			rawLine = rawLine.replace(functionName, '<span class="function-name">' + functionName + "</span>");
+		}
 
-		return line.indexOf("//") > -1 || line.indexOf("/*") > -1 || line.indexOf("*/") > -1 || line[0] === "*";
+		return rawLine;
 	}
 
 	function processLine(rawLine) {
@@ -100,40 +134,6 @@ function codeDirective() {
 		}
 
 		return '<div class="code-line">' + rawLine + '</div>';
-	}
-
-	function processFunction(rawLine) {
-		var functionPosition = rawLine.indexOf("function");
-		var parenthesisPosition = functionPosition + 8;
-		var endPosition = functionPosition + 9;
-
-		for (var i = parenthesisPosition; i < rawLine.length; i++) {
-			if (rawLine[i] == ("(")) {
-				parenthesisPosition = i;
-			}
-			else if (rawLine[i] == (")")) {
-				endPosition = i;
-				break;
-			}
-		}
-
-		if (endPosition - parenthesisPosition > 1) {
-			var argsString = rawLine.substring(parenthesisPosition+1, endPosition);
-			var args = argsString.replace(" ", "").split(",");
-
-			for (var i = 0; i < args.length; i++) {
-				args[i] = '<span class="function-arg">' + args[i] + "</span>";
-			}
-
-			rawLine = rawLine.replace(argsString, args.join(", "));
-		}
-		if (parenthesisPosition - functionPosition > 9) {
-			var functionName = rawLine.substring(functionPosition + 9, parenthesisPosition).replace(" ", "");
-			rawLine = rawLine.replace("function", '<span class="function-dec">function</span>')
-			rawLine = rawLine.replace(functionName, '<span class="function-name">' + functionName + "</span>");
-		}
-
-		return rawLine;
 	}
 
 	function processParenthesis(rawLine) {
