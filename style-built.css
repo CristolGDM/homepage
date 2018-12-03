@@ -163,6 +163,9 @@
 	border-bottom: 1px solid #666;
 	padding-bottom: 5px;
 }
+.code-line {
+	margin: 5px auto;
+}
 .code-component .var,
 .code-component .function,
 .code-component .function-dec {
