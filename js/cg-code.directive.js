@@ -114,7 +114,7 @@ function codeDirective() {
 		}
 		if (parenthesisPosition - functionPosition > 9) {
 			var functionName = rawLine.substring(functionPosition + 9, parenthesisPosition).replace(" ", "");
-			rawLine = rawLine.replace("function", '<span class="function">function</span>')
+			rawLine = rawLine.replace("function", '<span class="function-dec">function</span>')
 			rawLine = rawLine.replace(functionName, '<span class="function-name">' + functionName + "</span>");
 		}
 

@@ -159,9 +159,13 @@
 	border-radius: 3px;
 }
 .code-component .var,
-.code-component .function {
-	font-style: italic;
+.code-component .function,
+.code-component .function-dec {
 	color: #67d8ef;
+}
+.code-component .var,
+.code-component .function-dec {
+	font-style: italic;
 }
 .code-component .for,
 .code-component .else,
