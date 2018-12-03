@@ -39,8 +39,15 @@ function codeDirective() {
 		return returnCode;
 	}
 
+	function isComment(line){
+		line = line.replace(" ", "");
+		line = line.replace("	", "");
+
+		return line.indexOf("//") > -1 || line.indexOf("/*") > -1 || line.indexOf("*/") > -1 || line[0] === "*";
+	}
+
 	function processLine(rawLine) {
-		if(rawLine.indexOf("//") > -1 || rawLine.indexOf("/*") > -1 || rawLine.indexOf("*/") > -1) {
+		if(isComment(rawLine)) {
 			rawLine = '<span class="comment">' + rawLine + '</span>';
 			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 		}
