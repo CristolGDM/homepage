@@ -42,6 +42,7 @@ function codeDirective() {
 	function processLine(rawLine) {
 		if(rawLine.indexOf("//") > -1 || rawLine.indexOf("/*") > -1 || rawLine.indexOf("*/") > -1) {
 			rawLine = '<span class="comment">' + rawLine + '</span>';
+			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 		}
 		else{
 			rawLine = rawLine.replace("&gt;", "<");
@@ -67,12 +68,39 @@ function codeDirective() {
 			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
 			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 
-			if (rawLine.indexOf("(") > -1) {
+			if(rawLine.indexOf("function") > -1) {
+				rawLine = processFunction(rawLine);
+			}
+
+			if (rawLine.indexOf("(") > -1 && rawLine.indexOf("function-name") === -1) {
 				rawLine = processParenthesis(rawLine);
 			}
 		}
 
 		return '<div class="code-line">' + rawLine + '</div>';
+	}
+
+	function processFunction(rawLine) {
+		var functionPosition = rawLine.indexOf("function");
+		var parenthesisPosition = functionPosition + 8;
+		var endPosition = functionPosition + 9;
+
+		for (var i = parenthesisPosition; i < rawLine.length; i++) {
+			if (rawLine[i] == ("(")) {
+				parenthesisPosition = i;
+			}
+			else if (rawLine[i] == (")")) {
+				endPosition = i;
+				break;
+			}
+		}
+		if (parenthesisPosition - functionPosition > 9) {
+			var functionName = rawLine.substring(functionPosition + 9, parenthesisPosition).replace(" ", "");
+			rawLine = rawLine.replace("function", '<span class="function">function</span>')
+			rawLine = rawLine.replace(functionName, '<span class="function-name">' + functionName + "</span>");
+		}
+
+		return rawLine;
 	}
 
 	function processParenthesis(rawLine) {

@@ -4,7 +4,7 @@
 	background: #282923;
 	color: #f8f8f2;
 	padding: 15px;
-	line-height: 30px;
+	line-height: 25px;
 	font-family: monospace;
 	font-size: 14px;
 	border-radius: 3px;
@@ -35,4 +35,8 @@
 .code-component .tab {
 	width: 20px;
 	display: inline-block;
+}
+
+.code-component .function-name {
+	color: #a6e22c;
 }
