@@ -156,6 +156,7 @@
 	line-height: 30px;
 	font-family: monospace;
 	font-size: 14px;
+	border-radius: 3px;
 }
 .code-component .var,
 .code-component .function {

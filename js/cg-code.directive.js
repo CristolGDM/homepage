@@ -85,7 +85,7 @@ function codeDirective() {
 		};
 
 		for (var i = parenthesisPosition -1; i > 0; i--) {
-			if(!/^[A-Z]$/i.test(rawLine[i])) {
+			if(!/^[A-Z]$/i.test(rawLine[i]) && rawLine[i] != " ") {
 				endPosition = i+1;
 				stopChar = rawLine[i];
 				break;
