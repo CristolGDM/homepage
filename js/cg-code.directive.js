@@ -129,7 +129,14 @@ function codeDirective() {
 			}
 
 			if (rawLine.indexOf("function-arg") === -1) {
-				rawLine = rawLine.replace(/\d+/g, function(string){return '<span class="number">' + string + "</span>"})
+
+				rawLine = rawLine.replace(/\d+/g, function(string){
+					var precLetter = rawLine[rawLine.indexOf(string) -1];
+					var nextLetter = rawLine[rawLine.indexOf(string) +1];
+					if(precLetter.toLowerCase() != precLetter.toUpperCase()) return string;
+					if(nextLetter.toLowerCase() != nextLetter.toUpperCase()) return string;
+					return '<span class="number">' + string + "</span>"
+				})
 			}
 		}
 
