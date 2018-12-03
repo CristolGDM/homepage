@@ -94,6 +94,17 @@ function codeDirective() {
 				break;
 			}
 		}
+
+		if (endPosition - parenthesisPosition > 1) {
+			var argsString = rawLine.substring(parenthesisPosition+1, endPosition);
+			var args = argsString.replace(" ", "").split(",");
+
+			for (var i = 0; i < args.length; i++) {
+				args[i] = '<span class="function-arg">' + args[i] + "</span>";
+			}
+
+			rawLine = rawLine.replace(argsString, args.join(", "));
+		}
 		if (parenthesisPosition - functionPosition > 9) {
 			var functionName = rawLine.substring(functionPosition + 9, parenthesisPosition).replace(" ", "");
 			rawLine = rawLine.replace("function", '<span class="function">function</span>')

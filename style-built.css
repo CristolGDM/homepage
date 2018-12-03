@@ -180,6 +180,10 @@
 	width: 20px;
 	display: inline-block;
 }
+.code-component .function-arg {
+	color: #fd9621;
+	font-style: italic;
+}
 .code-component .function-name {
 	color: #a6e22c;
 }
