@@ -67,9 +67,30 @@ function codeDirective() {
 			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
 			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 
-			// rawLine = rawLine.replace('function', '<span class="function">function</span>');
+			if (rawLine.indexOf("(") > -1) {
+				rawLine = processParenthesis(rawLine);
+			}
 		}
 
 		return '<div class="code-line">' + rawLine + '</div>';
+	}
+
+	function processParenthesis(rawLine) {
+		var parenthesisPosition = rawLine.indexOf("(");
+		var endPosition = 0;
+		var stopChar = "";
+
+		for (var i = parenthesisPosition -1; i > 0; i--) {
+			if(!/^[A-Z]$/i.test(rawLine[i])) {
+				endPosition = i+1;
+				stopChar = rawLine[i];
+				break;
+			}
+		}
+
+		var foundWord = rawLine.substring(endPosition, parenthesisPosition);
+
+		return rawLine.replace(stopChar + foundWord + "(", stopChar + '<span class="function">' + foundWord + '</span>(');
+
 	}
 };
