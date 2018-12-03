@@ -44,9 +44,28 @@ function codeDirective() {
 			rawLine = '<span class="comment">' + rawLine + '</span>';
 		}
 		else{
+			rawLine = rawLine.replace("&gt;", "<");
+			rawLine = rawLine.replace("&lt;", ">");
+			rawLine = rawLine.replace(/[-=+*><]/g, function(string){
+				return '<span class="symbol">' + string + '</span>';
+			});
+			rawLine = rawLine.replace(/\"(.+?)\"/g, function(string){
+				if(string == '"symbol"') return string;
+				return '<span class="string">' + string + '</span>';
+			})
+			rawLine = rawLine.replace(/\'(.+?)\'/g, function(string){
+				if(string == "'symbol'") return string;
+				return '<span class="string">' + string + '</span>';
+			})
 			rawLine = rawLine.replace('var ', '<span class="var">var</span> ');
-			rawLine = rawLine.replace('for ', '<span class="for">for</span> ');
-			rawLine = rawLine.replace('if ', '<span class="if">if</span> ');
+			rawLine = rawLine.replace('return ', '<span class="return">return</span> ');
+			rawLine = rawLine.replace('for (', '<span class="for">for</span> (');
+			rawLine = rawLine.replace('for(', '<span class="for">for</span>(');
+			rawLine = rawLine.replace('if (', '<span class="if">if</span> (');
+			rawLine = rawLine.replace('if(', '<span class="if">if</span>(');
+			rawLine = rawLine.replace('else ', '<span class="else">else</span> ');
+			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
+
 			// rawLine = rawLine.replace('function', '<span class="function">function</span>');
 		}
 
