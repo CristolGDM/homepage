@@ -29,10 +29,6 @@
 	color: #f92472;
 }
 
-.code-component .string {
-	color: #e7db74;
-}
-
 .code-component .comment {
 	color: #74705d;
 }
@@ -51,6 +47,13 @@
 	color: #a6e22c;
 }
 
-.code-component .escape-char {
+.code-component .escape-char,
+.code-component .number {
 	color: #ac80ff;
+}
+
+.code-component .string,
+.code-component .string .number,
+.code-component .string .symbol {
+	color: #e7db74;
 }

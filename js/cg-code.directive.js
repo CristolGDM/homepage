@@ -55,7 +55,7 @@ function codeDirective() {
 			rawLine = rawLine.replace("&gt;", "<");
 			rawLine = rawLine.replace("&lt;", ">");
 			rawLine = rawLine.replace(/[-=+*><]/g, function(string){
-				return '<span class="symbol">' + string + '</span>';
+				return "<span class='symbol'>" + string + '</span>';
 			});
 			rawLine = rawLine.replace(/\"(.+?)\"/g, function(string){
 				if(string == '"symbol"') return string;
@@ -86,6 +86,10 @@ function codeDirective() {
 
 			if (rawLine.indexOf("(") > -1 && rawLine.indexOf("function-name") === -1) {
 				rawLine = processParenthesis(rawLine);
+			}
+
+			if (rawLine.indexOf("function-arg") === -1) {
+				rawLine = rawLine.replace(/\d+/g, function(string){return '<span class="number">' + string + "</span>"})
 			}
 		}
 
