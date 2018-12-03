@@ -1,12 +1,17 @@
 function codeDirective() {
+	var fileName = "";
 
 	return {
+		scope: {
+			name: "@"
+		},
 		link: parseCode
 	}
 
 	function parseCode(scope, element){
 		var innerHTML = element[0].innerHTML;
 		var textParsed = innerHTML.split("\n");
+		fileName = scope.name;
 
 		var textWithoutEmptyLines = [];
 
@@ -29,6 +34,7 @@ function codeDirective() {
 
 	function createHtmlCode(rawCode) {
 		var returnCode = '<div class="code-component">';
+		if(fileName.length > 0) returnCode += '<div class="code-filename">' + fileName + '</div>';
 
 		for (var i = 0; i < rawCode.length; i++) {
 			returnCode += processLine(rawCode[i]);
