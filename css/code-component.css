@@ -1,0 +1,19 @@
+/* CODE COMPONENT */
+
+.code-component {
+	background: #282923;
+	color: #f8f8f2;
+	padding: 15px;
+	line-height: 30px;
+	font-family: monospace;
+	font-size: 14px;
+}
+
+.code-component .var, .code-component .function {
+	font-style: italic;
+	color: #67d8ef;
+}
+
+.code-component .for, .code-component .if {
+	color: #f92472;
+}

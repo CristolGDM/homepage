@@ -21,5 +21,35 @@ function codeDirective() {
 		for (var i = 0; i < textWithoutEmptyLines.length -1; i++) {
 			textWithoutIndent.push(textWithoutEmptyLines[i].substring(3));
 		}
-	};
+
+		var createdCode = createHtmlCode(textWithoutIndent);
+
+		element[0].innerHTML = createdCode;
+	}
+
+	function createHtmlCode(rawCode) {
+		var returnCode = '<div class="code-component">';
+
+		for (var i = 0; i < rawCode.length; i++) {
+			returnCode += processLine(rawCode[i]);
+		}
+
+		returnCode += '</div>';
+
+		return returnCode;
+	}
+
+	function processLine(rawLine) {
+		if(rawLine.indexOf("//") > -1 || rawLine.indexOf("/*") > -1 || rawLine.indexOf("*/") > -1) {
+			rawLine = '<span class="comment">' + rawLine + '</span>';
+		}
+		else{
+			rawLine = rawLine.replace('var ', '<span class="var">var</span> ');
+			rawLine = rawLine.replace('for ', '<span class="for">for</span> ');
+			rawLine = rawLine.replace('if ', '<span class="if">if</span> ');
+			// rawLine = rawLine.replace('function', '<span class="function">function</span>');
+		}
+
+		return '<div class="code-line">' + rawLine + '</div>';
+	}
 };
