@@ -80,6 +80,10 @@ function codeDirective() {
 		var endPosition = 0;
 		var stopChar = "";
 
+		if(rawLine.substring(parenthesisPosition+1, rawLine.length -1).indexOf("(") > -1 ) {
+			rawLine = rawLine.substring(0, parenthesisPosition) + "(" + processParenthesis(rawLine.substring(parenthesisPosition +1, rawLine.length -1));
+		};
+
 		for (var i = parenthesisPosition -1; i > 0; i--) {
 			if(!/^[A-Z]$/i.test(rawLine[i])) {
 				endPosition = i+1;
