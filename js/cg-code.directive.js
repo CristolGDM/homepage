@@ -65,6 +65,7 @@ function codeDirective() {
 			rawLine = rawLine.replace('if(', '<span class="if">if</span>(');
 			rawLine = rawLine.replace('else ', '<span class="else">else</span> ');
 			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
+			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
 
 			// rawLine = rawLine.replace('function', '<span class="function">function</span>');
 		}

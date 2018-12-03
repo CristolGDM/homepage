@@ -160,6 +160,7 @@
 .code-component .var {
 	font-style: italic;
 	color: #67d8ef;
+	font-weight: bold;
 }
 .code-component .for,
 .code-component .else,
@@ -173,6 +174,10 @@
 }
 .code-component .comment {
 	color: #74705d;
+}
+.code-component .tab {
+	width: 20px;
+	display: inline-block;
 }
 .article-content--image {
 	text-align: center;
