@@ -36,15 +36,17 @@ function codeDirective() {
 		var textWithoutEmptyLines = [];
 
 		for (var i = 0; i < textParsed.length; i++) {
-			if(textParsed[i].length > 0) textWithoutEmptyLines.push(textParsed[i]);
+			if(textParsed[i].replace(" ","").replace(/\t/g, "").length > 0) {
+				textWithoutEmptyLines.push(textParsed[i]);
+			}
 		}
 
-		var lengthOfIndent = textWithoutEmptyLines[textWithoutEmptyLines.length - 1].length +1;
+		var lengthOfIndent = textWithoutEmptyLines[textWithoutEmptyLines.length - 1].match(/\t/g).length;
 
 		var textWithoutIndent = [];
 
-		for (var i = 0; i < textWithoutEmptyLines.length -1; i++) {
-			textWithoutIndent.push(textWithoutEmptyLines[i].substring(3));
+		for (var i = 0; i < textWithoutEmptyLines.length; i++) {
+			textWithoutIndent.push(textWithoutEmptyLines[i].substring(lengthOfIndent));
 		}
 
 		var createdCode = createHtmlCode(textWithoutIndent);
