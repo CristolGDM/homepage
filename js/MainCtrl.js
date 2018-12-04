@@ -1,4 +1,4 @@
-var MainController = function($scope){
+var MainController = function($scope, $transitions){
 
 	/*******************/
 	/* Local variables */
@@ -20,6 +20,9 @@ var MainController = function($scope){
 	/*******************/
 	/* Key  listeners  */
 	/*******************/
+	$transitions.onSuccess({}, function(transition){
+		window.scrollTo(0, 0);
+	})
 
 	/*******************/
 	/* Local functions */
