@@ -91,7 +91,7 @@ function codeDirective() {
 	function processLine(rawLine, lineNumber) {
 		if(isComment(rawLine)) {
 			rawLine = '<span class="comment">' + rawLine + '</span>';
-			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
+			rawLine = rawLine.replace("\	", '<span class="tab">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
 		}
 		else{
 			rawLine = rawLine.replace("&gt;", "<");
@@ -115,7 +115,7 @@ function codeDirective() {
 			rawLine = rawLine.replace('if(', '<span class="if">if</span>(');
 			rawLine = rawLine.replace('else ', '<span class="else">else</span> ');
 			rawLine = rawLine.replace('else{', '<span class="else">else</span>{');
-			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
+			rawLine = rawLine.replace("\	", '<span class="tab">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
 
 			if(rawLine.indexOf("\\") > -1) {
 				var additionalChar = rawLine[rawLine.indexOf("\\") +1];

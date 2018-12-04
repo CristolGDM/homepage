@@ -61,8 +61,11 @@
 }
 
 .code-component .tab {
-	width: 20px;
+	width: 30px;
 	display: inline-block;
+	height: 10px;
+	background: linear-gradient(transparent 0%, transparent calc(50% - 1px), #74705d 50%, transparent calc(50% + 1px), transparent 100%);
+	margin-right: 5px;
 }
 
 .code-component .function-arg {
