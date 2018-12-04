@@ -133,15 +133,34 @@
 
 		<p>You just need to load the script only on the relevant page. Easy:</p>
 
-		CODE
+		<cg-code name="Christmas2015.html">
+			&lt;script src="static/js/campaigns/Christmas2015/Christmas2015Ctrl.js" type="application/javascript"&gt;&lt;/script&gt;
+			&lt;div ng-controller="Christmas2015Controller"&gt;
+		</cg-code>
 
 		<p>Now you don’t need to <code>@require</code> it in the app. However, since you don’t @require it, you can’t add it to the app anymore, so you remove that too:</p>
 
-		CODE
+		<cg-code name="myAppAfterGeniusIdea.js">
+			require(['_templatesAngular/LoginCtrl']);
+
+			var myApp = angular.module('myApp');
+
+			myApp.controller('LoginCtrl', ['$scope', '$http', LoginCtrl]);
+
+			angular.element(document).ready(function () {
+				angular.bootstrap(document, ['milleporte']);
+			});
+		</cg-code>
 
 		<p>By Odin, it’s so clean. If that works, you’re definitely posting it on your blog. Now, you just need to find a way for your Controller to add itself to its master app. And that’s where the mad scientist kicks in:</p>
 
-		CODE
+		<cg-code name="Christmas2015Ctrl.js">
+			var Christmas2015Controller = function($scope, $http){
+				/* Relevant variables, functions, and all that sweet code */
+			}
+
+			myApp.controller('Christmas2015Controller', ['$scope', '$http', Christmas2015Controller]);
+		</cg-code>
 
 		<p>Would that even work? Compile, deploy on a test server, test: it works. You’re a genius. You’re definitely getting at least 10 upvotes on Reddit for this, and maybe even a badge on SO.</p>
 
@@ -164,9 +183,25 @@
 
 		<p>The race condition issue comes from situations where the Controller is loaded before the app could finish loading. It doesn’t find an app to attach itself, so it stops. And when the app finally loads, it doesn’t have the Controller, it crashes. You could try to make sure the app loads faster, but this would just reduce the odds of an error happening. You need to eliminate those odds. So you need to find a way to attach the Controller to the App only after the app has finished loading. You just add the following:</p>
 
-		CODE
+		<cg-code name="myAppAlmostThere.js">
+			angular.element(document).ready(function () {
+			if (typeof Christmas2015Controller !== "undefined") {
+				myApp.controller('Christmas2015Controller', ['$scope', '$http', 'ConnexionManagerService');
+			}
 
-		CODE
+			angular.bootstrap(document, ['milleporte']);
+			});
+		</cg-code>
+
+		<cg-code name="Christmas2015Ctrl.js">
+			var Christmas2015Controller = function($scope, $http){
+				/* Relevant variables, functions, and all that sweet code */
+			}
+
+			if (typeof myApp !== 'undefined') {
+				myApp.controller('Christmas2015Controller', ['$scope', '$http', Christmas2015Controller]);
+			}
+		</cg-code>
 
 		<p>Well, that’s nice and all, and it works, but it means you either load it twice, or you get an error and then load it anyway. Not that clean, you can do better.</p>
 
@@ -174,9 +209,52 @@
 
 		<p>Your app then becomes the following:</p>
 
-		CODE
+		<cg-code name="myAppFinal.js">
+			require(['_templatesAngular/LoginCtrl']);
 
-		CODE
+			var myApp = angular.module('myApp');
+
+			myApp.controller('LoginCtrl', ['$scope', '$http', LoginCtrl]);
+
+			angular.element(document).ready(function () {
+				var loadedControllers = [];
+
+				/* First we list all loaded controllers */
+				for (var i = 0; i < myApp['_invokeQueue'].length; i++) {
+					loadedControllers.push(myApp['_invokeQueue'][i][2][0]);
+				}
+
+				/* Then we load each single-page controller ONLY if they exist AND they haven't been loaded already */
+				if (typeof Christmas2015Controller !== "undefined" && loadedControllers.indexOf("Christmas2015Controller") === -1) {
+					myApp.controller("Christmas2015Controller", ["$scope", "$http", Christmas2015Controller]);
+				}
+				if (typeof NewYear2015Controller !== "undefined" && loadedControllers.indexOf("NewYear2015Controller") === -1) {
+					myApp.controller("NewYear2015Controller", ["$scope", "$http", NewYear2015Controller]);
+				}
+				[etc.]
+
+				angular.bootstrap(document, ["milleporte"]);
+			});
+		</cg-code>
+
+		<cg-code name="Christmas2015Ctrl.js">
+			var Christmas2015Controller = function($scope, $http){
+				/* Relevant variables, functions, and all that sweet code */
+			}
+
+			if (typeof myApp !== 'undefined') {
+				var hasControllerLoadedAlready = false;
+
+				for (var i = 0; i < myApp['_invokeQueue'].length; i++) {
+					if(myApp['_invokeQueue'][i][2][0] === "Christmas2015Controller"){
+						hasControllerLoadedAlready = true;
+					}
+				}
+				if (!hasControllerLoadedAlready) {
+					myApp.controller('Christmas2015Controller', ['$scope', '$http', Christmas2015Controller]);
+				}
+			}
+		</cg-code>
 
 		<p>If the app loads first, she doesn’t see a Controller, so she doesn’t do anything. Then when the Controller loads, he will see the app, and see that she doesn’t have a Controller like him yet, so he will attach himself to the app.</p>
 

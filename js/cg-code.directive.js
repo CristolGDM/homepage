@@ -94,8 +94,8 @@ function codeDirective() {
 			rawLine = rawLine.replace("\	", '<span class="tab">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
 		}
 		else{
-			rawLine = rawLine.replace("&gt;", "<");
-			rawLine = rawLine.replace("&lt;", ">");
+			rawLine = rawLine.replace("&gt;", ">");
+			rawLine = rawLine.replace("&lt;", "<");
 			rawLine = rawLine.replace(/[-=+*><]/g, function(string){
 				return "<span class='symbol'>" + string + '</span>';
 			});
