@@ -17,11 +17,23 @@
 }
 
 .code-line {
-	padding: 5px 15px 5px 30px;
-	text-indent: -15px;
+	display: table;
+	width: 100%;
 }
 .code-line:hover {
 	background: #3e3d32;
+}
+
+.code--line-number,
+.code--line-content {
+	display: table-cell;
+	padding: 5px;
+}
+
+.code--line-number {
+	width: 20px;
+	font-size: 12px;
+	text-align: right;
 }
 
 .code-component .var,

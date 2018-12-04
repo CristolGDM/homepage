@@ -13,7 +13,7 @@ function codeDirective() {
 		if(fileName != null) returnCode += '<div class="code-filename">' + fileName + '</div>';
 
 		for (var i = 0; i < rawCode.length; i++) {
-			returnCode += processLine(rawCode[i]);
+			returnCode += processLine(rawCode[i], i);
 		}
 
 		returnCode += '</div>';
@@ -86,7 +86,7 @@ function codeDirective() {
 		return rawLine;
 	}
 
-	function processLine(rawLine) {
+	function processLine(rawLine, lineNumber) {
 		if(isComment(rawLine)) {
 			rawLine = '<span class="comment">' + rawLine + '</span>';
 			rawLine = rawLine.replace("\	", '<span class="tab">	</span>');
@@ -140,7 +140,7 @@ function codeDirective() {
 			}
 		}
 
-		return '<div class="code-line">' + rawLine + '</div>';
+		return '<div class="code-line"><div class="code--line-number">' + (lineNumber +1) + '</div><div class="code--line-content">' + rawLine + '</div></div>';
 	}
 
 	function processParenthesis(rawLine) {
