@@ -47,7 +47,7 @@
 
 		<p>And so, soon enough, your app looks like:</p>
 
-		<cg-code name="myApp.js">
+		<cg-code name="myAppAfterOneYear.js">
 			require(['_templatesAngular/LoginCtrl']);
 			require(['_templatesAngular/BlackFriday2015Ctrl']);
 			require(['_templatesAngular/Christmas2015Ctrl']);
@@ -92,7 +92,23 @@
 
 		<p>You start deleting them from your main app. It looks like this:</p>
 
-		CODE
+		<cg-code name="myAppAfterDiet.js">
+			require(['_templatesAngular/LoginCtrl']);
+			require(['_templatesAngular/Valentines2017Ctrl']);
+			require(['_templatesAngular/SpringSale2017Ctrl']);
+			require(['_templatesAngular/MothersDay2017Ctrl']);
+			
+			var myApp = angular.module('myApp');
+			
+			myApp.controller('LoginCtrl', ['$scope', '$http', LoginCtrl]);
+			myApp.controller('Valentines2017Ctrl', ['$scope', '$http', Valentines2017Ctrl]);
+			myApp.controller('SpringSale2017Ctrl', ['$scope', '$http', SpringSale2017Ctrl]);
+			myApp.controller('MothersDay2017Ctrl', ['$scope', '$http', MothersDay2017Ctrl]);
+			
+			angular.element(document).ready(function () {
+				angular.bootstrap(document, ['milleporte']);
+			});
+		</cg-code>
 
 		<p>Fast fix, literally five seconds of your time. Easy-peasy. Every time you roll out a new page, you will delete the oldest Controller, and be done with it. Nobody will know.</p>
 
