@@ -16,6 +16,7 @@ var MainController = function($scope, $transitions){
 	/* Scope functions */
 	/*******************/
 	view.$onInit = onInit;
+	view.scrollBackTop = scrollBackTop;
 
 	/*******************/
 	/* Key  listeners  */
@@ -33,5 +34,13 @@ var MainController = function($scope, $transitions){
 		for (var i = 0; i < data.articles.length; i++) {
 			view.titles[data.articles[i].id] = data.articles[i].title;
 		}
+	}
+
+	function scrollBackTop(){
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth"
+		})
 	}
 }
