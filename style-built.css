@@ -178,6 +178,35 @@
 	margin-right: 10px;
 	font-size: 16px;
 }
+.side-menu--button {
+	position: fixed;
+	top: 30px;
+	right: 30px;
+	z-index: 3;
+	cursor: pointer;
+	text-align: right;
+}
+.side-menu--button:hover .side-menu--button-text {
+	opacity: 1;
+}
+.side-menu--button-icon {
+	background: #AAA;
+	color: white;
+	border-radius: 30px;
+	line-height: 28px;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	display: inline-block;
+}
+.side-menu--button-text {
+	color: #DDD;
+	margin-top: 5px;
+	opacity: 0;
+	transition: opacity linear .2s;
+}
 .code-component {
 	background: #282923;
 	color: #f8f8f2;
