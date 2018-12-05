@@ -12,7 +12,7 @@
 }
 
 .side-menu--button-icon {
-	background: #AAA;
+	background: #111;
 	color: white;
 	border-radius: 30px;
 	line-height: 28px;
@@ -22,11 +22,33 @@
 	font-weight: bold;
 	font-size: 18px;
 	display: inline-block;
+	transform: rotate(90deg);
+	transition: transform linear .2s;
+}
+.side-menu--button-icon.rotate {
+	transform: rotate(-90deg);
 }
 
 .side-menu--button-text {
-	color: #DDD;
+	color: #AAA;
 	margin-top: 5px;
 	opacity: 0;
 	transition: opacity linear .2s;
+}
+
+.side-menu {
+	background: #111;
+	color: white;
+	position: fixed;
+	top: 67px;
+	right: 30px;
+	width: 200px;
+	transition: opacity linear .2s, z-index 0s linear .3s;
+	z-index: -1;
+	opacity: 0;
+}
+.side-menu.show {
+	z-index: 3;
+	opacity: 1;
+	transition: opacity linear .2s, z-index 0s linear 0s;
 }

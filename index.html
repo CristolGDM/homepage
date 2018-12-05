@@ -10,9 +10,15 @@
 	<link rel="icon" type="image/png" href="/icons/favicon.png">
 </head>
 	<body ng-controller="MainController as control">
-		<div class="side-menu--button">
-			<div class="side-menu--button-icon">&gt;</div>
+		<div class="side-menu--button" ng-click="control.showSideMenu = !control.showSideMenu">
+			<div class="side-menu--button-icon" ng-class="{'rotate': control.showSideMenu}">&gt;</div>
 			<div class="side-menu--button-text">See more</div>
+		</div>
+
+		<div class="side-menu" ng-class="{'show': control.showSideMenu}">
+			<div>HOME</div>
+			<div>MY RESUME</div>
+			<div>CONTACT ME</div>
 		</div>
 
 		<ui-view></ui-view>
