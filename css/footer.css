@@ -5,6 +5,9 @@
 	color: white;
 	position: relative;
 }
+.footer.hide {
+	display: none;
+}
 
 .footer--link {
 	position: absolute;
