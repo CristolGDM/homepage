@@ -34,15 +34,14 @@
 	margin-top: 5px;
 	opacity: 0;
 	transition: opacity linear .2s;
+	display: none;
 }
 
 .side-menu {
-	background: #111;
 	color: white;
 	position: fixed;
 	top: 67px;
 	right: 30px;
-	width: 200px;
 	transition: opacity linear .2s, z-index 0s linear .3s;
 	z-index: -1;
 	opacity: 0;
@@ -51,4 +50,15 @@
 	z-index: 3;
 	opacity: 1;
 	transition: opacity linear .2s, z-index 0s linear 0s;
+}
+
+.side-menu--line {
+	background: #111;
+	padding: 7px 15px;
+	text-align: center;
+	cursor: pointer;
+	transition: background linear .1s;
+}
+.side-menu--line:hover {
+	background: #333;
 }
