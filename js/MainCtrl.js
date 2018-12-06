@@ -21,7 +21,7 @@ var MainController = function($scope, $transitions){
 	/*******************/
 	/* Key  listeners  */
 	/*******************/
-	$transitions.onSuccess({}, function(transition){
+	$transitions.onSuccess({}, function(){
 		window.scrollTo(0, 0);
 	})
 

@@ -51,13 +51,13 @@
 
 .diaporama--main-image {
 	max-width: 100%;
-	max-height: calc(100% - 168px);
+	max-height: calc(100% - 136px);
 	cursor: pointer;
 	transition: transform linear .1s, opacity linear .2s, max-height linear .2s, bottom linear .2s;
 	margin: auto;
 	position: absolute;
 	top: 0;
-	bottom: 168px;
+	bottom: 136px;
 	left: 0;
 	right: 0;
 	opacity: 1;
@@ -108,8 +108,8 @@
 .diaporama--other-picture {
 	margin: 0 5px;
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 75px;
+	height: 75px;
 	border: #6495ed 3px solid;
 	border-radius: 15px;
 	background-size: cover;
@@ -127,7 +127,7 @@
 .diaporama--close-preview {
 	transform: rotate(90deg);
 	position: absolute;
-	top: 15px;
+	top: 8px;
 	right: 15px;
 	height: 25px;
 	width: 25px;
@@ -142,6 +142,6 @@
 	height: 0;
 }
 .no-preview .diaporama--main-image {
-	max-height: calc(100% - 68px);
-	bottom: 68px;
+	max-height: calc(100% - 61px);
+	bottom: 61px;
 }

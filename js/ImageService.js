@@ -1,6 +1,6 @@
 'use strict';
 var ImageServiceProvider = angular.module('ImageServiceProvider', [])
-	.factory('ImageService', function () {
+	.factory('ImageService', ['$transitions', function ($transitions) {
 
 		/************** CONSTANTS **************/
 		var allImages = [];
@@ -20,6 +20,10 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 
 				allImagesDictionary[images[i].getAttribute("src")] = images[i].getAttribute("caption");
 			}
+		})
+
+		$transitions.onStart({}, function(){
+			hideFullScreen();
 		})
 
 		return {
@@ -105,4 +109,4 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		function showFullScreen(){
 			fullScreenShown = true;
 		}
-	});
+	}]);
