@@ -9,7 +9,7 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		var fullScreenShown = false;
 
 		/************ START PROCESS ************/
-		angular.element(document).ready(function(){
+		$transitions.onSuccess({}, function(){
 			var images = document.getElementsByTagName('cg-figure');
 
 			for (var i = 0; i < images.length; i++) {
