@@ -1,4 +1,4 @@
-var MainController = function($scope, $transitions){
+var MainController = function($scope, $transitions, ImageService){
 
 	/*******************/
 	/* Local variables */
@@ -17,6 +17,7 @@ var MainController = function($scope, $transitions){
 	/*******************/
 	view.$onInit = onInit;
 	view.scrollBackTop = scrollBackTop;
+	view.shouldShowSideMenu = shouldShowSideMenu;
 
 	/*******************/
 	/* Key  listeners  */
@@ -57,5 +58,9 @@ var MainController = function($scope, $transitions){
 	function easeOutCuaic(t){
 		t--;
 		return t*t*t+1;
+	}
+
+	function shouldShowSideMenu(){
+		return !ImageService.shouldShowFullscreen();
 	}
 }

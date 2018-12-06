@@ -1,4 +1,12 @@
 /* SIDE MENU */
+.side-menu-component {
+	opacity: 0;
+	transition: opacity linear .1s;
+}
+.side-menu-component.show {
+	opacity: 1;
+}
+
 .side-menu--button {
 	position: fixed;
 	top: 30px;

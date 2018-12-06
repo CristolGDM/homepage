@@ -24,7 +24,7 @@ var requiredServices = [
 ];
 
 angular.module('app',requiredServices)
-	.controller('MainController', ['$scope', '$transitions', MainController])
+	.controller('MainController', ['$scope', '$transitions', 'ImageService', MainController])
 
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)
