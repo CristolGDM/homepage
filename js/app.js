@@ -40,7 +40,15 @@ angular.module('app',requiredServices)
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'mainTemplate.html'
+				templateUrl: 'pages/home.template.html'
+			})
+			.state('resume', {
+				url: '/resume',
+				templateUrl: 'pages/resume.template.html'
+			})
+			.state('contact', {
+				url: '/contact',
+				templateUrl: 'pages/contact.template.html'
 			})
 			.state('adult-seo', {
 				url: '/dark-side-internet-adult-seo',
