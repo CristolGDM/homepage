@@ -18,3 +18,22 @@
 .resume--unit.no-border {
 	border: 0;
 }
+
+.resume-page a {
+	color: #444 !important;
+	text-decoration: none;
+	cursor: pointer
+}
+.resume-page a:hover {
+	text-decoration: underline;
+}
+.resume-page a:after {
+	display: inline-block;
+	width: 16px;
+	height: 20px;
+	content: "";
+	background-image: url(/icons/link-arrow.svg);
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: 50% 2px;
+}
