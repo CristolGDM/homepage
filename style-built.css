@@ -392,6 +392,8 @@
 .resume-page h2 {
 	font-size: 30px;
 	margin-bottom: 15px;
+	background: #EEE;
+	padding: 10px;
 }
 .resume-page h3 {
 	font-size: 20px;
@@ -403,9 +405,11 @@
 .resume--unit {
 	margin: 20px 0;
 	border-bottom: 1px solid #EEE;
+	padding-left: 10px;
 }
 .resume--unit.no-border {
 	border: 0;
+	padding-bottom: 20px;
 }
 .resume-page a {
 	color: #444 !important;
