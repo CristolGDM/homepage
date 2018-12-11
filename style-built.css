@@ -389,6 +389,24 @@
 	color: #444;
 	background: white;
 }
+.resume-page h2 {
+	font-size: 30px;
+	margin-bottom: 15px;
+}
+.resume-page h3 {
+	font-size: 20px;
+}
+.resume-page h4 {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.resume--unit {
+	margin: 20px 0;
+	border-bottom: 1px solid #EEE;
+}
+.resume--unit.no-border {
+	border: 0;
+}
 body {
 	margin: 0;
 	font-family: sans-serif;
