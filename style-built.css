@@ -189,12 +189,20 @@
 	position: fixed;
 	top: 30px;
 	right: 30px;
-	z-index: 3;
+	z-index: 4;
 	cursor: pointer;
 	text-align: right;
 }
 .side-menu--button:hover .side-menu--button-text {
 	opacity: 1;
+}
+.side-menu--underlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
 }
 .side-menu--button-icon {
 	background: #111;
@@ -210,6 +218,7 @@
 	transform: rotate(90deg);
 	transition: transform linear .2s;
 	user-select: none;
+	border: 1px solid #333;
 }
 .side-menu--button-icon.rotate {
 	transform: rotate(-90deg);
@@ -234,7 +243,7 @@
 	overflow: hidden;
 }
 .side-menu.show {
-	z-index: 3;
+	z-index: 4;
 	opacity: 1;
 	transition: opacity linear .2s, z-index 0s linear 0s;
 }

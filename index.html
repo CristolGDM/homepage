@@ -11,16 +11,18 @@
 </head>
 	<body ng-controller="MainController as control">
 		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}">
-			<div class="side-menu--button" ng-click="control.showSideMenu = !control.showSideMenu">
-				<div class="side-menu--button-icon" ng-class="{'rotate': control.showSideMenu}">&gt;</div>
+			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
+				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">&gt;</div>
 				<div class="side-menu--button-text">See more</div>
 			</div>
 
-			<div class="side-menu" ng-class="{'show': control.showSideMenu}">
+			<div class="side-menu" ng-class="{'show': control.sideMenuOpened}">
 				<div class="side-menu--line">HOME</div>
 				<div class="side-menu--line">MY RESUME</div>
 				<div class="side-menu--line">CONTACT ME</div>
 			</div>
+
+			<div class="side-menu--underlay" ng-if="control.sideMenuOpened" ng-click="control.sideMenuOpened = !control.sideMenuOpened"></div>
 		</div>
 
 		<ui-view></ui-view>
