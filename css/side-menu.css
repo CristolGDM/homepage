@@ -84,3 +84,10 @@
 .side-menu--line:hover {
 	background: #333;
 }
+
+@media screen and (max-width: 768px) {
+	.side-menu--button {
+		top: 15px;
+		right: 15px;
+	}
+}

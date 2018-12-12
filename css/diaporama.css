@@ -145,3 +145,9 @@
 	max-height: calc(100% - 61px);
 	bottom: 61px;
 }
+
+@media screen and (max-width: 768px) {
+	.diaporama--arrow {
+		display: none;
+	}
+}
