@@ -75,6 +75,8 @@ angular.module('app',requiredServices)
 				templateUrl: 'articles/self-loading-cont/template.html'
 			})
 
+		$locationProvider.html5Mode(true);
+
 		}]);
 
 angular.element(document).ready(function () {
