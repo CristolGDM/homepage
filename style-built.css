@@ -16,6 +16,22 @@
 	width: 90%;
 	margin: 45px auto 90px;
 }
+.speaker {
+	margin: 30px 0;
+}
+.speaker-image {
+	width: 33%;
+	display: table-cell;
+}
+.speaker-image img {
+	width: 100%;
+}
+.speaker-text {
+	width: 67%;
+	display: table-cell;
+	padding-left: 15px;
+	vertical-align: middle;
+}
 .diaporama {
 	position: fixed;
 	top: 0;
