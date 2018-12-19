@@ -10,6 +10,7 @@ var MainController = function($scope, $transitions, ImageService){
 	/* Scope variables */
 	/*******************/
 	view.articles = data.articles;
+	view.sideMenuOpened = false;
 	view.titles = {};
 
 	/*******************/
@@ -24,6 +25,7 @@ var MainController = function($scope, $transitions, ImageService){
 	/*******************/
 	$transitions.onSuccess({}, function(){
 		window.scrollTo(0, 0);
+		view.sideMenuOpened = false;
 	})
 
 	/*******************/
