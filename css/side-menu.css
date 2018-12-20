@@ -30,22 +30,23 @@
 
 .side-menu--button-icon {
 	background: #111;
-	color: white;
 	border-radius: 30px;
-	line-height: 28px;
 	height: 30px;
 	width: 30px;
 	text-align: center;
-	font-weight: bold;
-	font-size: 18px;
 	display: inline-block;
-	transform: rotate(90deg);
+	transform: rotate(0deg);
 	transition: transform linear .2s;
 	user-select: none;
 	border: 1px solid #333;
 }
+.side-menu--button-icon img {
+	height: 14px;
+	width: 14px;
+	padding: 8px 0;
+}
 .side-menu--button-icon.rotate {
-	transform: rotate(-90deg);
+	transform: rotate(180deg);
 }
 
 .side-menu--button-text {
@@ -86,6 +87,9 @@
 }
 
 @media screen and (max-width: 768px) {
+	.side-menu {
+		top: 56px;
+	}
 	.side-menu--button {
 		top: 20px;
 		right: 20px;

@@ -14,7 +14,9 @@
 	<body ng-controller="MainController as control">
 		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}">
 			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
-				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">&gt;</div>
+				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">
+					<img src="./icons/menu-arrow.png" />
+				</div>
 				<div class="side-menu--button-text">See more</div>
 			</div>
 
