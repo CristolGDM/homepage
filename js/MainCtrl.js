@@ -39,8 +39,8 @@ var MainController = function($scope, $transitions, ImageService){
 		}
 	}
 
-	function scrollBackTop() {
-		var duration = 400;
+	function scrollBackTop(duration) {
+		if(duration == null) duration = 400;
 
 		scrollToX(document.body, document.body.scrollTop, document.body.offsetTop, 0, 1/duration, 20, easeOutCuaic);
 	}
