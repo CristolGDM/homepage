@@ -12,6 +12,7 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	view.articles = data.articles;
 	view.sideMenuOpened = false;
 	view.titles = {};
+	view.transitioning = false;
 
 	/*******************/
 	/* Scope functions */
@@ -24,9 +25,15 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	/*******************/
 	/* Key  listeners  */
 	/*******************/
+	$transitions.onStart({}, function(){
+		view.transitioning = true;
+	})
 	$transitions.onSuccess({}, function(){
 		window.scrollTo(0, 0);
 		view.sideMenuOpened = false;
+		$timeout(function(){
+			view.transitioning = false;
+			}, 50)
 	})
 
 	/*******************/
@@ -36,14 +43,13 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	function goToArticle(id){
 		var targetBlock = document.getElementById("header-" + id);
 		var duration = 200;
+		view.transitioning = true;
 
 		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic);
 
 		$timeout(function(){
 				$state.go(id);
 			}, duration + 100)
-
-
 	}
 
 	function onInit(){

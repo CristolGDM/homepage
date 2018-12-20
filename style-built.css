@@ -521,6 +521,13 @@ h3 {
 	font-size: 30px;
 	margin: 0;
 }
+h1, h2, h3, h4, p, a, ul {
+	opacity: 1;
+	transition: opacity linear .2s;
+}
+.transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
+	opacity: 0;
+}
 .black-layer, .text-layer {
 	position: absolute;
 	top: 0;

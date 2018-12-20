@@ -11,7 +11,7 @@
 	<link rel="icon" type="image/png" href="/icons/favicon.png">
 	<base href="/">
 </head>
-	<body ng-controller="MainController as control">
+	<body ng-controller="MainController as control" ng-class="{'transitioning': control.transitioning}">
 		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}">
 			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
 				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">
