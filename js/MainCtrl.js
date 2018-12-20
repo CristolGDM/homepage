@@ -1,4 +1,4 @@
-var MainController = function($scope, $transitions, ImageService){
+var MainController = function($scope, $transitions, $state, $timeout, ImageService){
 
 	/*******************/
 	/* Local variables */
@@ -17,6 +17,7 @@ var MainController = function($scope, $transitions, ImageService){
 	/* Scope functions */
 	/*******************/
 	view.$onInit = onInit;
+	view.goToArticle = goToArticle;
 	view.scrollBackTop = scrollBackTop;
 	view.shouldShowSideMenu = shouldShowSideMenu;
 
@@ -31,6 +32,19 @@ var MainController = function($scope, $transitions, ImageService){
 	/*******************/
 	/* Local functions */
 	/*******************/
+
+	function goToArticle(id){
+		var targetBlock = document.getElementById("header-" + id);
+		var duration = 200;
+
+		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic);
+
+		$timeout(function(){
+				$state.go(id);
+			}, duration + 100)
+
+
+	}
 
 	function onInit(){
 		view.titles["header"] = data.title;
