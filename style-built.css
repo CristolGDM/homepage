@@ -325,6 +325,8 @@
 .code--line-content {
 	display: table-cell;
 	padding: 5px;
+	overflow-wrap: break-word;
+	word-break: break-all;
 }
 .code--line-number {
 	width: 20px;
@@ -352,7 +354,6 @@
 	color: #74705d;
 }
 .code-component .tab {
-	width: 30px;
 	display: inline-block;
 	background: linear-gradient(transparent 0%, transparent calc(50% - 1px), #74705d 50%, transparent calc(50% + 1px), transparent 100%);
 	margin-right: 5px;
@@ -372,6 +373,11 @@
 .code-component .string .number,
 .code-component .string .symbol {
 	color: #e7db74;
+}
+@media screen and (max-width: 768px) {
+	.code--line-content {
+		font-size: 11px;
+	}
 }
 .article-content--image {
 	text-align: center;
