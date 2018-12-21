@@ -45,11 +45,10 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 		var duration = 200;
 		view.transitioning = true;
 
-		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic);
-
-		$timeout(function(){
+		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic)
+			.then(function(){
 				$state.go(id);
-			}, duration + 100)
+			})
 	}
 
 	function onInit(){
@@ -66,16 +65,22 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	}
 
 	function scrollToX(element, xFrom, xTo, t01, speed, step, motion) {
-		if (t01 < 0 || t01 > 1 || speed<= 0) {
-			element.scrollTop = xTo;
-			return;
-		}
-		element.scrollTop = xFrom - (xFrom - xTo) * motion(t01);
-		t01 += speed * step;
+		var promise = new Promise(function(resolve,reject){
+			if (t01 < 0 || t01 > 1 || speed<= 0) {
+				element.scrollTop = xTo;
+				resolve();
+				return;
+			}
+			element.scrollTop = xFrom - (xFrom - xTo) * motion(t01);
+			t01 += speed * step;
 
-		setTimeout(function() {
-			scrollToX(element, xFrom, xTo, t01, speed, step, motion);
-		}, step);
+			setTimeout(function() {
+				scrollToX(element, xFrom, xTo, t01, speed, step, motion)
+					.then(function(){resolve()})
+			}, step);
+			})
+
+		return promise;
 	}
 	function easeOutCuaic(t){
 		t--;
