@@ -22,8 +22,9 @@
 
 			<div class="side-menu" ng-class="{'show': control.sideMenuOpened}">
 				<div class="side-menu--line" ui-sref="home">HOME</div>
-				<div class="side-menu--line" ui-sref="resume">MY RESUME</div>
-				<div class="side-menu--line" ui-sref="contact">CONTACT ME</div>
+				<div class="side-menu--line" ui-sref="resume">RESUME</div>
+				<div class="side-menu--line" ui-sref="contact">CONTACT</div>
+				<div class="side-menu--line" ui-sref="about">ABOUT</div>
 			</div>
 
 			<div class="side-menu--underlay" ng-if="control.sideMenuOpened" ng-click="control.sideMenuOpened = !control.sideMenuOpened"></div>
@@ -32,8 +33,8 @@
 		<ui-view></ui-view>
 
 		<div class="footer" ui-sref-active="{'hide': 'home'}">
-			<span class="footer--back-main footer--link" ui-sref="home"><span class="footer--link--arrow">‚Üê</span>Home</span>
-			<span class="footer--back-top footer--link" ng-click="control.scrollBackTop()"><span class="footer--link--arrow">‚Üë</span>Top</span>
+			<span class="footer--back-main footer--link" ui-sref="home"><span class="footer--link--arrow">°˚</span>Home</span>
+			<span class="footer--back-top footer--link" ng-click="control.scrollBackTop()"><span class="footer--link--arrow">°¸</span>Top</span>
 		</div>
 	</body>
 </html>

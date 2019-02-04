@@ -36,7 +36,7 @@
 	width: 16px;
 	height: 20px;
 	content: "";
-	background-image: url(/icons/link-arrow.svg);
+	background-image: url("/icons/link-arrow.svg");
 	background-size: 12px;
 	background-repeat: no-repeat;
 	background-position: 50% 2px;
