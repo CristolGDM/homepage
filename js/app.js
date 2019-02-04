@@ -12,6 +12,7 @@ require([
 	/* Components & Directives */
 	'cg-diapo.component',
 	'cg-figure.component',
+	'cg-header.component',
 	'cg-code.directive'
 	]);
 
@@ -28,6 +29,7 @@ angular.module('app',requiredServices)
 
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)
+	.component('cgHeader', headerComponent)
 
 	.directive('cgCode', codeDirective)
 

@@ -53,9 +53,6 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 
 	function onInit(){
 		view.titles["header"] = data.title;
-		for (var i = 0; i < data.articles.length; i++) {
-			view.titles[data.articles[i].id] = data.articles[i].title;
-		}
 	}
 
 	function scrollBackTop(duration) {
