@@ -498,13 +498,10 @@ body {
 }
 .hero-header {
 	text-align: center;
-	min-height: 427px;
 	margin-bottom: 45px;
 	color: white;
-	background-size: cover;
 	position: relative;
-	background-position: 50%;
-	padding: 80px 0;
+	padding: 150px 0;
 }
 h1 {
 	text-transform: uppercase;
@@ -529,8 +526,9 @@ h1, h2, h3, h4, p, a, ul {
 .transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
 	opacity: 0;
 }
-.black-layer, .text-layer {
+.black-layer, .background-layer {
 	position: absolute;
+	background-position: 50%;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -539,17 +537,19 @@ h1, h2, h3, h4, p, a, ul {
 .black-layer {
 	background-color: black;
 	opacity: 0.5;
-	z-index: 1;
+	z-index: -1;
+}
+.background-layer {
+	background-size: cover;
+	z-index: -2;
 }
 .text-layer {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: space-evenly;
 	padding: 0 10%;
-	z-index: 2;
 	max-width: 1000px;
 	margin: auto;
+}
+.text-layer h2 {
+	margin-bottom: 50px;
 }
 @media screen and (max-width: 768px) {
 	h1 {

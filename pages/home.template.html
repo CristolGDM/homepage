@@ -5,8 +5,9 @@
 		<h3>{{control.titles['header'][1]}}</h3>
 	</div>
 </div>
-<div ng-repeat="article in control.articles" id="header-{{article.id}}" class="hero-header main--article-blurb" ng-style="{'background-image': 'url(articles/'+ article.id +'/header.jpg)'}">
+<div ng-repeat="article in control.articles" id="header-{{article.id}}" class="hero-header main--article-blurb">
 	<div class="black-layer"></div>
+	<div class="background-layer" ng-style="{'background-image': 'url(articles/'+ article.id +'/header.jpg)'}"></div>
 	<div class="text-layer">
 		<h2>{{article.title}}</h2>
 		<!-- <p>{{article.blurb}}</p> -->
