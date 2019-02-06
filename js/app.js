@@ -56,6 +56,10 @@ angular.module('app',requiredServices)
 				url: '/about',
 				templateUrl: 'pages/about.template.html'
 			})
+			.state('game-dat', {
+				url: '/game-conversation-simulator',
+				templateUrl: 'articles/game-dat/template.html'
+			})
 			.state('adult-seo', {
 				url: '/dark-side-internet-adult-seo',
 				templateUrl: 'articles/adult-seo/template.html'

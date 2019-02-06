@@ -2,6 +2,12 @@ var varData = {
 	title: ["Cristol GDM", "Tokyo based JavaScript/Angular developer with a UX background"],
 	articles: [
 		{
+			title: 'A web-based conversation "simulator"',
+			blurb: "",
+			id: "game-dat",
+			date: "August 2018"
+		},
+		{
 			title: "Self-loading controllers in AngularJS",
 			blurb: "In this article, we are going to talk about controllers, their parent app, and freedom. Should controllers be able to load themselves? And if so, how?",
 			id: "self-loading-cont",
@@ -36,6 +42,6 @@ var varData = {
 			blurb: "This first project comes from a training course by Wiklund & Kendler. The task was to create an interface for an automatic hat-making machine. The user had to be able to design a hat, preview it, and buy it.",
 			id: "robohat",
 			date: "October 2011"
-		},
+		}
 	]
 }
