@@ -17,7 +17,7 @@
 	margin: 15px 0 45px;
 }
 
-.article p {
+.article p, li {
 	font-size: 18px;
 	line-height: 30px;
 }
