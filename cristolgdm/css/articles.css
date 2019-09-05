@@ -1,0 +1,57 @@
+/* ARTICLES */
+
+.hero-header--date {
+	display: inline-block;
+	margin-top: 15px;
+	font-size: 20px;
+	font-style: italic;
+}
+
+.article h1 {
+	font-size: 35px;
+}
+
+.article h2 {
+	padding: 15px 0;
+	border-bottom: 1px dashed #CACACA;
+	margin: 15px 0 45px;
+}
+
+.article p {
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.article-content {
+	max-width: 660px;
+	width: 90%;
+	margin: 45px auto 90px;
+}
+
+.speaker {
+	margin: 30px 0;
+}
+
+.speaker-image {
+	width: 33%;
+	display: table-cell;
+}
+.speaker-image img {
+	width: 100%;
+}
+
+.speaker-text {
+	width: 67%;
+	display: table-cell;
+	padding-left: 15px;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+	.speaker-image {
+		width: 45%;
+	}
+	.speaker-text {
+		width: 55%;
+	}
+}
