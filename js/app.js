@@ -44,45 +44,13 @@ angular.module('app',requiredServices)
 				url: '/',
 				templateUrl: 'pages/home.template.html'
 			})
-			.state('resume', {
-				url: '/resume',
-				templateUrl: 'pages/resume.template.html'
-			})
-			.state('contact', {
-				url: '/contact',
-				templateUrl: 'pages/contact.template.html'
-			})
-			.state('about', {
-				url: '/about',
-				templateUrl: 'pages/about.template.html'
-			})
 			.state('game-dat', {
 				url: '/game-conversation-simulator',
 				templateUrl: 'articles/game-dat/template.html'
 			})
-			.state('adult-seo', {
-				url: '/dark-side-internet-adult-seo',
-				templateUrl: 'articles/adult-seo/template.html'
-			})
-			.state('imensana', {
-				url: '/imensana-social-fitness-app',
-				templateUrl: 'articles/imensana/template.html'
-			})
-			.state('red-cross', {
-				url: '/red-cross-donor-app',
-				templateUrl: 'articles/red-cross/template.html'
-			})
-			.state('red-sox', {
-				url: '/red-sox-companion-app',
-				templateUrl: 'articles/red-sox/template.html'
-			})
-			.state('robohat', {
-				url: '/robohat-an-interface-to-make-hats',
-				templateUrl: 'articles/robohat/template.html'
-			})
-			.state('self-loading-cont', {
-				url: '/self-loading-controller-angularjs',
-				templateUrl: 'articles/self-loading-cont/template.html'
+			.state('rpg-shonen', {
+				url: '/shonen-tabletop-analysis',
+				templateUrl: 'articles/rpg-shonen/template.html'
 			})
 
 		$locationProvider.html5Mode(true);
