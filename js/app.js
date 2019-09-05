@@ -33,29 +33,41 @@ angular.module('app',requiredServices)
 
 	.directive('cgCode', codeDirective)
 
+	// .run(function($rootScope, $templateCache) {
+	// 	$rootScope.$on('$viewContentLoaded', function() {
+	// 		$templateCache.removeAll();
+	// 	});
+	// })
+
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */
 		$urlRouterProvider.otherwise(function(){
 			return ""
 		});
 
+		var debugMode = true;
+
 		$stateProvider
 			.state('home', {
 				url: '/',
+				cache: !debugMode,
 				templateUrl: 'pages/home.template.html'
 			})
 			.state('game-dat', {
 				url: '/game-conversation-simulator',
+				cache: !debugMode,
 				templateUrl: 'articles/game-dat/template.html'
 			})
 			.state('rpg-shonen', {
 				url: '/shonen-tabletop-analysis',
+				cache: !debugMode,
 				templateUrl: 'articles/rpg-shonen/template.html'
 			})
 
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(!debugMode);
 
 		}]);
+
 
 angular.element(document).ready(function () {
 	angular.bootstrap(document, ['app']);
