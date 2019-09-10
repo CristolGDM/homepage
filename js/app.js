@@ -33,12 +33,6 @@ angular.module('app',requiredServices)
 
 	.directive('cgCode', codeDirective)
 
-	// .run(function($rootScope, $templateCache) {
-	// 	$rootScope.$on('$viewContentLoaded', function() {
-	// 		$templateCache.removeAll();
-	// 	});
-	// })
-
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */
 		$urlRouterProvider.otherwise(function(){
@@ -47,26 +41,31 @@ angular.module('app',requiredServices)
 
 		var debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
 
+		var date = new Date(Date.now());
+		var hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
+		var millisecondlyBuster = "?v=" + date.getTime();
+		var cacheBuster = !debugMode ? hourlyBuster : millisecondlyBuster;
+
 		$stateProvider
 			.state('home', {
 				url: '/',
 				cache: !debugMode,
-				templateUrl: 'pages/home.template.html'
+				templateUrl: 'pages/home.template.html' + cacheBuster
 			})
 			.state('game-dat', {
 				url: '/game-conversation-simulator',
 				cache: !debugMode,
-				templateUrl: 'articles/game-dat/template.html'
+				templateUrl: 'articles/game-dat/template.html' + cacheBuster
 			})
 			.state('rpg-shonen', {
 				url: '/shonen-tabletop-analysis',
 				cache: !debugMode,
-				templateUrl: 'articles/rpg-shonen/template.html'
+				templateUrl: 'articles/rpg-shonen/template.html' + cacheBuster
 			})
 			.state('shadowrun-overprep', {
 				url: '/shadowrun-handling-overplanning',
 				cache: !debugMode,
-				templateUrl: 'articles/shadowrun-overprep/template.html'
+				templateUrl: 'articles/shadowrun-overprep/template.html?v=' + cacheBuster
 			})
 
 		$locationProvider.html5Mode(!debugMode);
