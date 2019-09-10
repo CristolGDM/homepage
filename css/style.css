@@ -49,6 +49,16 @@ h1, h2, h3, h4, p, a, ul {
 	transition: opacity linear .2s;
 }
 
+blockquote {
+	margin: 0;
+	padding: 16px 40px;
+	background: #f2f2f2;
+}
+
+hr {
+	margin: 30px 0;
+}
+
 .transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
 	opacity: 0;
 }
