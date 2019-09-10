@@ -3,14 +3,17 @@ var varData = {
 	articles: [
 		{
 			title: 'A web-based conversation "simulator"',
-			blurb: "",
 			id: "game-dat",
 			date: "August 2018"
 		},
 		{
-			title: 'Shonen tabletop RPGs',
-			blurb: "",
+			title: 'Is there a good shonen tabletop?',
 			id: "rpg-shonen",
+			date: "November 2016"
+		},
+		{
+			title: 'Handling over-planning in Shadowrun',
+			id: "shadowrun-overprep",
 			date: "November 2016"
 		}
 	]

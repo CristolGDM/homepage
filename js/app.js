@@ -63,6 +63,11 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/rpg-shonen/template.html'
 			})
+			.state('shadowrun-overprep', {
+				url: '/shadowrun-handling-overplanning',
+				cache: !debugMode,
+				templateUrl: 'articles/shadowrun-overprep/template.html'
+			})
 
 		$locationProvider.html5Mode(!debugMode);
 
