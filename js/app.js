@@ -45,7 +45,7 @@ angular.module('app',requiredServices)
 			return ""
 		});
 
-		var debugMode = true;
+		var debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
 
 		$stateProvider
 			.state('home', {
