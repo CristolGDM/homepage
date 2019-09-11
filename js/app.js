@@ -67,6 +67,11 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/shadowrun-overprep/template.html?v=' + cacheBuster
 			})
+			.state('mhr-hack-affil', {
+				url: '/mhr-hacking-affiliations',
+				cache: !debugMode,
+				templateUrl: 'articles/mhr-hack-affil/template.html?v=' + cacheBuster
+			})
 
 		$locationProvider.html5Mode(!debugMode);
 

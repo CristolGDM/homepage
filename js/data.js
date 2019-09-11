@@ -14,7 +14,12 @@ var varData = {
 		{
 			title: 'Handling over-planning in Shadowrun',
 			id: "shadowrun-overprep",
-			date: "November 2016"
+			date: "October 2014"
+		},
+		{
+			title: "Hacking MHR affiliations",
+			id: "mhr-hack-affil",
+			date: "September 2014"
 		}
 	]
 }
