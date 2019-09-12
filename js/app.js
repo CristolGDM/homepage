@@ -1,19 +1,19 @@
 'use strict'
 
 require([
-	'data',
+	'./data',
 
 	/* Controllers */
-	'MainCtrl',
+	'../cristolgdm/js/MainCtrl',
 
 	/* Services */
-	'ImageService',
+	'../cristolgdm/js/ImageService',
 
 	/* Components & Directives */
-	'cg-diapo.component',
-	'cg-figure.component',
-	'cg-header.component',
-	'cg-code.directive'
+	'../cristolgdm/js/cg-diapo.component',
+	'../cristolgdm/js/cg-figure.component',
+	'../cristolgdm/js/cg-header.component',
+	'../cristolgdm/js/cg-code.directive'
 	]);
 
 var requiredServices = [

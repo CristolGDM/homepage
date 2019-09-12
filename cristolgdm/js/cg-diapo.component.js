@@ -1,11 +1,13 @@
 'use strict';
 
+var templateUrlPrefix = location.hostname === "pixel-breath" ? "./cristolgdm/" : "./";
+
 var diapoComponent = {
 	controller: ['ImageService', '$timeout', diapoComponentController],
 	controllerAs: "diaporama",
 	bindings: {
 	},
-	templateUrl: "/js/cg-diapo.template.html"
+	templateUrl: templateUrlPrefix + "js/cg-diapo.template.html"
 }
 
 function diapoComponentController(ImageService, $timeout){

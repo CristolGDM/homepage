@@ -45,7 +45,12 @@ angular.module('app',requiredServices)
 			return ""
 		});
 
-		var debugMode = true;
+		var debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
+
+		var date = new Date(Date.now());
+		var hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
+		var millisecondlyBuster = "?v=" + date.getTime();
+		var cacheBuster = !debugMode ? hourlyBuster : millisecondlyBuster;
 
 		$stateProvider
 			.state('home', {

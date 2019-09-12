@@ -1,5 +1,7 @@
 'use strict';
 
+var templateUrlPrefix = location.hostname === "pixel-breath" ? "./cristolgdm/" : "./";
+
 var figureComponent = {
 	controller: ['ImageService', figureComponentController],
 	controllerAs: "figure",
@@ -7,7 +9,7 @@ var figureComponent = {
 		src: '@',
 		caption: '@'
 	},
-	templateUrl: "/js/cg-figure.template.html"
+	templateUrl: templateUrlPrefix + "js/cg-figure.template.html"
 }
 
 function figureComponentController(ImageService){

@@ -1,12 +1,14 @@
 'use strict';
 
+var templateUrlPrefix = location.hostname === "pixel-breath" ? "./cristolgdm/" : "./";
+
 var headerComponent = {
 	controller: headerComponentController,
 	controllerAs: "header",
 	bindings: {
 		id: "@"
 	},
-	templateUrl: "/js/cg-header.template.html"
+	templateUrl: templateUrlPrefix + "js/cg-header.template.html"
 }
 
 function headerComponentController(){
