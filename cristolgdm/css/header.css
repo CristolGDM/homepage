@@ -4,6 +4,7 @@
 	height: 800px;
 	text-align: left;
 	margin-bottom: 0;
+	overflow: hidden;
 }
 
 .cgm-header h1 {

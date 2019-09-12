@@ -13,6 +13,7 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	view.sideMenuOpened = false;
 	view.titles = {};
 	view.transitioning = false;
+	view.windowHeight = "";
 
 	/*******************/
 	/* Scope functions */
@@ -37,8 +38,20 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	})
 
 	/*******************/
+	/*     Events      */
+	/*******************/
+
+	window.addEventListener("resize", getWindowHeight);
+
+	/*******************/
 	/* Local functions */
 	/*******************/
+
+	function getWindowHeight(){
+		$timeout(function(){
+			view.windowHeight = window.innerHeight + "px";
+		}, 1);
+	}
 
 	function goToArticle(id){
 		var targetBlock = document.getElementById("header-" + id);
@@ -53,6 +66,7 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 
 	function onInit(){
 		view.titles["header"] = data.title;
+		getWindowHeight();
 	}
 
 	function scrollBackTop(duration) {
