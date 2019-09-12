@@ -1,6 +1,10 @@
 'use strict';
 
-var templateUrlPrefix = location.hostname === "pixel-breath" ? "./cristolgdm/" : "./";
+var templateUrlPrefix = "./";
+
+if(location.hostname === "pixel-breath" || location.port === "8080") {
+	templateUrlPrefix += "cristolgdm/";
+}
 
 var figureComponent = {
 	controller: ['ImageService', figureComponentController],
