@@ -1,0 +1,29 @@
+.cgm-header {
+	background: white;
+	color: #333;
+	height: 800px;
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.cgm-header h1 {
+	display: none;
+}
+
+.cgm-header h3 {
+	line-height: 70px;
+	font-weight: normal;
+}
+
+.cgm-header .inner-center-aligner {
+	width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+	.cgm-header {
+		height: 667px;
+	}
+	.cgm-header h3 {
+		line-height: 45px;
+	}
+}
