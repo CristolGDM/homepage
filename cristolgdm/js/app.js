@@ -8,6 +8,7 @@ require([
 
 	/* Services */
 	'ImageService',
+	'UtilService',
 
 	/* Components & Directives */
 	'cg-diapo.component',
@@ -21,11 +22,12 @@ var requiredServices = [
 	'ui.router',
 
 	/* Local Services */
-	'ImageServiceProvider'
+	'ImageServiceProvider',
+	'UtilServiceProvider'
 ];
 
 angular.module('app',requiredServices)
-	.controller('MainController', ['$scope', '$transitions', '$state', '$timeout', 'ImageService', MainController])
+	.controller('MainController', ['$scope', 'ImageService', 'UtilService', MainController])
 
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)

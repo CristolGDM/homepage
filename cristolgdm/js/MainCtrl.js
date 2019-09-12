@@ -1,4 +1,4 @@
-var MainController = function($scope, $transitions, $state, $timeout, ImageService){
+var MainController = function($scope, ImageService, UtilService){
 
 	/*******************/
 	/* Local variables */
@@ -26,13 +26,13 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	/*******************/
 	/* Key  listeners  */
 	/*******************/
-	$transitions.onStart({}, function(){
+	UtilService.$transitions.onStart({}, function(){
 		view.transitioning = true;
 	})
-	$transitions.onSuccess({}, function(){
+	UtilService.$transitions.onSuccess({}, function(){
 		window.scrollTo(0, 0);
 		view.sideMenuOpened = false;
-		$timeout(function(){
+		UtilService.$timeout(function(){
 			view.transitioning = false;
 			}, 50)
 	})
@@ -48,7 +48,7 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 	/*******************/
 
 	function getWindowHeight(){
-		$timeout(function(){
+		UtilService.$timeout(function(){
 			view.windowHeight = window.innerHeight + "px";
 		}, 1);
 	}
@@ -60,7 +60,7 @@ var MainController = function($scope, $transitions, $state, $timeout, ImageServi
 
 		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic)
 			.then(function(){
-				$state.go(id);
+				UtilService.$state.go(id);
 			})
 	}
 
