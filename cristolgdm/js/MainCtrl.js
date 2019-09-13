@@ -53,6 +53,11 @@ var MainController = function($scope, ImageService, UtilService){
 		UtilService.$http.get('https://www.reddit.com/r/ImaginaryWorlds/hot.json?sort=top&t=week')
 			.then(function(response){
 				var img = randArray(response.data.data.children).data;
+				view.coolImage = img;
+
+				if(location.hostname === "cristolgdm" || location.port === "8081") {
+					return;
+				}
 
 				var title = img.title;
 				var titleString = "";
@@ -91,7 +96,6 @@ var MainController = function($scope, ImageService, UtilService){
 					"font-size: 14px; line-height: 25px;",
 					"font-size: 12px; line-height: 25px; color: #FF5C92;");
 
-				view.coolImage = img;
 				}
 			);
 	}
