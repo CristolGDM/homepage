@@ -1,4 +1,4 @@
-<div class="hero-header main--header" ng-style="{'background-image': 'url(' + control.coolImage + ')'}">
+<div class="hero-header main--header" ng-style="{'background-image': 'url(' + control.coolImage.url + ')'}">
 	<div class="black-layer"></div>
 	<div class="inner-center-aligner">
 		<div class="text-layer">
@@ -7,6 +7,7 @@
 		</div>
 	</div>
 </div>
+
 <div ng-repeat="article in control.articles" id="header-{{article.id}}" class="hero-header main--article-blurb">
 	<div class="black-layer"></div>
 	<div class="background-layer" ng-style="{'background-image': 'url(articles/'+ article.id +'/header.jpg)'}"></div>

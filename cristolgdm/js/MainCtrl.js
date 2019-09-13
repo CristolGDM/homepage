@@ -11,6 +11,7 @@ var MainController = function($scope, ImageService, UtilService){
 	/*******************/
 	view.articles = data.articles;
 	view.coolImage = "";
+	view.coolImageSrc = "";
 	view.sideMenuOpened = false;
 	view.titles = {};
 	view.transitioning = false;
@@ -52,7 +53,32 @@ var MainController = function($scope, ImageService, UtilService){
 		UtilService.$http.get('https://www.reddit.com/r/ImaginaryWorlds/hot.json?sort=top&t=week')
 			.then(function(response){
 				var img = randArray(response.data.data.children).data;
-				view.coolImage = img.url;
+
+				var title = img.title;
+				var titleString = "";
+
+				if (title.toUpperCase().indexOf(" BY ") > -1){
+					var index = title.toUpperCase().indexOf(" BY ");
+					var art = title.slice(0, index);
+					var artist = title.slice(index + 4, title.length);
+
+					titleString = "%c" + art + "%c by %c" + artist
+				}
+				else {
+					titleString = "%c%c%c" + title;
+				}
+				var ratio = Math.trunc(100 * img.thumbnail_height / img.thumbnail_width);
+
+				console.log("%c %c\nHeader image is\n\n" + titleString + "\n\n" + "%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink, 
+					"padding-left: 100%;padding-top: " + ratio + "%;line-height:100px;background:url(" + img.url + ") no-repeat; background-size: cover;",
+					"font-size: 14px; line-height: 25px; padding-top: 15px;",
+					"font-size: 13px; line-height: 25px; color: #45D3DD",
+					"font-size: 12px; line-height: 25px;",
+					"font-size: 13px; line-height: 25px; color: #45D3DD",
+					"font-size: 14px; line-height: 25px;",
+					"font-size: 12px; line-height: 25px; color: #FF5C92;");
+
+				view.coolImage = img;
 				}
 			);
 	}
