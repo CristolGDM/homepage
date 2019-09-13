@@ -4,5 +4,23 @@
 }
 .main--header .black-layer {
 	z-index: 0;
-	opacity: 0.2;
+	opacity: 0.25;
+}
+
+.main--header .background-src {
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	opacity: 0;
+	transition: opacity linear 0.2s;
+}
+.main--header:hover .background-src{
+	opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+	.main--header .background-src {
+		visibility: hidden;
+	}
 }
