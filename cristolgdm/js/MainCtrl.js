@@ -121,7 +121,7 @@ var MainController = function($scope, ImageService, UtilService){
 		view.titles["header"] = data.title;
 		getWindowHeight();
 		getRandomWallpaper();
-	}	
+	}
 
 	function randArray(array) {
 		var index = Math.floor(Math.random()*array.length);
