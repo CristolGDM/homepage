@@ -68,12 +68,26 @@ var MainController = function($scope, ImageService, UtilService){
 					titleString = "%c%c%c" + title;
 				}
 
-				console.log("%c %c\nHeader image is " + titleString + "\n\n" + "%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink, 
-					"margin-top: 15px; padding-left: " + "300" + "px;padding-top: " + "180" + "px;line-height:" + "normal" + "px;background:url(" + img.url + ") no-repeat; background-size: cover;background-position:50%",
+				var backgroundStyle = "margin-top: 15px;"
+									+ "padding-right:150px;"
+									+ "padding-left: 150px;"
+									+ "padding-top:90px;"
+									+ "padding-bottom:90px;"
+									+ "background:url(" + img.url + ") no-repeat;"
+									+ "background-size: cover;"
+									+ "background-position:50%;";
+
+				if(navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1) {
+					backgroundStyle += "line-height: 225px";
+				}
+
+				console.log("%c %c\nHeader image is " + titleString + "%c.\n%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink +"\n\n", 
+					backgroundStyle,
 					"font-size: 14px; line-height: 25px; padding-top: 05px;",
-					"font-size: 13px; line-height: 25px; color: #45D3DD",
-					"font-size: 12px; line-height: 25px;",
-					"font-size: 13px; line-height: 25px; color: #45D3DD",
+					"font-size: 14px; line-height: 25px; color: #45D3DD",
+					"font-size: 14px; line-height: 25px;",
+					"font-size: 14px; line-height: 25px; color: #45D3DD;",
+					"font-size: 14px; line-height: 25px;",
 					"font-size: 14px; line-height: 25px;",
 					"font-size: 12px; line-height: 25px; color: #FF5C92;");
 
