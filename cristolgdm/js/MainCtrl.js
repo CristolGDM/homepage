@@ -67,11 +67,10 @@ var MainController = function($scope, ImageService, UtilService){
 				else {
 					titleString = "%c%c%c" + title;
 				}
-				var ratio = Math.trunc(100 * img.thumbnail_height / img.thumbnail_width);
 
-				console.log("%c %c\nHeader image is\n\n" + titleString + "\n\n" + "%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink, 
-					"padding-left: 100%;padding-top: " + ratio + "%;line-height:100px;background:url(" + img.url + ") no-repeat; background-size: cover;",
-					"font-size: 14px; line-height: 25px; padding-top: 15px;",
+				console.log("%c %c\nHeader image is " + titleString + "\n\n" + "%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink, 
+					"margin-top: 15px; padding-left: " + "300" + "px;padding-top: " + "180" + "px;line-height:" + "normal" + "px;background:url(" + img.url + ") no-repeat; background-size: cover;background-position:50%",
+					"font-size: 14px; line-height: 25px; padding-top: 05px;",
 					"font-size: 13px; line-height: 25px; color: #45D3DD",
 					"font-size: 12px; line-height: 25px;",
 					"font-size: 13px; line-height: 25px; color: #45D3DD",
