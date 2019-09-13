@@ -10,6 +10,7 @@ var MainController = function($scope, ImageService, UtilService){
 	/* Scope variables */
 	/*******************/
 	view.articles = data.articles;
+	view.coolImage = "";
 	view.sideMenuOpened = false;
 	view.titles = {};
 	view.transitioning = false;
@@ -47,6 +48,15 @@ var MainController = function($scope, ImageService, UtilService){
 	/* Local functions */
 	/*******************/
 
+	function getRandomWallpaper(){
+		UtilService.$http.get('https://www.reddit.com/r/ImaginaryWorlds/hot.json?sort=top&t=week')
+			.then(function(response){
+				var img = randArray(response.data.data.children).data;
+				view.coolImage = img.url;
+				}
+			);
+	}
+
 	function getWindowHeight(){
 		UtilService.$timeout(function(){
 			view.windowHeight = window.innerHeight + "px";
@@ -67,6 +77,12 @@ var MainController = function($scope, ImageService, UtilService){
 	function onInit(){
 		view.titles["header"] = data.title;
 		getWindowHeight();
+		getRandomWallpaper();
+	}	
+
+	function randArray(array) {
+		var index = Math.floor(Math.random()*array.length);
+		return array[index];
 	}
 
 	function scrollBackTop(duration) {

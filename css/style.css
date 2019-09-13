@@ -6,3 +6,6 @@
 @import url('code-component.css')
 @import url('figure-component.css')
 @import url('main-page.css')
+
+/* Specific styles after */
+@import url('./header.css')
