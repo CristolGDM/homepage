@@ -178,7 +178,7 @@ var MainController = function($scope, ImageService, UtilService){
 		var expiryDate = new Date();
 		expiryDate.setDate(expiryDate.getDate() + 365);
 
-		document.cookie = "cgmDarkMode=true; expires=" + expiryDate.toUTCString();
+		document.cookie = "cgmDarkMode=" + view.darkMode + "; expires=" + expiryDate.toUTCString();
 	}
 
 }
