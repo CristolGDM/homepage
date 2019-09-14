@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="side-menu" ng-class="{'show': control.sideMenuOpened}">
-				<div class="side-menu--line" ui-sref="home">HOME</div>
+				<div class="side-menu--line" ui-sref="home" ng-if="!control.isHomePage()">HOME</div>
 				<div class="side-menu--line" ng-click="control.switchDarkMode()">DARK MODE</div>
 			</div>
 
