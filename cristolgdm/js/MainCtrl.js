@@ -24,6 +24,7 @@ var MainController = function($scope, ImageService, UtilService){
 	/*******************/
 	view.$onInit = onInit;
 	view.goToArticle = goToArticle;
+	view.isHomePage = isHomePage;
 	view.scrollBackTop = scrollBackTop;
 	view.shouldShowSideMenu = shouldShowSideMenu;
 	view.switchDarkMode = switchDarkMode;
@@ -123,6 +124,10 @@ var MainController = function($scope, ImageService, UtilService){
 			.then(function(){
 				UtilService.$state.go(id);
 			})
+	}
+
+	function isHomePage(){
+		return UtilService.$state.current.name === "home";
 	}
 
 	function onInit(){
