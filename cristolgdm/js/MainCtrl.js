@@ -12,6 +12,7 @@ var MainController = function($scope, ImageService, UtilService){
 	view.articles = data.articles;
 	view.coolImage = "";
 	view.coolImageSrc = "";
+	view.darkMode = false;
 	view.shouldHideForms = false;
 	view.sideMenuOpened = false;
 	view.titles = {};
@@ -25,6 +26,7 @@ var MainController = function($scope, ImageService, UtilService){
 	view.goToArticle = goToArticle;
 	view.scrollBackTop = scrollBackTop;
 	view.shouldShowSideMenu = shouldShowSideMenu;
+	view.switchDarkMode = switchDarkMode;
 
 	/*******************/
 	/* Key  listeners  */
@@ -166,4 +168,10 @@ var MainController = function($scope, ImageService, UtilService){
 	function shouldShowSideMenu(){
 		return !ImageService.shouldShowFullscreen();
 	}
+
+	function switchDarkMode() {
+		view.darkMode = !view.darkMode;
+		view.sideMenuOpened = false;
+	}
+
 }

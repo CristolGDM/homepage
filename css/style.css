@@ -6,6 +6,7 @@
 @import url('code-component.css')
 @import url('figure-component.css')
 @import url('main-page.css')
+@import url('dark-mode.css')
 
 /* Specific styles after */
 @import url('./header.css')

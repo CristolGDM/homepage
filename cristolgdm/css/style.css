@@ -7,6 +7,7 @@
 @import url('../../css/figure-component.css')
 @import url('../../css/main-page.css')
 @import url('../../css/resume-page.css')
+@import url('../../css/dark-mode.css')
 
 /* Specific styles after */
 @import url('./header.css')

@@ -1,0 +1,16 @@
+/* DARK MODE */
+
+.dark-mode,
+.dark-mode .cgm-header,
+.dark-mode .article-content--image {
+	background: #282923;
+	color: #f8f8f2;
+}
+
+.dark-mode .article-content a {
+	color: #45D3DD;
+}
+
+.dark-mode .resume-page h2 {
+	background: #333;
+}
