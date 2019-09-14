@@ -12,6 +12,7 @@ var MainController = function($scope, ImageService, UtilService){
 	view.articles = data.articles;
 	view.coolImage = "";
 	view.coolImageSrc = "";
+	view.shouldHideForms = false;
 	view.sideMenuOpened = false;
 	view.titles = {};
 	view.transitioning = false;
@@ -96,7 +97,12 @@ var MainController = function($scope, ImageService, UtilService){
 					"font-size: 14px; line-height: 25px;",
 					"font-size: 12px; line-height: 25px; color: #FF5C92;");
 
-				}
+				setTimeout(function(){
+					view.shouldHideForms = true;
+				}, 2000)
+
+			}
+
 			);
 	}
 
