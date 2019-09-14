@@ -129,6 +129,8 @@ var MainController = function($scope, ImageService, UtilService){
 		view.titles["header"] = data.title;
 		getWindowHeight();
 		getRandomWallpaper();
+
+		if(document.cookie.indexOf("cgmDarkMode=true") > -1) view.darkMode = true;
 	}
 
 	function randArray(array) {
@@ -172,6 +174,11 @@ var MainController = function($scope, ImageService, UtilService){
 	function switchDarkMode() {
 		view.darkMode = !view.darkMode;
 		view.sideMenuOpened = false;
+
+		var expiryDate = new Date();
+		expiryDate.setDate(expiryDate.getDate() + 365);
+
+		document.cookie = "cgmDarkMode=true; expires=" + expiryDate.toUTCString();
 	}
 
 }
