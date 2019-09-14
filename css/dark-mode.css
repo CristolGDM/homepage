@@ -11,6 +11,7 @@
 	color: #45D3DD;
 }
 
-.dark-mode .resume-page h2 {
+.dark-mode .resume-page h2,
+.dark-mode blockquote {
 	background: #333;
 }

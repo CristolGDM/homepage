@@ -11,8 +11,8 @@
 	<link rel="icon" type="image/png" href="/icons/favicon.png">
 	<base href="/">
 </head>
-	<body ng-controller="MainController as control" ng-class="{'transitioning': control.transitioning}">
-		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}" ng-if="1==0">
+	<body ng-controller="MainController as control" ng-class="{'transitioning': control.transitioning, 'dark-mode': control.darkMode}">
+		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}">
 			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
 				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">
 					<img src="./icons/menu-arrow.png" />
@@ -22,9 +22,7 @@
 
 			<div class="side-menu" ng-class="{'show': control.sideMenuOpened}">
 				<div class="side-menu--line" ui-sref="home">HOME</div>
-				<div class="side-menu--line" ui-sref="resume">RESUME</div>
-				<div class="side-menu--line" ui-sref="contact">CONTACT</div>
-				<div class="side-menu--line" ui-sref="about">ABOUT</div>
+				<div class="side-menu--line" ng-click="control.switchDarkMode()">DARK MODE</div>
 			</div>
 
 			<div class="side-menu--underlay" ng-if="control.sideMenuOpened" ng-click="control.sideMenuOpened = !control.sideMenuOpened"></div>
