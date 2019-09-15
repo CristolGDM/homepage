@@ -22,6 +22,10 @@
 	background: white;
 }
 
+.hero-header.hide {
+	opacity: 0;
+}
+
 @media screen and (max-width: 768px) {
 	.main--article-blurb p {
 		font-size: 16px;

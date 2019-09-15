@@ -119,6 +119,7 @@ var MainController = function($scope, ImageService, UtilService){
 		var targetBlock = document.getElementById("header-" + id);
 		var duration = 200;
 		view.transitioning = true;
+		view.transitionTarget = id;
 
 		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic)
 			.then(function(){
