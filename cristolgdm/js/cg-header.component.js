@@ -32,14 +32,16 @@ function headerComponentController(){
 		var articles = varData.articles;
 		var thisArticle;
 
-		for (var i = 0; i < articles.length; i++) {
-			if(articles[i].id === thisId) {
-				thisArticle = articles[i];
-				break;
+		if(view.id != null && view.id.length > 1) {
+			for (var i = 0; i < articles.length; i++) {
+				if(articles[i].id === thisId) {
+					thisArticle = articles[i];
+					break;
+				}
 			}
-		}
 
-		view.title = thisArticle.title;
-		view.date = thisArticle.date;
+			view.title = thisArticle.title;
+			view.date = thisArticle.date;
+		}
 	}
 }

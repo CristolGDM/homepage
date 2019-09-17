@@ -136,6 +136,10 @@ var MainController = function($scope, ImageService, UtilService){
 		getWindowHeight();
 		getRandomWallpaper();
 
+		UtilService.$timeout(function(){
+			view.hasFinishedLoading = true;
+		}, 1000);
+
 		if(document.cookie.indexOf("cgmDarkMode=true") > -1) view.darkMode = true;
 	}
 
