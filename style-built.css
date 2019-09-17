@@ -12,6 +12,8 @@ body {
 	color: white;
 	position: relative;
 	height: 500px;
+	opacity: 1;
+	transition: opacity linear .05s;
 }
 h1 {
 	text-transform: uppercase;
@@ -515,9 +517,6 @@ hr {
 .image-component--line figcaption {
 	display: none;
 }
-.main--header {
-	background-image: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-}
 .main--article-blurb p {
 	font-size: 18px;
 	margin: 0;
@@ -538,8 +537,96 @@ hr {
 	color: #444;
 	background: white;
 }
+.hero-header.hide {
+	opacity: 0;
+}
 @media screen and (max-width: 768px) {
 	.main--article-blurb p {
 		font-size: 16px;
+	}
+}
+.dark-mode,
+.dark-mode .cgm-header,
+.dark-mode .article-content--image {
+	background: #282923;
+	color: #f8f8f2;
+}
+.dark-mode .article-content a {
+	color: #45D3DD;
+}
+.dark-mode .article-content a::after {
+	filter: invert(76%) sepia(57%) saturate(518%) hue-rotate(135deg) brightness(90%) contrast(91%);
+}
+.dark-mode .resume-page h2,
+.dark-mode blockquote {
+	background: #333;
+}
+.main--header {
+	background-position: 50%;
+	background-size: cover;
+	background-color: #45D3DD;
+}
+.main--header .black-layer {
+	z-index: 0;
+	opacity: 0.3;
+}
+.main--header .background-src {
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	opacity: 0;
+	transition: opacity linear 0.2s;
+}
+.main--header:hover .background-src{
+	opacity: 1;
+}
+.inner-center-aligner{
+	z-index: 2;
+}
+.header-square {
+	position: absolute;
+	height: 180px;
+	width: 180px;
+	background-color: #FF5C92;
+	transform: rotate(100deg);
+	top: 8%;
+	left: 8%;
+	z-index: 1;
+	opacity: .6;
+	transition: all linear 0.8s 0.8s;
+}
+.header-circle {
+	position: absolute;
+	height: 220px;
+	width: 220px;
+	background-color: #FF5C92;
+	border-radius: 100%;
+	top: 20%;
+	left: 12%;
+	z-index: 0;
+	opacity: .7;
+	transition: all linear 0.8s 0.8s;
+}
+.header-square.hide {
+	left: -185px;
+	top: -20%;
+	transform: rotate(0deg);
+}
+.header-circle.hide {
+	left: -225px;
+	top: 8%;
+}
+@media screen and (max-width: 768px) {
+	.main--header .background-src {
+		visibility: hidden;
+	}
+	.header-square {
+		height: 80px;
+		width: 80px;
+	}
+	.header-circle {
+		height: 90px;
+		width: 90px;
 	}
 }

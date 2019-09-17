@@ -12,6 +12,8 @@ body {
 	color: white;
 	position: relative;
 	height: 500px;
+	opacity: 1;
+	transition: opacity linear .05s;
 }
 h1 {
 	text-transform: uppercase;
@@ -515,9 +517,6 @@ hr {
 .image-component--line figcaption {
 	display: none;
 }
-.main--header {
-	background-image: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-}
 .main--article-blurb p {
 	font-size: 18px;
 	margin: 0;
@@ -537,6 +536,9 @@ hr {
 .main--read-more:hover {
 	color: #444;
 	background: white;
+}
+.hero-header.hide {
+	opacity: 0;
 }
 @media screen and (max-width: 768px) {
 	.main--article-blurb p {
@@ -566,7 +568,7 @@ hr {
 	padding-bottom: 20px;
 }
 .resume-page a {
-	color: #444 !important;
+	color: #444;
 	text-decoration: none;
 	cursor: pointer
 }
@@ -578,8 +580,50 @@ hr {
 	width: 16px;
 	height: 20px;
 	content: "";
-	background-image: url("/icons/link-arrow.svg");
+	background-image: url(../../icons/link-arrow.svg);
 	background-size: 12px;
 	background-repeat: no-repeat;
 	background-position: 50% 2px;
+}
+.dark-mode,
+.dark-mode .cgm-header,
+.dark-mode .article-content--image {
+	background: #282923;
+	color: #f8f8f2;
+}
+.dark-mode .article-content a {
+	color: #45D3DD;
+}
+.dark-mode .article-content a::after {
+	filter: invert(76%) sepia(57%) saturate(518%) hue-rotate(135deg) brightness(90%) contrast(91%);
+}
+.dark-mode .resume-page h2,
+.dark-mode blockquote {
+	background: #333;
+}
+.cgm-header {
+	background: white;
+	color: #333;
+	height: 800px;
+	text-align: left;
+	margin-bottom: 0;
+	overflow: hidden;
+}
+.cgm-header h1 {
+	display: none;
+}
+.cgm-header h3 {
+	line-height: 70px;
+	font-weight: normal;
+}
+.cgm-header .inner-center-aligner {
+	width: 90%;
+}
+@media screen and (max-width: 768px) {
+	.cgm-header {
+		height: 667px;
+	}
+	.cgm-header h3 {
+		line-height: 45px;
+	}
 }
