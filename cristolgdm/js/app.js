@@ -33,13 +33,7 @@ angular.module('app',requiredServices)
 	.component('cgFigure', figureComponent)
 	.component('cgHeader', headerComponent)
 
-	.directive('cgCode', codeDirective)	
-
-	// .run(function($rootScope, $templateCache) {
-	// 	$rootScope.$on('$viewContentLoaded', function() {
-	// 		$templateCache.removeAll();
-	// 	});
-	// })
+	.directive('cgCode', codeDirective)
 
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		/* Default entry point */

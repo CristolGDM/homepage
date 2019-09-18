@@ -54,6 +54,11 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'pages/home.template.html' + cacheBuster
 			})
+			.state('about', {
+				url: '/about',
+				cache: !debugMode,
+				templateUrl: 'pages/about.template.html' + cacheBuster
+			})
 			.state('game-dat', {
 				url: '/game-conversation-simulator',
 				cache: !debugMode,
