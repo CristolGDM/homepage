@@ -43,6 +43,10 @@ blockquote {
 hr {
 	margin: 30px 0;
 }
+a {
+	text-decoration: underline;
+	color: #23629F;
+}
 .transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
 	opacity: 0;
 }
@@ -553,9 +557,6 @@ hr {
 }
 .dark-mode .article-content a {
 	color: #45D3DD;
-}
-.dark-mode .article-content a::after {
-	filter: invert(76%) sepia(57%) saturate(518%) hue-rotate(135deg) brightness(90%) contrast(91%);
 }
 .dark-mode .resume-page h2,
 .dark-mode blockquote {

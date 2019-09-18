@@ -43,6 +43,10 @@ blockquote {
 hr {
 	margin: 30px 0;
 }
+a {
+	text-decoration: underline;
+	color: #23629F;
+}
 .transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
 	opacity: 0;
 }
@@ -567,23 +571,16 @@ hr {
 	border: 0;
 	padding-bottom: 20px;
 }
-.resume-page a {
-	color: #444;
-	text-decoration: none;
-	cursor: pointer
-}
-.resume-page a:hover {
-	text-decoration: underline;
-}
+.resume-page a
 .resume-page a:after {
 	display: inline-block;
-	width: 16px;
-	height: 20px;
+	width: 2px;
+	
 	content: "";
-	background-image: url(../../icons/link-arrow.svg);
-	background-size: 12px;
-	background-repeat: no-repeat;
-	background-position: 50% 2px;
+	
+	
+	
+	
 }
 .dark-mode,
 .dark-mode .cgm-header,
@@ -593,9 +590,6 @@ hr {
 }
 .dark-mode .article-content a {
 	color: #45D3DD;
-}
-.dark-mode .article-content a::after {
-	filter: invert(76%) sepia(57%) saturate(518%) hue-rotate(135deg) brightness(90%) contrast(91%);
 }
 .dark-mode .resume-page h2,
 .dark-mode blockquote {

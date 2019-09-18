@@ -52,6 +52,11 @@ hr {
 	margin: 30px 0;
 }
 
+a {
+	text-decoration: underline;
+	color: #23629F;
+}
+
 .transitioning h1, .transitioning h2, .transitioning h3, .transitioning h4, .transitioning p, .transitioning a, .transitioning ul {
 	opacity: 0;
 }
