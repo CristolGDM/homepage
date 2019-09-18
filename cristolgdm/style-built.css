@@ -571,16 +571,10 @@ a {
 	border: 0;
 	padding-bottom: 20px;
 }
-.resume-page a
 .resume-page a:after {
 	display: inline-block;
 	width: 2px;
-	
 	content: "";
-	
-	
-	
-	
 }
 .dark-mode,
 .dark-mode .cgm-header,
