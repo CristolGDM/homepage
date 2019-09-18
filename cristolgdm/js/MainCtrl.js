@@ -12,6 +12,7 @@ var MainController = function($scope, ImageService, UtilService){
 	view.articles = data.articles;
 	view.coolImage = "";
 	view.coolImageSrc = "";
+	view.currentState = "";
 	view.darkMode = false;
 	view.shouldHideForms = false;
 	view.sideMenuOpened = false;
@@ -24,7 +25,6 @@ var MainController = function($scope, ImageService, UtilService){
 	/*******************/
 	view.$onInit = onInit;
 	view.goToArticle = goToArticle;
-	view.isHomePage = isHomePage;
 	view.scrollBackTop = scrollBackTop;
 	view.shouldShowSideMenu = shouldShowSideMenu;
 	view.switchDarkMode = switchDarkMode;
@@ -38,6 +38,7 @@ var MainController = function($scope, ImageService, UtilService){
 	UtilService.$transitions.onSuccess({}, function(){
 		window.scrollTo(0, 0);
 		view.sideMenuOpened = false;
+		view.currentState = UtilService.$state.current.name;
 		UtilService.$timeout(function(){
 			view.transitioning = false;
 			}, 50)
@@ -125,10 +126,6 @@ var MainController = function($scope, ImageService, UtilService){
 			.then(function(){
 				UtilService.$state.go(id);
 			})
-	}
-
-	function isHomePage(){
-		return UtilService.$state.current.name === "home";
 	}
 
 	function onInit(){
