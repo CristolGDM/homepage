@@ -11,6 +11,7 @@ var ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		/************ START PROCESS ************/
 		$transitions.onSuccess({}, function(){
 			var images = document.getElementsByTagName('cg-figure');
+			allImages = [];
 
 			for (var i = 0; i < images.length; i++) {
 				allImages.push({
