@@ -101,6 +101,15 @@ a {
 	width: 100%;
 }
 
+#js-mobile-detection {
+	display: none;
+	width: 0px !important;
+	height: 0px !important;
+	position: fixed !important;
+	top: -100px !important;
+	right: -100px !important;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -115,5 +124,8 @@ a {
 	}
 	.hero-header {
 		height: 400px;
+	}
+	#js-mobile-detection {
+		display: block;
 	}
 }

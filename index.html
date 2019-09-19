@@ -12,6 +12,7 @@
 		<base href="/">
 	</head>
 	<body ng-controller="MainController as control" ng-class="{'transitioning': control.transitioning, 'dark-mode': control.darkMode}">
+		<div id="js-mobile-detection"></div>
 		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu()}">
 			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
 				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">

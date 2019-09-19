@@ -5,6 +5,8 @@ var MainController = function($scope, ImageService, UtilService){
 	/*******************/
 	var view = this;
 	var data = varData;
+	var isSmallScreen = getComputedStyle(document.getElementById("js-mobile-detection")).display !== "none";
+	var isReallySmallScreen = window.innerWidth < 500;
 
 	/*******************/
 	/* Scope variables */
@@ -24,6 +26,7 @@ var MainController = function($scope, ImageService, UtilService){
 	/* Scope functions */
 	/*******************/
 	view.$onInit = onInit;
+	view.getArticleBackground = getArticleBackground;
 	view.goToArticle = goToArticle;
 	view.scrollBackTop = scrollBackTop;
 	view.shouldShowSideMenu = shouldShowSideMenu;
@@ -49,10 +52,17 @@ var MainController = function($scope, ImageService, UtilService){
 	/*******************/
 
 	window.addEventListener("resize", getWindowHeight);
-
 	/*******************/
 	/* Local functions */
 	/*******************/
+
+	function getArticleBackground(id) {
+		var fileName = "header";
+		if (isReallySmallScreen) fileName += "_portrait";
+		else if (isSmallScreen) fileName += "_small";
+
+		return 'articles/'+ id +'/' + fileName + '.jpg';
+	}
 
 	function getRandomWallpaper(){
 		UtilService.$http.get('https://www.reddit.com/r/ImaginaryWorlds/hot.json?sort=top&t=week')
