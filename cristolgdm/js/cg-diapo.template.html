@@ -8,8 +8,8 @@
 			ng-class="{'while-loading': diaporama.isLoading}"></img>
 	</a>
 
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.selectPreviousImage()" ng-if="::diaporama.imageService.getAllImages().length > 1"/>
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.selectNextImage()" ng-if="::diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.selectPreviousImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.selectNextImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
 
 	<div class="diaporama--bottom-section">
 
@@ -17,8 +17,8 @@
 			<img src="/icons/thick-arrow.png" class="diaporama--close-preview" ng-click="diaporama.closePreview = !diaporama.closePreview" ng-if="diaporama.imageService.getAllImages().length > 1"/>
 			{{diaporama.imageService.getCurrentImage().caption}}
 		</div>
-		<div class="diaporama--other-pictures" ng-if="::diaporama.imageService.getAllImages().length > 1">
-			<div ng-repeat="preview in ::diaporama.imageService.getAllImages()"
+		<div class="diaporama--other-pictures" ng-if="diaporama.imageService.getAllImages().length > 1">
+			<div ng-repeat="preview in diaporama.imageService.getAllImages()"
 				class="diaporama--other-picture"
 				ng-class="{'selected': preview.src === diaporama.imageService.getCurrentImage().src}"
 				ng-style="{'background-image' : 'url(' + preview.src + ')'}"
