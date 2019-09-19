@@ -69,6 +69,12 @@
 	opacity: 0;
 }
 
+.diaporama--arrow,
+.diaporama--close,
+.diaporama--close-preview {
+	filter: brightness(0) saturate(100%) invert(71%) sepia(79%) saturate(373%) hue-rotate(131deg) brightness(92%) contrast(88%);
+}
+
 .diaporama--arrow {
 	position: fixed;
 	top: calc(50% - 50px);
@@ -110,18 +116,18 @@
 	display: inline-block;
 	width: 75px;
 	height: 75px;
-	border: #6495ed 3px solid;
-	border-radius: 15px;
+	border: #45D3DD 3px solid;
+	border-radius: 5px;
 	background-size: cover;
 	background-position: 50%;
 	cursor: pointer;
 	transition: border-color linear .1s, height linear .2s;
 }
 .diaporama--other-picture:hover {
-	border-color: #8BB0F4;
+	border-color: #96E0E6;
 }
 .diaporama--other-picture.selected {
-	border-color: #FFC65C;
+	border-color: #FF5C92;
 }
 
 .diaporama--close-preview {
