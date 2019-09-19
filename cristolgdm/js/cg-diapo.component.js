@@ -47,6 +47,7 @@ function diapoComponentController(ImageService, $timeout){
 	}
 
 	function setCurrentImage(src, caption){
+		if(src === ImageService.getCurrentImage().src) return;
 		view.isLoading = true;
 		$timeout(function(){
 			ImageService.setCurrentImage(src, caption);
