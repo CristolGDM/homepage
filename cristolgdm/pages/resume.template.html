@@ -1,4 +1,13 @@
-<div class="resume-page article-content">
+<div class="resume-page article-content" ng-class="{'print': control.isPrint}">
+
+	<a ng-if="!control.isPrint" ng-click="control.isPrint = true" class="resume--print-control">Printer-friendly version</a>
+	<div ng-if="control.isPrint" class="resume--contact">
+		<h1>Cristol Grosdemouge-Ishikawa</h1>
+		<p>cristol.gdm@gmail.com<br />
+			070-4092-0204<br />
+			<a href="https://www.linkedin.com/in/cristolgdm/">LinkedIn profile</a></p>
+	</div>
+
 	<h2>Professional Experience</h2>
 
 	<div class="resume--unit">

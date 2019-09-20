@@ -1,4 +1,8 @@
 /* RESUME PAGE */
+.resume-page h1 {
+	font-size: 30px;
+	margin-bottom: 0px;
+}
 .resume-page h2 {
 	font-size: 30px;
 	margin-bottom: 15px;
@@ -11,6 +15,18 @@
 .resume-page h4 {
 	margin-top: 0;
 	margin-bottom: 10px;
+}
+
+.resume--print-control {
+	margin-bottom: 25px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.resume--contact p {
+	margin: 0;
+	padding-left: 5px;
+	margin-bottom: 30px;
 }
 
 .resume--unit {
