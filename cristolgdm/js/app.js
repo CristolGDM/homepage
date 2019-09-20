@@ -14,6 +14,7 @@ require([
 	'cg-diapo.component',
 	'cg-figure.component',
 	'cg-header.component',
+	'cg-resume.component',
 	'cg-code.directive'
 	]);
 
@@ -32,6 +33,7 @@ angular.module('app',requiredServices)
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)
 	.component('cgHeader', headerComponent)
+	.component('cgResume', resumeComponent)
 
 	.directive('cgCode', codeDirective)
 
@@ -58,6 +60,11 @@ angular.module('app',requiredServices)
 				url: '/resume',
 				cache: !debugMode,
 				templateUrl: 'pages/resume.template.html' + cacheBuster
+			})
+			.state('resume-print', {
+				url: '/resume-print',
+				cache: !debugMode,
+				templateUrl: 'pages/resume-print.template.html' + cacheBuster
 			})
 			.state('contact', {
 				url: '/contact',
