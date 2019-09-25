@@ -2,6 +2,11 @@ var varData = {
 	title: ["Cristol GDM", "Tokyo based JavaScript/Angular developer with a UX background"],
 	articles: [
 		{
+			title: "Learning how to learn",
+			id: "learn-to-learn",
+			date: "July 2019"
+		},
+		{
 			title: "Self-loading controllers in AngularJS",
 			blurb: "In this article, we are going to talk about controllers, their parent app, and freedom. Should controllers be able to load themselves? And if so, how?",
 			id: "self-loading-cont",

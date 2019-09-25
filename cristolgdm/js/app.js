@@ -93,6 +93,11 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/imensana/template.html' + cacheBuster
 			})
+			.state('learn-to-learn', {
+				url: '/learning-how-to-learn',
+				cache: !debugMode,
+				templateUrl: 'articles/learn-to-learn/template.html' + cacheBuster
+			})
 			.state('red-cross', {
 				url: '/red-cross-donor-app',
 				cache: !debugMode,
