@@ -64,10 +64,10 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/game-dat/template.html' + cacheBuster
 			})
-			.state('wardogs-mvp', {
-				url: '/you-should-do-mvp',
+			.state('mhr-hack-affil', {
+				url: '/mhr-hacking-affiliations',
 				cache: !debugMode,
-				templateUrl: 'articles/wardogs-mvp/template.html' + cacheBuster
+				templateUrl: 'articles/mhr-hack-affil/template.html?v=' + cacheBuster
 			})
 			.state('rpg-shonen', {
 				url: '/shonen-tabletop-analysis',
@@ -79,10 +79,10 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/shadowrun-overprep/template.html?v=' + cacheBuster
 			})
-			.state('mhr-hack-affil', {
-				url: '/mhr-hacking-affiliations',
+			.state('wardogs-mvp', {
+				url: '/you-should-do-mvp',
 				cache: !debugMode,
-				templateUrl: 'articles/mhr-hack-affil/template.html?v=' + cacheBuster
+				templateUrl: 'articles/wardogs-mvp/template.html' + cacheBuster
 			})
 
 		$locationProvider.html5Mode(!debugMode);
