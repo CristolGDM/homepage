@@ -26,7 +26,7 @@
 				<div class="side-menu--line" ui-sref="resume" ng-if="control.currentState !== 'resume'">RESUME</div>
 				<div class="side-menu--line" ui-sref="contact" ng-if="control.currentState !== 'contact'">CONTACT</div>
 				<div class="side-menu--line" ui-sref="about" ng-if="control.currentState !== 'about'">ABOUT</div>
-				<div class="side-menu--line" ng-click="control.switchDarkMode()">DARK MODE</div>
+				<div class="side-menu--line" ng-click="control.switchDarkMode()"><span ng-if="control.darkMode">LIGHT</span><span ng-if="!control.darkMode">DARK</span> MODE</div>
 			</div>
 
 			<div class="side-menu--underlay" ng-if="control.sideMenuOpened" ng-click="control.sideMenuOpened = !control.sideMenuOpened"></div>
