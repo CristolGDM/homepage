@@ -69,8 +69,7 @@ var MainController = function($scope, ImageService, UtilService){
 			.then(function(response){
 				var img = randArray(response.data.data.children).data;
 				view.coolImage = img;
-
-				if(location.hostname === "cristolgdm" || location.port === "8081") {
+				if(location.hostname.indexOf("cristolgdm") > -1 || location.port === "8081") {
 					return;
 				}
 

@@ -2,7 +2,7 @@
 
 var templateUrlPrefix = "./";
 
-if(location.hostname === "pixel-breath" || location.port === "8080") {
+if(location.hostname.indexOf("pixel-breath") > -1 || location.port === "8080") {
 	templateUrlPrefix += "cristolgdm/";
 }
 
