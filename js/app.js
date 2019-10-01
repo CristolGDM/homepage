@@ -64,6 +64,11 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'articles/game-dat/template.html' + cacheBuster
 			})
+			.state('wardogs-mvp', {
+				url: '/you-should-do-mvp',
+				cache: !debugMode,
+				templateUrl: 'articles/wardogs-mvp/template.html' + cacheBuster
+			})
 			.state('rpg-shonen', {
 				url: '/shonen-tabletop-analysis',
 				cache: !debugMode,
