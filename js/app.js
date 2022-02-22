@@ -1,23 +1,24 @@
 'use strict'
 
 require([
-	'./data',
+	'data',
 
 	/* Controllers */
-	'../cristolgdm/js/MainCtrl',
+	'MainCtrl',
 
 	/* Services */
-	'../cristolgdm/js/ImageService',
-	'../cristolgdm/js/UtilService',
+	'ImageService',
+	'UtilService',
 
 	/* Components & Directives */
-	'../cristolgdm/js/cg-diapo.component',
-	'../cristolgdm/js/cg-figure.component',
-	'../cristolgdm/js/cg-header.component',
-	'../cristolgdm/js/cg-code.directive'
+	'cg-diapo.component',
+	'cg-figure.component',
+	'cg-header.component',
+	'cg-resume.component',
+	'cg-code.directive'
 	]);
 
-var requiredServices = [
+const requiredServices = [
 	/* External services */
 	'ui.router',
 
@@ -32,6 +33,7 @@ angular.module('app',requiredServices)
 	.component('cgDiapo', diapoComponent)
 	.component('cgFigure', figureComponent)
 	.component('cgHeader', headerComponent)
+	.component('cgResume', resumeComponent)
 
 	.directive('cgCode', codeDirective)
 
@@ -41,12 +43,12 @@ angular.module('app',requiredServices)
 			return ""
 		});
 
-		var debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
+		const debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
 
-		var date = new Date(Date.now());
-		var hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
-		var millisecondlyBuster = "?v=" + date.getTime();
-		var cacheBuster = !debugMode ? hourlyBuster : millisecondlyBuster;
+		const date = new Date(Date.now());
+		const hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
+		const millisecondlyBuster = "?v=" + date.getTime();
+		const cacheBuster = !debugMode ? hourlyBuster : millisecondlyBuster;
 
 		$stateProvider
 			.state('home', {
@@ -54,41 +56,72 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'pages/home.template.html' + cacheBuster
 			})
+
 			.state('about', {
 				url: '/about',
 				cache: !debugMode,
 				templateUrl: 'pages/about.template.html' + cacheBuster
+			})
+			.state('contact', {
+				url: '/contact',
+				cache: !debugMode,
+				templateUrl: 'pages/contact.template.html' + cacheBuster
+			})
+			.state('resume', {
+				url: '/resume',
+				cache: !debugMode,
+				templateUrl: 'pages/resume.template.html' + cacheBuster
+			})
+			.state('resume-print', {
+				url: '/resume-print',
+				cache: !debugMode,
+				templateUrl: 'pages/resume-print.template.html' + cacheBuster
+			})
+
+			.state('adult-seo', {
+				url: '/dark-side-internet-adult-seo',
+				cache: !debugMode,
+				templateUrl: 'articles/adult-seo/template.html' + cacheBuster
 			})
 			.state('game-dat', {
 				url: '/game-conversation-simulator',
 				cache: !debugMode,
 				templateUrl: 'articles/game-dat/template.html' + cacheBuster
 			})
-			.state('mhr-hack-affil', {
-				url: '/mhr-hacking-affiliations',
+			.state('imensana', {
+				url: '/imensana-social-fitness-app',
 				cache: !debugMode,
-				templateUrl: 'articles/mhr-hack-affil/template.html?v=' + cacheBuster
+				templateUrl: 'articles/imensana/template.html' + cacheBuster
 			})
-			.state('rpg-shonen', {
-				url: '/shonen-tabletop-analysis',
+			.state('learn-to-learn', {
+				url: '/learning-how-to-learn',
 				cache: !debugMode,
-				templateUrl: 'articles/rpg-shonen/template.html' + cacheBuster
+				templateUrl: 'articles/learn-to-learn/template.html' + cacheBuster
 			})
-			.state('shadowrun-overprep', {
-				url: '/shadowrun-handling-overplanning',
+			.state('red-cross', {
+				url: '/red-cross-donor-app',
 				cache: !debugMode,
-				templateUrl: 'articles/shadowrun-overprep/template.html?v=' + cacheBuster
+				templateUrl: 'articles/red-cross/template.html' + cacheBuster
 			})
-			.state('wardogs-mvp', {
-				url: '/you-should-do-mvp',
+			.state('red-sox', {
+				url: '/red-sox-companion-app',
 				cache: !debugMode,
-				templateUrl: 'articles/wardogs-mvp/template.html' + cacheBuster
+				templateUrl: 'articles/red-sox/template.html' + cacheBuster
+			})
+			.state('robohat', {
+				url: '/robohat-an-interface-to-make-hats',
+				cache: !debugMode,
+				templateUrl: 'articles/robohat/template.html' + cacheBuster
+			})
+			.state('self-loading-cont', {
+				url: '/self-loading-controller-angularjs',
+				cache: !debugMode,
+				templateUrl: 'articles/self-loading-cont/template.html' + cacheBuster
 			})
 
 		$locationProvider.html5Mode(!debugMode);
 
 		}]);
-
 
 angular.element(document).ready(function () {
 	angular.bootstrap(document, ['app']);
