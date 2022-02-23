@@ -3,43 +3,43 @@ const varData = {
 	articles: [
 		{
 			title: "Learning how to learn",
-			id: "learn-to-learn",
+			id: "learning-how-to-learn",
 			date: "July 2019"
 		},
 		{
 			title: "Self-loading controllers in AngularJS",
 			blurb: "In this article, we are going to talk about controllers, their parent app, and freedom. Should controllers be able to load themselves? And if so, how?",
-			id: "self-loading-cont",
+			id: "self-loading-controller-angularjs",
 			date: "March 2017"
 		},
 		{
 			title: "Joining the Dark Side of Internet - UX and SEO of an adult website",
 			blurb: "This one is quite special. I was hired to redesign a website, whose main activity is media galleries, and that gets its profit through ads and partnerships. I was given full control of the site’s servers, statistics, and full power to change and modify anything I wanted. This was my first project with so much responsibilities, and it was amazing. It was also for an adult website.",
-			id: "adult-seo",
+			id: "dark-side-internet-adult-seo",
 			date: "August 2015"
 		},
 		{
 			title: "Red Sox companion app (prototype)",
 			blurb: "The objective for this project was to create a working high-def prototype for a Fenway companion app. The app would accompany supporters, help them buy food and drinks, and give them incentive to come back for later games.",
-			id: "red-sox",
+			id: "red-sox-companion-app",
 			date: "January 2012"
 		},
 		{
 			title: "iMensana, social-fitness app (prototype)",
 			blurb: "The objective for this project was to create a high-fidelity mockup design of a fitness app intended for tablet supports. The app would try to find a new niche to occupy in the already busy fitness apps market.",
-			id: "imensana",
+			id: "imensana-social-fitness-app",
 			date: "December 2011"
 		},
 		{
 			title: "Red Cross donor app (prototype)",
 			blurb: "Another project done for a teaching course by Wiklund & Kendler. The assignment was to design a tablet app for Red Cross’ Blood Drives.",
-			id: "red-cross",
+			id: "red-cross-donor-app",
 			date: "November 2011"
 		},
 		{
 			title: "Robohat, an interface to make hats (prototype)",
 			blurb: "This first project comes from a training course by Wiklund & Kendler. The task was to create an interface for an automatic hat-making machine. The user had to be able to design a hat, preview it, and buy it.",
-			id: "robohat",
+			id: "robohat-an-interface-to-make-hats",
 			date: "October 2011"
 		}
 	]
@@ -496,20 +496,13 @@ function headerComponentController(){
 	}
 
 	function onInit(){
-		const thisId = view.id;
 		const articles = varData.articles;
-		let thisArticle;
 
 		if(view.id != null && view.id.length > 1) {
-			for (let i = 0; i < articles.length; i++) {
-				if(articles[i].id === thisId) {
-					thisArticle = articles[i];
-					break;
-				}
-			}
+			const {title, date} = articles.find((article) => {return article.id === view.id});
 
-			view.title = thisArticle.title;
-			view.date = thisArticle.date;
+			view.title = title;
+			view.date = date;
 		}
 	}
 };
@@ -790,45 +783,40 @@ angular.module('app',requiredServices)
 				templateUrl: 'pages/resume-print.template.html' + cacheBuster
 			})
 
-			.state('adult-seo', {
+			.state('dark-side-internet-adult-seo', {
 				url: '/dark-side-internet-adult-seo',
 				cache: !debugMode,
-				templateUrl: 'articles/adult-seo/template.html' + cacheBuster
+				templateUrl: 'articles/dark-side-internet-adult-seo/template.html' + cacheBuster
 			})
-			.state('game-dat', {
-				url: '/game-conversation-simulator',
-				cache: !debugMode,
-				templateUrl: 'articles/game-dat/template.html' + cacheBuster
-			})
-			.state('imensana', {
+			.state('imensana-social-fitness-app', {
 				url: '/imensana-social-fitness-app',
 				cache: !debugMode,
-				templateUrl: 'articles/imensana/template.html' + cacheBuster
+				templateUrl: 'articles/imensana-social-fitness-app/template.html' + cacheBuster
 			})
-			.state('learn-to-learn', {
+			.state('learning-how-to-learn', {
 				url: '/learning-how-to-learn',
 				cache: !debugMode,
-				templateUrl: 'articles/learn-to-learn/template.html' + cacheBuster
+				templateUrl: 'articles/learning-how-to-learn/template.html' + cacheBuster
 			})
-			.state('red-cross', {
+			.state('red-cross-donor-app', {
 				url: '/red-cross-donor-app',
 				cache: !debugMode,
 				templateUrl: 'articles/red-cross/template.html' + cacheBuster
 			})
-			.state('red-sox', {
+			.state('red-sox-companion-app', {
 				url: '/red-sox-companion-app',
 				cache: !debugMode,
-				templateUrl: 'articles/red-sox/template.html' + cacheBuster
+				templateUrl: 'articles/red-sox-companion-app/template.html' + cacheBuster
 			})
-			.state('robohat', {
+			.state('robohat-an-interface-to-make-hats', {
 				url: '/robohat-an-interface-to-make-hats',
 				cache: !debugMode,
-				templateUrl: 'articles/robohat/template.html' + cacheBuster
+				templateUrl: 'articles/robohat-an-interface-to-make-hats/template.html' + cacheBuster
 			})
-			.state('self-loading-cont', {
+			.state('self-loading-controller-angularjs', {
 				url: '/self-loading-controller-angularjs',
 				cache: !debugMode,
-				templateUrl: 'articles/self-loading-cont/template.html' + cacheBuster
+				templateUrl: 'articles/self-loading-controller-angularjs/template.html' + cacheBuster
 			})
 
 		$locationProvider.html5Mode(!debugMode);

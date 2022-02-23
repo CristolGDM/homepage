@@ -78,45 +78,40 @@ angular.module('app',requiredServices)
 				templateUrl: 'pages/resume-print.template.html' + cacheBuster
 			})
 
-			.state('adult-seo', {
+			.state('dark-side-internet-adult-seo', {
 				url: '/dark-side-internet-adult-seo',
 				cache: !debugMode,
-				templateUrl: 'articles/adult-seo/template.html' + cacheBuster
+				templateUrl: 'articles/dark-side-internet-adult-seo/template.html' + cacheBuster
 			})
-			.state('game-dat', {
-				url: '/game-conversation-simulator',
-				cache: !debugMode,
-				templateUrl: 'articles/game-dat/template.html' + cacheBuster
-			})
-			.state('imensana', {
+			.state('imensana-social-fitness-app', {
 				url: '/imensana-social-fitness-app',
 				cache: !debugMode,
-				templateUrl: 'articles/imensana/template.html' + cacheBuster
+				templateUrl: 'articles/imensana-social-fitness-app/template.html' + cacheBuster
 			})
-			.state('learn-to-learn', {
+			.state('learning-how-to-learn', {
 				url: '/learning-how-to-learn',
 				cache: !debugMode,
-				templateUrl: 'articles/learn-to-learn/template.html' + cacheBuster
+				templateUrl: 'articles/learning-how-to-learn/template.html' + cacheBuster
 			})
-			.state('red-cross', {
+			.state('red-cross-donor-app', {
 				url: '/red-cross-donor-app',
 				cache: !debugMode,
 				templateUrl: 'articles/red-cross/template.html' + cacheBuster
 			})
-			.state('red-sox', {
+			.state('red-sox-companion-app', {
 				url: '/red-sox-companion-app',
 				cache: !debugMode,
-				templateUrl: 'articles/red-sox/template.html' + cacheBuster
+				templateUrl: 'articles/red-sox-companion-app/template.html' + cacheBuster
 			})
-			.state('robohat', {
+			.state('robohat-an-interface-to-make-hats', {
 				url: '/robohat-an-interface-to-make-hats',
 				cache: !debugMode,
-				templateUrl: 'articles/robohat/template.html' + cacheBuster
+				templateUrl: 'articles/robohat-an-interface-to-make-hats/template.html' + cacheBuster
 			})
-			.state('self-loading-cont', {
+			.state('self-loading-controller-angularjs', {
 				url: '/self-loading-controller-angularjs',
 				cache: !debugMode,
-				templateUrl: 'articles/self-loading-cont/template.html' + cacheBuster
+				templateUrl: 'articles/self-loading-controller-angularjs/template.html' + cacheBuster
 			})
 
 		$locationProvider.html5Mode(!debugMode);

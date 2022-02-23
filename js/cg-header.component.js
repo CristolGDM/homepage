@@ -36,20 +36,13 @@ function headerComponentController(){
 	}
 
 	function onInit(){
-		const thisId = view.id;
 		const articles = varData.articles;
-		let thisArticle;
 
 		if(view.id != null && view.id.length > 1) {
-			for (let i = 0; i < articles.length; i++) {
-				if(articles[i].id === thisId) {
-					thisArticle = articles[i];
-					break;
-				}
-			}
+			const {title, date} = articles.find((article) => {return article.id === view.id});
 
-			view.title = thisArticle.title;
-			view.date = thisArticle.date;
+			view.title = title;
+			view.date = date;
 		}
 	}
 }
