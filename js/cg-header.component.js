@@ -32,17 +32,19 @@ function headerComponentController(){
 		if (isReallySmallScreen) fileName += "_portrait";
 		else if (isSmallScreen) fileName += "_small";
 
-		return 'articles/'+ view.id +'/' + fileName + '.jpg';
+		return `articles/${view.id}/${fileName}.jpg`
 	}
 
 	function onInit(){
 		const articles = varData.articles;
 
-		if(view.id != null && view.id.length > 1) {
-			const {title, date} = articles.find((article) => {return article.id === view.id});
-
-			view.title = title;
-			view.date = date;
+		if(!view.id || !view.id.length) {
+			return;
 		}
+
+		const {title, date} = articles.find((article) => {return article.id === view.id});
+
+		view.title = title;
+		view.date = date;
 	}
 }

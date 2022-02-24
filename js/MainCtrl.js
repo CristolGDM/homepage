@@ -78,13 +78,13 @@ const MainController = function($scope, ImageService, UtilService){
 					const art = title.slice(0, index);
 					const artist = title.slice(index + 4, title.length);
 
-					titleString = "%c" + art + "%c by %c" + artist
+					titleString = `%c${art}%c by %c${artist}`
 				}
 				else {
-					titleString = "%c%c%c" + title;
+					titleString = `%c%c%c${title}`;
 				}
 
-				const backgroundStyle = "margin-top: 15px;"
+				let backgroundStyle = "margin-top: 15px;"
 									+ "padding-right:150px;"
 									+ "padding-left: 150px;"
 									+ "padding-top:90px;"
@@ -97,7 +97,7 @@ const MainController = function($scope, ImageService, UtilService){
 					backgroundStyle += "line-height: 225px";
 				}
 
-				console.log("%c %c\nHeader image is " + titleString + "%c.\n%cYou can find more at:\n\n%chttps://www.reddit.com" + img.permalink +"\n\n", 
+				console.log(`%c %c\nHeader image is ${titleString}%c.\n%cYou can find more at:\n\n%chttps://www.reddit.com${img.permalink}\n\n`, 
 					backgroundStyle,
 					"font-size: 14px; line-height: 25px; padding-top: 05px;",
 					"font-size: 14px; line-height: 25px; color: #45D3DD",

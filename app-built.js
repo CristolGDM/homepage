@@ -259,16 +259,15 @@ const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		/************ START PROCESS ************/
 		$transitions.onSuccess({}, function(){
 			const images = document.getElementsByTagName('cg-figure');
-			allImages = [];
-
-			for (let i = 0; i < images.length; i++) {
-				allImages.push({
-					src: images[i].getAttribute("src"),
-					caption: images[i].getAttribute("caption")
-				})
-
-				allImagesDictionary[images[i].getAttribute("src")] = images[i].getAttribute("caption");
+			if(!images) {
+				return;
 			}
+			allImages = Array.from(images).map((image) => {
+				allImagesDictionary[image.getAttribute("src")] = image.getAttribute("caption");
+				return {
+				src: image.getAttribute("src"),
+				caption: image.getAttribute("caption")
+			}});
 		})
 
 		$transitions.onStart({}, function(){
@@ -301,45 +300,21 @@ const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 		}
 
 		function selectNextImage(){
-			let nextImage;
+			const currentImageIndex = allImages.findIndex((image) => {return image.src === currentImage.src});
+			const nextImageIndex = currentImageIndex === -1 ? currentImageIndex
+			 : currentImageIndex === allImages.length -1 ? 0 : currentImageIndex +1;
 
-			for (let i = 0; i < allImages.length; i++) {
-				if(allImages[i].src === currentImage.src) {
-					if (i === allImages.length -1) {
-						nextImage = allImages[0];
-						break;
-					}
-					else {
-						nextImage = allImages[i+1];
-						break;
-					}
-				}
-			}
-
-			if(nextImage != null) {
-				setCurrentImage(nextImage.src, nextImage.caption);
-			}
+			const nextImage = allImages[nextImageIndex];
+			setCurrentImage(nextImage.src, nextImage.caption);
 		}
 
 		function selectPreviousImage(){
-			let previousImage;
+			const currentImageIndex = allImages.findIndex((image) => {return image.src === currentImage.src});
+			const previousImageIndex = currentImageIndex === -1 ? currentImageIndex
+			 : currentImageIndex === 0 ? allImages.length -1 : currentImageIndex -1;
 
-			for (let i = 0; i < allImages.length; i++) {
-				if(allImages[i].src === currentImage.src) {
-					if (i === 0) {
-						previousImage = allImages[allImages.length -1];
-						break;
-					}
-					else {
-						previousImage = allImages[i-1];
-						break;
-					}
-				}
-			}
-
-			if(previousImage != null) {
-				setCurrentImage(previousImage.src, previousImage.caption);
-			}
+			const previousImage = allImages[previousImageIndex];
+			setCurrentImage(previousImage.src, previousImage.caption);
 		}
 
 		function setCurrentImage(src, caption) {
@@ -492,18 +467,20 @@ function headerComponentController(){
 		if (isReallySmallScreen) fileName += "_portrait";
 		else if (isSmallScreen) fileName += "_small";
 
-		return 'articles/'+ view.id +'/' + fileName + '.jpg';
+		return `articles/${view.id}/${fileName}.jpg`
 	}
 
 	function onInit(){
 		const articles = varData.articles;
 
-		if(view.id != null && view.id.length > 1) {
-			const {title, date} = articles.find((article) => {return article.id === view.id});
-
-			view.title = title;
-			view.date = date;
+		if(!view.id || !view.id.length) {
+			return;
 		}
+
+		const {title, date} = articles.find((article) => {return article.id === view.id});
+
+		view.title = title;
+		view.date = date;
 	}
 };
 define("cg-header.component", function(){});
@@ -748,12 +725,12 @@ angular.module('app',requiredServices)
 			return ""
 		});
 
-		const debugMode = location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "";
+    const debugMode = !location.hostname.includes('cristol');
 
-		const date = new Date(Date.now());
-		const hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
-		const millisecondlyBuster = "?v=" + date.getTime();
-		const cacheBuster = !debugMode ? hourlyBuster : millisecondlyBuster;
+    const date = new Date(Date.now());
+    const hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
+    const millisecondlyBuster = "?v=" + date.getTime();
+    const cacheBuster = debugMode ? millisecondlyBuster : hourlyBuster;
 
 		$stateProvider
 			.state('home', {
@@ -761,7 +738,6 @@ angular.module('app',requiredServices)
 				cache: !debugMode,
 				templateUrl: 'pages/home.template.html' + cacheBuster
 			})
-
 			.state('about', {
 				url: '/about',
 				cache: !debugMode,
@@ -781,43 +757,17 @@ angular.module('app',requiredServices)
 				url: '/resume-print',
 				cache: !debugMode,
 				templateUrl: 'pages/resume-print.template.html' + cacheBuster
-			})
+			});
 
-			.state('dark-side-internet-adult-seo', {
-				url: '/dark-side-internet-adult-seo',
+		varData.articles.map((article) => {
+			const {id} = article;
+			$stateProvider
+			.state(id, {
+				url: `/${id}`,
 				cache: !debugMode,
-				templateUrl: 'articles/dark-side-internet-adult-seo/template.html' + cacheBuster
+				templateUrl: `articles/${id}/template.html?v=${cacheBuster}`
 			})
-			.state('imensana-social-fitness-app', {
-				url: '/imensana-social-fitness-app',
-				cache: !debugMode,
-				templateUrl: 'articles/imensana-social-fitness-app/template.html' + cacheBuster
-			})
-			.state('learning-how-to-learn', {
-				url: '/learning-how-to-learn',
-				cache: !debugMode,
-				templateUrl: 'articles/learning-how-to-learn/template.html' + cacheBuster
-			})
-			.state('red-cross-donor-app', {
-				url: '/red-cross-donor-app',
-				cache: !debugMode,
-				templateUrl: 'articles/red-cross/template.html' + cacheBuster
-			})
-			.state('red-sox-companion-app', {
-				url: '/red-sox-companion-app',
-				cache: !debugMode,
-				templateUrl: 'articles/red-sox-companion-app/template.html' + cacheBuster
-			})
-			.state('robohat-an-interface-to-make-hats', {
-				url: '/robohat-an-interface-to-make-hats',
-				cache: !debugMode,
-				templateUrl: 'articles/robohat-an-interface-to-make-hats/template.html' + cacheBuster
-			})
-			.state('self-loading-controller-angularjs', {
-				url: '/self-loading-controller-angularjs',
-				cache: !debugMode,
-				templateUrl: 'articles/self-loading-controller-angularjs/template.html' + cacheBuster
-			})
+		})
 
 		$locationProvider.html5Mode(!debugMode);
 
