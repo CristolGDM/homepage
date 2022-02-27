@@ -146,6 +146,8 @@ export const MainController = function($scope, ImageService, UtilService){
 			getRandomWallpaper();
 		}
 
+		addKeyListeners();
+
 		UtilService.$timeout(function(){
 			view.hasFinishedLoading = true;
 		}, 1000);
@@ -190,6 +192,21 @@ export const MainController = function($scope, ImageService, UtilService){
 
 	function shouldShowSideMenu(){
 		return !ImageService.shouldShowFullscreen();
+	}
+
+	function addKeyListeners() {
+		document.addEventListener('keyup', (e) => {
+			if (e.code === "ArrowLeft") {
+				ImageService.selectPreviousImage();
+			}
+			else if (e.code === "ArrowRight") {
+				ImageService.selectNextImage();
+			}
+			else if (e.code === "Escape") {
+				ImageService.hideFullScreen();
+			}
+			$scope.$apply();
+		});
 	}
 
 	function switchDarkMode() {

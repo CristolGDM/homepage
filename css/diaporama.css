@@ -51,18 +51,22 @@
 
 .diaporama--main-image {
 	max-width: 100%;
-	max-height: calc(100% - 136px);
+	max-height: 100%;
 	cursor: pointer;
 	transition: transform linear .1s, opacity linear .2s, max-height linear .2s, bottom linear .2s;
 	margin: auto;
 	position: absolute;
 	top: 0;
-	bottom: 136px;
+	bottom: 0;
 	left: 0;
 	right: 0;
 	opacity: 1;
 }
-.diaporama--main-image:hover {
+.diaporama--main-image.in-slideshow {
+	max-height: calc(100% - 136px);
+	bottom: 0;
+}
+.diaporama--main-image.in-slideshow:hover {
 	transform: scale(1.01);
 }
 .diaporama--main-image.while-loading{

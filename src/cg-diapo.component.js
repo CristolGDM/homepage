@@ -6,6 +6,7 @@ export const diapoComponent = {
 	controller: ['ImageService', '$timeout', diapoComponentController],
 	controllerAs: "diaporama",
 	bindings: {
+		showSlideshow: '@'
 	},
 	template: html
 }

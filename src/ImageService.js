@@ -4,7 +4,6 @@ export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 
 		/************** CONSTANTS **************/
 		let allImages = [];
-		const allImagesDictionary = {};
 		let currentImage = {};
 		let fullScreenShown = false;
 
@@ -15,20 +14,21 @@ export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 				return;
 			}
 			allImages = Array.from(images).map((image) => {
-				allImagesDictionary[image.getAttribute("src")] = image.getAttribute("caption");
 				return {
-				src: image.getAttribute("src"),
+				src: getSrc(image.getAttribute("src")),
 				caption: image.getAttribute("caption")
 			}});
 		})
 
 		$transitions.onStart({}, function(){
 			hideFullScreen();
+			allImages = [];
 		})
 
 		return {
 			getAllImages: getAllImages,
 			getCurrentImage: getCurrentImage,
+			getSrc: getSrc,
 			hideFullScreen: hideFullScreen,
 			selectNextImage: selectNextImage,
 			selectPreviousImage: selectPreviousImage,
@@ -75,7 +75,6 @@ export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 				src: src,
 				caption: caption
 			};
-
 		}
 
 		function shouldShowFullscreen(){
@@ -84,5 +83,16 @@ export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 
 		function showFullScreen(){
 			fullScreenShown = true;
+		}
+
+		function getSrc(src) {
+			if(src.indexOf("/") > -1) {
+				return src;
+			}
+			const folderName = location.href.split("/").pop();
+			if(!folderName) {
+				return '';
+			}
+			return `articles/${folderName}/${src}`;
 		}
 	}]);

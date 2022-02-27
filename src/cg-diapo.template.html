@@ -5,13 +5,13 @@
 		<span class="diaporama--click-open-message">(Click on the image to open it in a new tab)</span>
 		<img ng-src="{{diaporama.imageService.getCurrentImage().src}}" 
 			class="diaporama--main-image"
-			ng-class="{'while-loading': diaporama.isLoading}"></img>
+			ng-class="{'while-loading': diaporama.isLoading, 'in-slideshow': diaporama.showSlideshow}"></img>
 	</a>
 
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.selectPreviousImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
-	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.selectNextImage()" ng-if="diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow left" ng-click="diaporama.selectPreviousImage()" ng-if="diaporama.showSlideshow && diaporama.imageService.getAllImages().length > 1"/>
+	<img src="/icons/thick-arrow.png" class="diaporama--arrow right" ng-click="diaporama.selectNextImage()" ng-if="diaporama.showSlideshow && diaporama.imageService.getAllImages().length > 1"/>
 
-	<div class="diaporama--bottom-section">
+	<div class="diaporama--bottom-section" ng-if="diaporama.showSlideshow">
 
 		<div class="diaporama--caption">
 			<img src="/icons/thick-arrow.png" class="diaporama--close-preview" ng-click="diaporama.closePreview = !diaporama.closePreview" ng-if="diaporama.imageService.getAllImages().length > 1"/>

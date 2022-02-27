@@ -25,13 +25,12 @@ function figureComponentController(ImageService){
 	/***************** LISTENERS *****************/
 
 	/********** FUNCTIONS DECLARATIONS ***********/
-	function maximizePicture() {
-		ImageService.setCurrentImage(view.src, view.caption);
-		ImageService.showFullScreen();
+	function getSrc() {
+		return ImageService.getSrc(view.src);
 	}
 
-	function getSrc() {
-		const folderName = location.href.split("/").pop();
-		return `articles/${folderName}/${view.src}`;
+	function maximizePicture() {
+		ImageService.setCurrentImage(ImageService.getSrc(view.src), view.caption);
+		ImageService.showFullScreen();
 	}
 }
