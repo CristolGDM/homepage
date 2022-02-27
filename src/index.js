@@ -1,22 +1,19 @@
 'use strict'
 
-require([
-	'data',
+import {varData} from './data';
 
-	/* Controllers */
-	'MainCtrl',
+import {MainController} from './MainCtrl';
 
-	/* Services */
-	'ImageService',
-	'UtilService',
+import {ImageServiceProvider} from './ImageService';
+import {UtilServiceProvider} from './UtilService';
 
-	/* Components & Directives */
-	'cg-diapo.component',
-	'cg-figure.component',
-	'cg-header.component',
-	'cg-resume.component',
-	'cg-code.directive'
-	]);
+import styles from "../css/style.css";
+
+import {codeDirective} from './cg-code.directive';
+import {diapoComponent} from './cg-diapo.component';
+import {figureComponent} from './cg-figure.component';
+import {headerComponent} from './cg-header.component';
+import {resumeComponent} from './cg-resume.component';
 
 const requiredServices = [
 	/* External services */

@@ -1,5 +1,5 @@
 'use strict';
-const ImageServiceProvider = angular.module('ImageServiceProvider', [])
+export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 	.factory('ImageService', ['$transitions', function ($transitions) {
 
 		/************** CONSTANTS **************/

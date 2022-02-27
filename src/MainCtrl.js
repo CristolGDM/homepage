@@ -1,10 +1,11 @@
-const MainController = function($scope, ImageService, UtilService){
+import {varData as data} from './data';
+
+export const MainController = function($scope, ImageService, UtilService){
 
 	/*******************/
 	/* Local variables */
 	/*******************/
 	const view = this;
-	const data = varData;
 	const isSmallScreen = getComputedStyle(document.getElementById("js-mobile-detection")).display !== "none";
 	const isReallySmallScreen = window.innerWidth < 500;
 

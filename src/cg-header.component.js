@@ -1,12 +1,15 @@
 'use strict';
 
-const headerComponent = {
+import {varData} from './data';
+import html from './cg-header.template.html';
+
+export const headerComponent = {
 	controller: headerComponentController,
 	controllerAs: "header",
 	bindings: {
 		id: "@"
 	},
-	templateUrl: "./js/cg-header.template.html"
+	template: html
 }
 
 function headerComponentController(){

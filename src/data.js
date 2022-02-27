@@ -1,4 +1,4 @@
-const varData = {
+export const varData = {
 	title: ["Cristol GDM", "Tokyo based JavaScript/Angular developer with a UX background"],
 	articles: [
 		{

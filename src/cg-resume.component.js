@@ -1,9 +1,11 @@
 'use strict';
 
-const resumeComponent = {
+import html from './cg-resume.template.html';
+
+export const resumeComponent = {
 	bindings: {
 	},
-	templateUrl: "./js/cg-resume.template.html"
+	template: html
 }
 
 function resumeController(){

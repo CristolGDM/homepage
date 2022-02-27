@@ -1,5 +1,5 @@
 'use strict';
-const UtilServiceProvider = angular.module('UtilServiceProvider', [])
+export const UtilServiceProvider = angular.module('UtilServiceProvider', [])
 	.factory('UtilService', ['$transitions', '$state', '$timeout', '$http', function ($transitions, $state, $timeout, $http) {
 
 		return {

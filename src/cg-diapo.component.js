@@ -1,11 +1,13 @@
 'use strict';
 
-const diapoComponent = {
+import html from './cg-diapo.template.html'
+
+export const diapoComponent = {
 	controller: ['ImageService', '$timeout', diapoComponentController],
 	controllerAs: "diaporama",
 	bindings: {
 	},
-	templateUrl: "./js/cg-diapo.template.html"
+	template: html
 }
 
 function diapoComponentController(ImageService, $timeout){

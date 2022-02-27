@@ -1,13 +1,15 @@
 'use strict';
 
-const figureComponent = {
+import html from './cg-figure.template.html';
+
+export const figureComponent = {
 	controller: ['ImageService', figureComponentController],
 	controllerAs: "figure",
 	bindings: {
 		src: '@',
 		caption: '@'
 	},
-	templateUrl: "./js/cg-figure.template.html"
+	template: html
 }
 
 function figureComponentController(ImageService){

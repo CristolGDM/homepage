@@ -1,4 +1,4 @@
-function codeDirective() {
+export function codeDirective() {
 	let fileName = "";
 
 	return {

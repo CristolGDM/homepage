@@ -1,13 +1,13 @@
-@import url('./general.css')
-@import url('./articles.css')
-@import url('./diaporama.css')
-@import url('./footer.css')
-@import url('./side-menu.css')
-@import url('./code-component.css')
-@import url('./figure-component.css')
-@import url('./main-page.css')
-@import url('./resume-page.css')
-@import url('./dark-mode.css')
+@import './general.css';
+@import './articles.css';
+@import './diaporama.css';
+@import './footer.css';
+@import './side-menu.css';
+@import './code-component.css';
+@import './figure-component.css';
+@import './main-page.css';
+@import './resume-page.css';
+@import './dark-mode.css';
 
 /* Specific styles after */
-@import url('./header.css')
+@import './header.css';
