@@ -1,0 +1,76 @@
+<div class="article">
+	<cg-diapo></cg-diapo>
+
+	<cg-header id="you-should-do-mvp"></cg-header>
+
+	<div class="article-content">
+
+		<h3>The idea</h3>
+		<p>I believe you can't make a RPG without being able to make FF6; and you can't make FF6 without making at least a dungeon and a dialog.</p>
+
+		<p>So when I started being a bit more serious with making games, I came with this idea of trying to do a Minimum Viable Product, which is a common concept in my professional life: instead of trying to make the biggest game, instead of trying to focus on one feature, I would make the smallest game I could make, but I would finish it.</p>
+
+		<p>The idea would be to identify all the minimum required features for that kind of game, and implement at least one of each. Logically this would allow me to see how much time everything takes, and once something is implemented once it's easier to scale to bigger things.</p>
+
+		<p>My first try for this was to do a JRPG. The minimum features for this kind of games are:</p>
+
+		<ul>
+			<li>Moving to different areas -> it needs <strong>at least two areas</strong></li>
+			<li>Talking to NPCs -> it needs <strong>at least one NPC</strong> to talk to</li>
+			<li>Watching cutscenes/dialogs -> it needs <strong>at least one cutscene/dialog</strong></li>
+			<li>Fighting different enemies -> it needs <strong>at least two encounters</strong>, with <strong>at least two different enemies</strong></li>
+			<li>Finding items -> it needs <strong>at least one chest</strong></li>
+			<li>Equipping different items -> it needs <strong>at least two items</strong></li>
+			<li>Leveling up -> it needs <strong>at least one level-up</strong></li>
+			<li>Using differents skills -> it needs <strong>at least two skills</strong></li>
+			<li>Fighting bosses -> it needs <strong>at least one boss</strong></li>
+		</ul>
+
+		<p>This sounds about right. Remove one of those, and it feels like it's missing a big part. On the other hand adding more doesn't feel necessary either. That sounds like a good MVP.</p>
+
+		<h3>The actual project</h3>
+
+		<p>The project was done with RPG Maker MV. My original plan was to use its assets as a placeholder, then replace everything with my own assets. As you will see pretty fast, this isn't what happened.</p>
+
+		<p>It's a pretty typical level of a pretty typical JRPG: you start in a quiet area, talk to some people, recruit one more character to your party, go to a dungeon, fight monsters, collect items, beat a boss, and watch a cutscene.</p>
+
+		<p>You can play it <a href="https://mikalichou.itch.io/wardogs" target="_blank">here</a> or look at <a href="https://github.com/CristolGDM/wardogs-ch1" target="_blank">the repository on github</a> (warning: it's RPG Maker code, so probably not very interesting).</p>
+
+		<cg-figure src="articles/you-should-do-mvp/wardogs03.png" caption=""></cg-figure>
+
+		<h3>Positive results</h3>
+
+		<p>Overall I would say it was a success. While the game is definitely not good, and I still ended up way out of scope compared to my expactations (see below), the game is actually <em>finished</em>.</p>
+
+		<p>It also means that I realized I was getting out of scope <em>before</em> getting carried months into it, which is a great result in my opinion.</p>
+
+		<p>And finally, it taught me a lot about how much time things take, what are my strong and weak points, etc. This is knowledge that helped in all the following projects.</p>
+
+		<cg-figure src="articles/you-should-do-mvp/header.jpg" caption=""></cg-figure>
+
+		<h3>Less positive results</h3>
+
+		<p>Well honestly it was a disaster.</p>
+
+		<p>Mainly I realized that making assets was <em>hard</em>. I knew it was difficult, and not my field, but it was still orders of magnitude harder than I thought. It took me about three months to make the walking/running animations for the main character. Then I realized I still had to do the same for the other playable character. And all the NPCs. Then I realized I also had to do sprites/animations for combat. Not only for the characters, not only for the monsters, but for the attack and skill animations too. And <em>then</em> I realized I hadn't thought yet about doing the items and about all the tiles and that's when I shelved this project.</p>
+
+		<p>So this game has one original sprite. That's it. I think it's a very good one though.</p>
+
+		<cg-figure src="articles/you-should-do-mvp/wardogs-gif.gif" caption="This game's only sprite"></cg-figure>
+
+		<p>This ended up being my main lesson from this project. Pixelart is great and has a lot of advantages, but one big disadvantage it has is that it really doesn't scale well. For example let's say you want to have 100 NPCs in your game (which is pretty low). If your moving animation is three frames (again, pretty low) and your idle pose is a single frame, that's already 1600 frames you have to do (3 moving frames for each direction, plus one idle for each direction). Want to add one frame to your idle poses? That's 400 more frames to do. Want to have separate walking and running animations? 1200 more frames. And then you start counting for combat sprites, skill animations, etc.</p>
+
+		<p>I'm not saying this cannot be done, obviously, and there are ways to reduce that number (maybe your left/right animations can be mirrored, maybe you can do running animations only for playable characters, maybe you can use your idle frame as part as your walking animation, maybe you can use the same sprite in battle and in city mode, etc.). But you definitely should make those decisions <em>before</em> you start making assets. Don't just guess, count how many characters you will need, how many frames for each, and how much time per frame you need. </p>
+
+		<cg-figure src="articles/you-should-do-mvp/wardogs05.png" caption=""></cg-figure>
+
+		<h3>Conclusion</h3>
+
+		<p>I learned a lot from this. While I'm still doing pixelart, I now dedicate a lot of time at the beginning of a project to reduce as much as possible the amount of frames I will need, and to find ways to maximize the utility of every frame I make.</p>
+
+		<p>Also I got in the habit of always doing a MVP first, implementing a bit of everything until I'm confident it works <em>before</em> broadening the scope.</p>
+
+		<p>Both of those things have been helpful both in my hobby projects and my professional life. Thanks a lot, failed RPGMaker game.</p>
+
+	</div>
+</div>

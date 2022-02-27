@@ -1,0 +1,31 @@
+{
+	"title": ["Pixel Breath", "8-bit video game design and a sprinkle of tabletop"],
+  "pages" : ["about", "resume", "resume-print", "contact"],
+	"articles": [
+		{
+			"title": "Why you should do a MVP for your game",
+			"id": "you-should-do-mvp",
+			"date": "August 2019"
+		},
+		{
+			"title": "A web-based conversation \"simulator\"",
+			"id": "game-conversation-simulator",
+			"date": "August 2018"
+		},
+		{
+			"title": "Is there a good shonen tabletop?",
+			"id": "shonen-tabletop-analysis",
+			"date": "November 2016"
+		},
+		{
+			"title": "Handling over-planning in Shadowrun",
+			"id": "shadowrun-handling-overplanning",
+			"date": "October 2014"
+		},
+		{
+			"title": "Hacking MHR affiliations",
+			"id": "mhr-hacking-affiliations",
+			"date": "September 2014"
+		}
+	]
+}

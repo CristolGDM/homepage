@@ -1,4 +1,4 @@
-import {varData as data} from './data';
+import {httpGetAsync} from './utils';
 
 export const MainController = function($scope, ImageService, UtilService){
 
@@ -12,7 +12,7 @@ export const MainController = function($scope, ImageService, UtilService){
 	/*******************/
 	/* Scope variables */
 	/*******************/
-	view.articles = data.articles;
+	view.$onInit = onInit;
 	view.coolImage = "";
 	view.coolImageSrc = "";
 	view.currentState = "";
@@ -135,8 +135,12 @@ export const MainController = function($scope, ImageService, UtilService){
 			})
 	}
 
-	function onInit(){
-		view.titles["header"] = data.title;
+	async function onInit(){
+		const rawConfig = await httpGetAsync('./config.json');
+		const config = await JSON.parse(rawConfig);
+
+		view.articles = config.articles;
+		view.titles["header"] = config.title;
 		getWindowHeight();
 		getRandomWallpaper();
 

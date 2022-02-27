@@ -1,7 +1,5 @@
 'use strict'
 
-import {varData} from './data';
-
 import {MainController} from './MainCtrl';
 
 import {ImageServiceProvider} from './ImageService';
@@ -15,6 +13,8 @@ import {figureComponent} from './cg-figure.component';
 import {headerComponent} from './cg-header.component';
 import {resumeComponent} from './cg-resume.component';
 
+import {httpGetAsync} from './utils';
+
 const requiredServices = [
 	/* External services */
 	'ui.router',
@@ -24,70 +24,63 @@ const requiredServices = [
 	'UtilServiceProvider'
 ];
 
-angular.module('app',requiredServices)
-	.controller('MainController', ['$scope', 'ImageService', 'UtilService', MainController])
+httpGetAsync("./config.json").then(async (dataRaw) => {
+	const config = await JSON.parse(dataRaw);
 
-	.component('cgDiapo', diapoComponent)
-	.component('cgFigure', figureComponent)
-	.component('cgHeader', headerComponent)
-	.component('cgResume', resumeComponent)
+	angular.module('app',requiredServices)
+		.controller('MainController', ['$scope', 'ImageService', 'UtilService', MainController])
 
-	.directive('cgCode', codeDirective)
+		.component('cgDiapo', diapoComponent)
+		.component('cgFigure', figureComponent)
+		.component('cgHeader', headerComponent)
+		.component('cgResume', resumeComponent)
 
-	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-		/* Default entry point */
-		$urlRouterProvider.otherwise(function(){
-			return ""
-		});
+		.directive('cgCode', codeDirective)
 
-    const debugMode = !location.hostname.includes('cristol');
-
-    const date = new Date(Date.now());
-    const hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
-    const millisecondlyBuster = "?v=" + date.getTime();
-    const cacheBuster = debugMode ? millisecondlyBuster : hourlyBuster;
-
-		$stateProvider
-			.state('home', {
-				url: '/',
-				cache: !debugMode,
-				templateUrl: 'pages/home.template.html' + cacheBuster
-			})
-			.state('about', {
-				url: '/about',
-				cache: !debugMode,
-				templateUrl: 'pages/about.template.html' + cacheBuster
-			})
-			.state('contact', {
-				url: '/contact',
-				cache: !debugMode,
-				templateUrl: 'pages/contact.template.html' + cacheBuster
-			})
-			.state('resume', {
-				url: '/resume',
-				cache: !debugMode,
-				templateUrl: 'pages/resume.template.html' + cacheBuster
-			})
-			.state('resume-print', {
-				url: '/resume-print',
-				cache: !debugMode,
-				templateUrl: 'pages/resume-print.template.html' + cacheBuster
+		.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+			/* Default entry point */
+			$urlRouterProvider.otherwise(function(){
+				return ""
 			});
 
-		varData.articles.map((article) => {
-			const {id} = article;
+			const debugMode = !location.hostname.includes('cristol');
+
+			const date = new Date(Date.now());
+			const hourlyBuster = "?v=" + (date.getYear() +1900) + "|" + (date.getMonth() +1) + "|" + date.getDate() + "|" + (date.getHours());
+			const millisecondlyBuster = "?v=" + date.getTime();
+			const cacheBuster = debugMode ? millisecondlyBuster : hourlyBuster;
+
 			$stateProvider
-			.state(id, {
-				url: `/${id}`,
-				cache: !debugMode,
-				templateUrl: `articles/${id}/template.html?v=${cacheBuster}`
+				.state('home', {
+					url: '/',
+					cache: !debugMode,
+					templateUrl: `pages/home.template.html` + cacheBuster
+				})
+			
+			config.pages.map((page) => {
+				$stateProvider
+					.state(page, {
+						url: `/${page}`,
+						cache: !debugMode,
+						templateUrl: `pages//${page}.template.html` + cacheBuster
+					})
 			})
-		})
 
-		$locationProvider.html5Mode(!debugMode);
+			config.articles.map((article) => {
+				const {id} = article;
+				$stateProvider
+				.state(id, {
+					url: `/${id}`,
+					cache: !debugMode,
+					templateUrl: `articles/${id}/template.html?v=${cacheBuster}`
+				})
+			})
 
-		}]);
+			$locationProvider.html5Mode(!debugMode);
 
-angular.element(document).ready(function () {
-	angular.bootstrap(document, ['app']);
-});
+			}]);
+
+	angular.element(document).ready(function () {
+		angular.bootstrap(document, ['app']);
+	});
+})

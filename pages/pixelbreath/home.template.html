@@ -1,0 +1,25 @@
+<div class="hero-header main--header" ng-style="{'background-image': 'url(' + control.coolImage.url + ')'}">
+	<div class="black-layer"></div>
+	<div class="header-square" ng-class="{'hide': control.coolImage.url.length > 0}" ng-if="!control.shouldHideForms"></div>
+	<div class="header-circle" ng-class="{'hide': control.coolImage.url.length > 0}" ng-if="!control.shouldHideForms"></div>
+	<div class="inner-center-aligner">
+		<div class="text-layer">
+			<h1>{{::control.titles['header'][0]}}</h1>
+			<h3>{{::control.titles['header'][1]}}</h3>
+		</div>
+	</div>
+	<a ng-href="https://www.reddit.com{{control.coolImage.permalink}}" class="background-src" ng-if="control.coolImage.url.length > 0" target="_blank">{{control.coolImage.title.slice(0, 45)}}</a>
+</div>
+
+<div ng-repeat="article in ::control.articles" id="header-{{::article.id}}" class="hero-header main--article-blurb" ng-class="{'hide' : control.transitioning && control.transitionTarget !== article.id}">
+	<div class="black-layer"></div>
+	<div class="background-layer" ng-style="::{'background-image': 'url(' + control.getArticleBackground(article.id) + ')'}"></div>
+	<div class="inner-center-aligner">
+		<div class="text-layer">
+			<h2>{{::article.title}}</h2>
+
+			<a class="main--read-more" ng-click="control.goToArticle(article.id)">Read</a>
+		</div>
+	</div>
+</div>
+<cg-header ng-if="!control.hasFinishedLoading" comment="used-to-preload-template"></cg-header>
