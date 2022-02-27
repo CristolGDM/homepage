@@ -142,7 +142,9 @@ export const MainController = function($scope, ImageService, UtilService){
 		view.articles = config.articles;
 		view.titles["header"] = config.title;
 		getWindowHeight();
-		getRandomWallpaper();
+		if(config.title.join().indexOf("Cristol") === -1) {
+			getRandomWallpaper();
+		}
 
 		UtilService.$timeout(function(){
 			view.hasFinishedLoading = true;
