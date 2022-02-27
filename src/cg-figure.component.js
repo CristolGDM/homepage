@@ -19,6 +19,7 @@ function figureComponentController(ImageService){
 	/************** SCOPE VARIABLES **************/
 
 	/************** SCOPE FUNCTIONS **************/
+	view.getSrc = getSrc;
 	view.maximizePicture = maximizePicture;
 
 	/***************** LISTENERS *****************/
@@ -27,5 +28,10 @@ function figureComponentController(ImageService){
 	function maximizePicture() {
 		ImageService.setCurrentImage(view.src, view.caption);
 		ImageService.showFullScreen();
+	}
+
+	function getSrc() {
+		const folderName = location.href.split("/").pop();
+		return `articles/${folderName}/${view.src}`;
 	}
 }
