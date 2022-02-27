@@ -6,6 +6,11 @@ import {ImageServiceProvider} from './ImageService';
 import {UtilServiceProvider} from './UtilService';
 
 import styles from "../css/style.css";
+import "../icons/favicon.png";
+import "../icons/link-arrow.svg";
+import "../icons/menu-arrow.png";
+import "../icons/thick-arrow.png";
+import "../icons/thick-close.png";
 
 import {codeDirective} from './cg-code.directive';
 import {diapoComponent} from './cg-diapo.component';
