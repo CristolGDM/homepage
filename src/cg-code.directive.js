@@ -1,19 +1,65 @@
 import '../css/prism.css';
 
 import html from './cg-code.template.html';
-import Prism from './prism';
 
 export function codeDirective() {
 	return {
 		scope: {
-			name: "@"
+			name: '@',
+			language: '@'
 		},
 		transclude: true,
 		template: html,
-		link: init
+		controller: ['$scope', codeController],
+		controllerAs: "code",
 	}
 
-	function init(scope, element){
+	function codeController($scope){
+		if(!angular.isDefined($scope.language)) {
+			$scope.languageClass = "javascript";
+		}
+		else if(validLanguages.indexOf($scope.language) === -1) {
+			$scope.languageClass = "clike";
+		}
+		else {
+			$scope.languageClass = $scope.language
+		}
+		const prism = require('./prism');
+		prism(document);
 		Prism.highlightAll();
 	}
 };
+
+const validLanguages = [
+  "atom",
+  "bash",
+  "clike",
+  "cs",
+  "csharp",
+  "css",
+  "DFS",
+  "dotnet",
+  "extend",
+  "html",
+  "insertBefore",
+  "javascript",
+  "js",
+  "jsx",
+  "markup",
+  "mathml",
+  "plain",
+  "plaintext",
+  "py",
+  "python",
+  "regex",
+  "rss",
+  "shell",
+  "ssml",
+  "svg",
+  "text",
+  "ts",
+  "tsx",
+  "txt",
+  "typescript",
+  "xml"
+];
