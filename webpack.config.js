@@ -11,10 +11,11 @@ const baseSetup = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.less$/i,
         use: [
-          'style-loader', 
-          'css-loader'
+          "style-loader",
+          "css-loader",
+          "less-loader",
         ],
       },
       {

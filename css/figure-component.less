@@ -1,0 +1,39 @@
+/* FIGURE COMPONENT */
+.article-content--image {
+	text-align: center;
+	margin: 45px auto;
+	background: #f5f5f5;
+	padding: 10px;
+	img {
+		max-width: 100%;
+		margin: auto;
+		max-height: 600px;
+		cursor: pointer;
+	}
+	figcaption {
+		margin-top: 10px;
+		font-size: 14px;
+	}
+}
+
+.image-component--line {
+	display: inline-block;
+	.article-content--image {
+		display: block;
+		width: 33.3%;
+		margin: auto;
+		padding: 0;
+		float: left;
+		border: 1px solid white;
+		box-sizing: border-box;
+	}
+	&.line2 .article-content--image {
+		width: 50%;
+	}
+	&.line4 .article-content--image {
+		width: 25%;
+	}
+	figcaption {
+		display: none;
+	}
+}

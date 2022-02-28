@@ -5,7 +5,7 @@ import {MainController} from './MainCtrl';
 import {ImageServiceProvider} from './ImageService';
 import {UtilServiceProvider} from './UtilService';
 
-import styles from "../css/style.css";
+import styles from "../css/style.less";
 import "../icons/favicon.png";
 import "../icons/link-arrow.svg";
 import "../icons/menu-arrow.png";

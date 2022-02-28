@@ -1,0 +1,88 @@
+/* CODE COMPONENT */
+
+.code-component {
+	background: #282923;
+	color: #f8f8f2;
+	line-height: 25px;
+	font-family: monospace;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 15px 0;
+}
+
+.code-filename {
+	font-size: 16px;
+	border-bottom: 1px solid #666;
+	padding: 0 15px 5px;
+}
+
+.code-line {
+	display: table;
+	width: 100%;
+	&:hover {
+		background: #3e3d32;
+	}
+}
+
+.code--line-number,
+.code--line-content {
+	display: table-cell;
+	padding: 5px;
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+
+.code--line-number {
+	width: 20px;
+	font-size: 12px;
+	text-align: right;
+	user-select: none;
+}
+
+.code-component {
+	.var, .function, .function-dec {
+		color: #67d8ef;
+	}
+	.var,.function-dec {
+		font-style: italic;
+	}
+	.for, .else, .return, .symbo, .if {
+		color: #f92472;
+	}
+
+	.comment {
+		color: #74705d;
+	}
+
+	.tab {
+		display: inline-block;
+		background: linear-gradient(transparent 0%, transparent calc(50% - 1px), #74705d 50%, transparent calc(50% + 1px), transparent 100%);
+		margin-right: 5px;
+		line-height: 2px;
+	}
+
+	.function-arg {
+		color: #fd9621;
+		font-style: italic;
+	}
+
+	.function-name {
+		color: #a6e22c;
+	}
+	
+	.escape-char,
+	.number {
+		color: #ac80ff;
+	}
+	
+	.string,
+	.string .number,
+	.string .symbol {
+		color: #e7db74;
+	}
+}
+@media screen and (max-width: 768px) {
+	.code--line-content {
+		font-size: 11px;
+	}
+}
