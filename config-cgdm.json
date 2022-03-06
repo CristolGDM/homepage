@@ -1,6 +1,7 @@
 {
 	"title": ["Cristol GDM", "Tokyo based JavaScript/Angular developer with a UX background"],
   "pages" : ["about", "resume", "resume-print", "contact"],
+	"wallpapers": ["ImaginaryFuturism", "ImaginaryRobotics", "ImaginaryStarships", "ImaginaryInteriors", "ImaginaryLibraries", "SuperStructures"],
 	"articles": [
 		{
 			"title": "Learning how to learn",

@@ -1,6 +1,7 @@
 {
 	"title": ["Pixel Breath", "8-bit video game design and a sprinkle of tabletop"],
   "pages" : ["about", "resume", "resume-print", "contact"],
+	"wallpapers": ["ImaginaryWorlds", "ImaginaryColorscapes", "ImaginarySkyscapes", "ImaginaryWildlands"],
 	"articles": [
 		{
 			"title": "Why you should do a MVP for your game",
