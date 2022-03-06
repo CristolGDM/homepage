@@ -71,15 +71,17 @@ httpGetAsync("./config.json").then(async (dataRaw) => {
 					})
 			})
 
-			config.articles.map((article) => {
-				const {id} = article;
-				$stateProvider
-				.state(id, {
-					url: `/${id}`,
-					cache: !debugMode,
-					templateUrl: `articles/${id}/template.html?v=${cacheBuster}`
+			config.articles
+				.sort((a, b) => {return a.date - b.date})
+				.map((article) => {
+					const {id} = article;
+					$stateProvider
+					.state(id, {
+						url: `/${id}`,
+						cache: !debugMode,
+						templateUrl: `articles/${id}/template.html?v=${cacheBuster}`
+					})
 				})
-			})
 
 			$locationProvider.html5Mode(!debugMode);
 

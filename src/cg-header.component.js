@@ -49,6 +49,6 @@ function headerComponentController(){
 		const {title, date} = config.articles.find((article) => {return article.id === view.id});
 
 		view.title = title;
-		view.date = date;
+		view.date = new Date(date).toLocaleString('default', {month: "long", year: "numeric"});
 	}
 }
