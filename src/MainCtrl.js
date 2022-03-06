@@ -117,9 +117,10 @@ export const MainController = function($scope, ImageService, UtilService){
 				"font-size: 14px; line-height: 25px;",
 				"font-size: 14px; line-height: 25px;",
 				"font-size: 12px; line-height: 25px; color: #FF5C92;");
-				view.coolImage = img;
-				view.shouldHideForms = true;
-				$scope.$apply();
+				$scope.$apply(view.coolImage = img);
+				setTimeout(() => {
+					view.shouldHideForms = true;
+				}, 2000)
 		};
 		loader.src = img.url;
 	}

@@ -1,4 +1,7 @@
-<div class="hero-header cgm-header" ng-style="{height: control.windowHeight, 'background-image': 'url(' + control.coolImage.url + ')'}">
+<div class="hero-header cgm-header"
+ ng-style="{height: control.windowHeight, 'background-image': 'url(' + control.coolImage.url + ')'}"
+ ng-class="{'finished-loading': !!control.coolImage.url}"
+ >
 	<div class="inner-center-aligner">
 		<div class="text-layer">
 			<h1 ng-if="::1==0">Cristol Grosdemouge-Ishikawa's professional website</h1>

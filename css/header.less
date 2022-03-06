@@ -16,18 +16,32 @@
 	}
 	
 	.inner-center-aligner {
-		background-color: rgba(255,255,255,0.8);
+		transition: background-color linear 0.2s;
+		background-color: rgba(255,255,255,1);
+	}
+
+	&.finished-loading {
+		.inner-center-aligner {
+			background-color: rgba(255,255,255,0.8);
+		}
 	}
 }
 
 .main--header {
 	background-position: 50%;
 	background-size: cover;
-	background-color: #45D3DD;
 
 	.black-layer {
 		z-index: 0;
-		opacity: 0.3;
+		opacity: 1;
+		background-color: #209199;
+		transition: opacity linear 0.2s, background-color linear 0.2s;
+	}	
+	&.finished-loading {
+		.black-layer {
+			background-color: black;
+			opacity: 0.3;
+		}
 	}
 }
 
@@ -61,7 +75,7 @@
 	left: 8%;
 	z-index: 1;
 	opacity: .6;
-	transition: all linear 0.8s 0.8s;
+	transition: all linear 0.8s;
 
 	&.hide {
 		left: -185px;
@@ -79,7 +93,7 @@
 	left: 12%;
 	z-index: 0;
 	opacity: .7;
-	transition: all linear 0.8s 0.8s;
+	transition: all linear 0.8s;
 
 	&.hide {
 		left: -225px;
