@@ -77,49 +77,51 @@ export const MainController = function($scope, ImageService, UtilService){
 			return;
 		}
 		const img = randArray(images).data;
-		$scope.$apply(view.coolImage = img);
+		const loader = new Image();
+		loader.onload = () => {
 
-		const title = img.title;
-		let titleString = "";
+			// Console log update
+			const title = img.title;
+			let titleString = "";
 
-		if (title.toUpperCase().indexOf(" BY ") > -1){
-			const index = title.toUpperCase().indexOf(" BY ");
-			const art = title.slice(0, index);
-			const artist = title.slice(index + 4, title.length);
+			if (title.toUpperCase().indexOf(" BY ") > -1){
+				const index = title.toUpperCase().indexOf(" BY ");
+				const art = title.slice(0, index);
+				const artist = title.slice(index + 4, title.length);
 
-			titleString = `%c${art}%c by %c${artist}`
-		}
-		else {
-			titleString = `%c%c%c${title}`;
-		}
+				titleString = `%c${art}%c by %c${artist}`
+			}
+			else {
+				titleString = `%c%c%c${title}`;
+			}
 
-		let backgroundStyle = "margin-top: 15px;"
-							+ "padding-right:150px;"
-							+ "padding-left: 150px;"
-							+ "padding-top:90px;"
-							+ "padding-bottom:90px;"
-							+ "background:url(" + img.url + ") no-repeat;"
-							+ "background-size: cover;"
-							+ "background-position:50%;";
+			let backgroundStyle = "margin-top: 15px;"
+								+ "padding-right:150px;"
+								+ "padding-left: 150px;"
+								+ "padding-top:90px;"
+								+ "padding-bottom:90px;"
+								+ "background:url(" + img.url + ") no-repeat;"
+								+ "background-size: cover;"
+								+ "background-position:50%;";
 
-		if(navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1) {
-			backgroundStyle += "line-height: 225px";
-		}
+			if(navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1) {
+				backgroundStyle += "line-height: 225px";
+			}
 
-		console.log(`%c %c\nHeader image is ${titleString}%c.\n%cYou can find more at:\n\n%chttps://www.reddit.com${img.permalink}\n\n`, 
-			backgroundStyle,
-			"font-size: 14px; line-height: 25px; padding-top: 05px;",
-			"font-size: 14px; line-height: 25px; color: #45D3DD",
-			"font-size: 14px; line-height: 25px;",
-			"font-size: 14px; line-height: 25px; color: #45D3DD;",
-			"font-size: 14px; line-height: 25px;",
-			"font-size: 14px; line-height: 25px;",
-			"font-size: 12px; line-height: 25px; color: #FF5C92;");
-
-		setTimeout(function(){
-			view.shouldHideForms = true;
-		}, 2000)
-
+			console.log(`%c %c\nHeader image is ${titleString}%c.\n%cYou can find more at:\n\n%chttps://www.reddit.com${img.permalink}\n\n`, 
+				backgroundStyle,
+				"font-size: 14px; line-height: 25px; padding-top: 05px;",
+				"font-size: 14px; line-height: 25px; color: #45D3DD",
+				"font-size: 14px; line-height: 25px;",
+				"font-size: 14px; line-height: 25px; color: #45D3DD;",
+				"font-size: 14px; line-height: 25px;",
+				"font-size: 14px; line-height: 25px;",
+				"font-size: 12px; line-height: 25px; color: #FF5C92;");
+				view.coolImage = img;
+				view.shouldHideForms = true;
+				$scope.$apply();
+		};
+		loader.src = img.url;
 	}
 
 	function getWindowHeight(){
