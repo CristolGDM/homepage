@@ -137,7 +137,7 @@ export const MainController = function($scope, ImageService, UtilService){
 		view.transitioning = true;
 		view.transitionTarget = id;
 
-		scrollToX(document.body, document.body.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic)
+		scrollToX(document.documentElement, document.documentElement.scrollTop, targetBlock.offsetTop, 0, 1/duration, 20, easeOutCuaic)
 			.then(function(){
 				UtilService.$state.go(id);
 			})
@@ -169,7 +169,7 @@ export const MainController = function($scope, ImageService, UtilService){
 	function scrollBackTop(duration) {
 		if(duration == null) duration = 400;
 
-		scrollToX(document.body, document.body.scrollTop, document.body.offsetTop, 0, 1/duration, 20, easeOutCuaic);
+		scrollToX(document.documentElement, document.documentElement.scrollTop, document.documentElement.offsetTop, 0, 1/duration, 20, easeOutCuaic);
 	}
 
 	function scrollToX(element, xFrom, xTo, t01, speed, step, motion) {
