@@ -147,9 +147,7 @@ export const MainController = function($scope, ImageService, UtilService){
 		view.articles = config.articles;
 		view.titles["header"] = config.title;
 		getWindowHeight();
-		if(config.title.join().indexOf("Cristol") === -1) {
-			getRandomWallpaper();
-		}
+		getRandomWallpaper();
 
 		addKeyListeners();
 
