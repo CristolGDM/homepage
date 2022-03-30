@@ -10,10 +10,10 @@ async function main() {
   prompt.get({
     properties: {
       site: {
-        pattern: /pixel|cgdm/,
+        pattern: /pixel|cgdm|both/,
         required: true,
         default: "cgdm",
-        description: yellowString(`For which site? (${blueString("pixel")} ${yellowString("or")} ${blueString("cgdm")}${yellowString(")")}`)
+        description: yellowString(`For which site? ( ${blueString("pixel")} ${yellowString("/")} ${blueString("cgdm")} ${yellowString("/")} ${blueString("both")} ${yellowString(")")}`)
       },
       title: {
         required: true,
@@ -40,14 +40,35 @@ async function main() {
 };
 
 async function processEnteredData(data) {
-  const {site, title, folderName, blurb} = data;
+  const {site, title, folderName} = data;
 
   if(!site || !title || !folderName) {
     logRed("Missing something!");
     logRed(JSON.stringify(data));
   }
 
-  const configFileName = site === "pixel" ? "config-pixel.json" : "config-cgdm.json";
+  const cristolConfig = "config-cgdm.json";
+  const pixelConfig = "config-pixel.json";
+
+  if(site !== "pixel") {
+    await addArticleToConfig(cristolConfig, data)
+  }
+  if(site !== "cgdm") {
+    await addArticleToConfig(pixelConfig, data)
+  }
+  
+  fs.mkdirSync(`./articles/${folderName}`);
+  fs.writeFileSync(`./articles/${folderName}/template.html`, getHtmlTemplate(folderName));
+
+  console.log("");
+  logGreen("-----------------------------------------------------------------------------")
+  console.log("");
+  logGreen("Finished creating folder and template for /"+folderName);
+  console.log("");
+}
+
+async function addArticleToConfig(configFileName, data) {
+  const {title, folderName, blurb} = data;
   const configFilePath = `./${configFileName}`;
 
   const rawJson = fs.readFileSync(configFilePath);
@@ -59,20 +80,15 @@ async function processEnteredData(data) {
     return;
   }
 
-  fs.mkdirSync(`./articles/${folderName}`);
-  fs.writeFileSync(`./articles/${folderName}/template.html`, getHtmlTemplate(folderName));
+  const hasBlurb = blurb ? {blurb} : {};
+
   articles.push(		{
     "title": title,
     "id": folderName,
-    "date": Date.now()
+    "date": Date.now(),
+    ...hasBlurb
   })
   fs.writeFileSync(configFilePath, JSON.stringify(config, null, 2));
-
-  console.log("");
-  logGreen("-----------------------------------------------------------------------------")
-  console.log("");
-  logGreen("Finished creating folder and template for /"+folderName);
-  console.log("");
 }
 
 function redString(string) {
