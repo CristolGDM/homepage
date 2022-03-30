@@ -147,7 +147,7 @@ export const MainController = function($scope, ImageService, UtilService){
 		const rawConfig = await httpGetAsync('./config.json');
 		config = await JSON.parse(rawConfig);
 
-		view.articles = config.articles;
+		view.articles = config.articles.sort((a, b) => {return b.date - a.date});
 		view.titles["header"] = config.title;
 		getWindowHeight();
 		getRandomWallpaper();

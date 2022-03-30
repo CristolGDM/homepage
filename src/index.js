@@ -72,7 +72,6 @@ httpGetAsync("./config.json").then(async (dataRaw) => {
 			})
 
 			config.articles
-				.sort((a, b) => {return a.date - b.date})
 				.map((article) => {
 					const {id} = article;
 					$stateProvider
