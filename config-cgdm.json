@@ -58,6 +58,11 @@
       "blurb": "This first project comes from a training course by Wiklund & Kendler. The task was to create an interface for an automatic hat-making machine. The user had to be able to design a hat, preview it, and buy it.",
       "id": "robohat-an-interface-to-make-hats",
       "date": 1317394800000
+    },
+    {
+      "title": "Why you should do a MVP for your game",
+      "id": "you-should-do-mvp",
+      "date": 1564585200000
     }
   ]
 }
