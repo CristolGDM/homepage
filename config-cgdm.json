@@ -63,6 +63,12 @@
       "title": "Why you should do a MVP for your game",
       "id": "you-should-do-mvp",
       "date": 1564585200000
+    },
+    {
+      "title": "Bash alias for the lazy developer: build time prediction",
+      "id": "bash-alias-lazy-developer--build-time-prediction",
+      "date": 1648643802494,
+      "blurb": "by \"lazy\" I obviously mean \"efficient\""
     }
   ]
 }

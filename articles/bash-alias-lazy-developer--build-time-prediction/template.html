@@ -1,0 +1,39 @@
+<div class="article">
+  <cg-diapo></cg-diapo>
+
+  <cg-header id="bash-alias-lazy-developer--build-time-prediction"></cg-header>
+
+  <div class="article-content">
+  
+    <p>Tell me if this sounds familiar: you have tasks that you regularly and that last a couple minutes every time - building, linting, testing, etc. How long they take can vary a bit every time. So you end up either staring at the console for 10mn waiting for your build to finish, or you start doing something else and miss that your build finished 5 minutes ago.</p>
+
+    <p>Well, I say no more. Both cases are a waste of time, and nobody likes wasting their time.</p>
+
+    <p>So here is a bash alias that stores each build's completion time, and warn you before running about when it's expecting to finish.</p>
+  
+    <cg-code language="bash">
+      buildApp(){
+        #load current average build time
+        PREVIOUS=$(<~/.output/buildApp.txt)
+        #calculate expected end time based on now + average build time
+        FINISH=`date -v "+${PREVIOUS}S" "+%H:%M"`
+        SECONDS=0
+        echo "Started building. Expecting to finish at $FINISH"
+        ####################
+        #DO YOUR THING HERE#
+        ####################
+        DURATION=$SECONDS
+        #exclude too short time here, to avoid skewing averages too much
+        #you can also just return on build error if that suits you better
+        if [ $DURATION -gt 150 ]
+        then
+          #store the average of previous build time and current build time
+          echo "$((($PREVIOUS + $DURATION)/2))" > ~/.output/buildApp.txt
+          echo "Finished building, it took ($(($DURATION / 60))mn $(($DURATION % 60))s)"
+        fi
+      }
+    </cg-code>
+
+    <p>Obviously it's nothing fancy and you can improve it (better average calculation, better error handling), but considering how much time it saved me I really recommend you to give it a try.</p>
+  </div>
+</div>
