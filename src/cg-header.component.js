@@ -35,7 +35,7 @@ function headerComponentController(){
 		if (isReallySmallScreen) fileName += "_portrait";
 		else if (isSmallScreen) fileName += "_small";
 
-		return `articles/${view.id}/${fileName}.jpg`
+		return `articles/${view.id}/${fileName}.webp`
 	}
 
 	async function onInit(){

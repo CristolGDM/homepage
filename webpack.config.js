@@ -41,7 +41,7 @@ const baseSetup = {
         { 
           from: "articles",
           to: ({ context, absoluteFilename }) => {
-            const noPng = absoluteFilename.replace(context, "").replace(".png", ".jpg");
+            const noPng = absoluteFilename.replace(context, "").replace(".png", ".webp").replace(".jpg", ".webp").replace(".jpeg", ".webp");
             return `articles/${noPng}`
           },
           transform: async function(content, filepath) {
@@ -49,14 +49,14 @@ const baseSetup = {
               return content;
             }
             const buffer = await sharp(filepath)
-              .jpeg({quality: 80, progressive: true})
+              .webp()
               .toBuffer();
             return buffer;
           }
         },{ 
           from: "common-images",
           to: ({ context, absoluteFilename }) => {
-            const noPng = absoluteFilename.replace(context, "").replace(".png", ".jpg");
+            const noPng = absoluteFilename.replace(context, "").replace(".png", ".webp").replace(".jpg", ".webp").replace(".jpeg", ".webp");
             return `common-images/${noPng}`
           },
           transform: async function(content, filepath) {
@@ -64,7 +64,7 @@ const baseSetup = {
               return content;
             }
             const buffer = await sharp(filepath)
-              .jpeg({quality: 80, progressive: true})
+              .webp({quality: 30})
               .toBuffer();
             return buffer;
           }

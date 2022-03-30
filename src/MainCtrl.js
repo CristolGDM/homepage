@@ -63,7 +63,7 @@ export const MainController = function($scope, ImageService, UtilService){
 		if (isReallySmallScreen) fileName += "_portrait";
 		else if (isSmallScreen) fileName += "_small";
 
-		return 'articles/'+ id +'/' + fileName + '.jpg';
+		return 'articles/'+ id +'/' + fileName + '.webp';
 	}
 
 	async function getRandomWallpaper(){
