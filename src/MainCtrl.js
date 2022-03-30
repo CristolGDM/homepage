@@ -45,6 +45,9 @@ export const MainController = function($scope, ImageService, UtilService){
 		view.sideMenuOpened = false;
 		view.currentState = UtilService.$state.current.name;
 		UtilService.$timeout(function(){
+			const prism = require('./prism');
+			prism(document);
+			Prism.highlightAll();
 			view.transitioning = false;
 			}, 50)
 	})

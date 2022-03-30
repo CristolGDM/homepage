@@ -24,9 +24,6 @@ export function codeDirective() {
 		else {
 			$scope.languageClass = $scope.language
 		}
-		const prism = require('./prism');
-		prism(document);
-		Prism.highlightAll();
 	}
 };
 
