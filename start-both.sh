@@ -1,4 +1,6 @@
 docker rm pixelbreath -f
 docker rm cristolgdm -f
-docker run -it --rm -d -p 8888:80 --name cristolgdm -v ./dist-cgdm:/usr/share/nginx/html nginx
-docker run -it --rm -d -p 8889:80 --name pixelbreath -v ./dist-pixel:/usr/share/nginx/html nginx
+docker build ./dist-pixel -f Dockerfile -t pixel
+docker build ./dist-cgdm -f Dockerfile -t cristol
+docker run -it --rm -d --name pixelbreath -p 8888:80 pixel
+docker run -it --rm -d --name cristolgdm -p 8889:80 cristol
