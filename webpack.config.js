@@ -53,6 +53,21 @@ const baseSetup = {
               .toBuffer();
             return buffer;
           }
+        },{ 
+          from: "common-images",
+          to: ({ context, absoluteFilename }) => {
+            const noPng = absoluteFilename.replace(context, "").replace(".png", ".jpg");
+            return `common-images/${noPng}`
+          },
+          transform: async function(content, filepath) {
+            if(!(filepath.endsWith('.jpg') || filepath.endsWith('.jpeg') || filepath.endsWith('.png'))) {
+              return content;
+            }
+            const buffer = await sharp(filepath)
+              .jpeg({quality: 80, progressive: true})
+              .toBuffer();
+            return buffer;
+          }
         },
       ],
     })
