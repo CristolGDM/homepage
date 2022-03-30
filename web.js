@@ -1,6 +1,7 @@
 // const homepagePath = 'E:/Documents/scripts/homepage';
 const prompt = require('prompt');
 const fs = require('fs');
+const open = require('open');
 
 main();
 
@@ -26,6 +27,10 @@ async function main() {
       blurb: {
         required: false,
         description: yellowString("Short description to display on the article header")
+      },
+      imageSearch: {
+        required: false,
+        description: yellowString("Search for an image?")
       }
     }
   }, (err, result) => {
@@ -40,7 +45,7 @@ async function main() {
 };
 
 async function processEnteredData(data) {
-  const {site, title, folderName} = data;
+  const {site, title, folderName, imageSearch} = data;
 
   if(!site || !title || !folderName) {
     logRed("Missing something!");
@@ -65,6 +70,12 @@ async function processEnteredData(data) {
   console.log("");
   logGreen("Finished creating folder and template for /"+folderName);
   console.log("");
+
+  open(`./articles/${folderName}/template.html`, {app: {name: "C:\\Users\\Cristol\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"}});
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  if(imageSearch) {
+    open(`https://www.google.com/search?q=${imageSearch.replace(/\s/g, "+")}&tbm=isch`)
+  }
 }
 
 async function addArticleToConfig(configFileName, data) {
