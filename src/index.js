@@ -1,5 +1,8 @@
 'use strict'
 
+const angular = require("angular");
+import uiRouter from 'angular-ui-router';
+
 import {MainController} from './MainCtrl';
 
 import {ImageServiceProvider} from './ImageService';
@@ -22,7 +25,7 @@ import {httpGetAsync} from './utils';
 
 const requiredServices = [
 	/* External services */
-	'ui.router',
+	uiRouter,
 
 	/* Local Services */
 	'ImageServiceProvider',

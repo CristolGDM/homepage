@@ -1,4 +1,5 @@
 'use strict';
+const angular = require("angular");
 export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 	.factory('ImageService', ['$transitions', function ($transitions) {
 

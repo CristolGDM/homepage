@@ -1,5 +1,5 @@
 import '../css/prism.css';
-
+const angular = require("angular");
 import html from './cg-code.template.html';
 
 export function codeDirective() {
