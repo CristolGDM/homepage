@@ -1,3 +1,4 @@
+npm run build
 docker rm pixelbreath -f
 docker rm cristolgdm -f
 docker build ./dist-pixel -f Dockerfile -t pixel
