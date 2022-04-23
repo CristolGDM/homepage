@@ -10,7 +10,7 @@
 	</head>
 	<body ng-controller="MainController as control" ng-class="{'transitioning': control.transitioning, 'dark-mode': control.darkMode}">
 		<div id="js-mobile-detection"></div>
-		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu() && control.currentState !== 'resume-print'}">
+		<div class="side-menu-component" ng-class="{'show': control.shouldShowSideMenu() && control.currentState !== 'resumeprint'}">
 			<div class="side-menu--button" ng-click="control.sideMenuOpened = !control.sideMenuOpened">
 				<div class="side-menu--button-icon" ng-class="{'rotate': control.sideMenuOpened}">
 					<img src="../icons/menu-arrow.png" />
@@ -30,7 +30,7 @@
 
 		<ui-view></ui-view>
 
-		<div class="footer" ui-sref-active="{'hide': 'home', 'hide': 'resume-print'}">
+		<div class="footer" ui-sref-active="{'hide': 'home', 'hide': 'resumeprint'}">
 			<span class="footer--back-main footer--link" ui-sref="home"><span class="footer--link--arrow">&#8592;</span>Home</span>
 			<span class="footer--back-top footer--link" ng-click="control.scrollBackTop()"><span class="footer--link--arrow">&#8593;</span>Top</span>
 		</div>
