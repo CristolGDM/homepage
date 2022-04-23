@@ -85,7 +85,7 @@ httpGetAsync("./config.json").then(async (dataRaw) => {
 					})
 				})
 
-			$locationProvider.html5Mode(!debugMode);
+			// $locationProvider.html5Mode(!debugMode);
 
 			}]);
 
