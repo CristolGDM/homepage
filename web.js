@@ -20,13 +20,13 @@ async function main() {
         required: true,
         description: yellowString("Article title"),
       },
+      blurb: {
+        required: false,
+        description: yellowString("Blurb to display on the article header")
+      },
       folderName: {
         required: true,
         description: yellowString("Which folder to use? It will be the url too")
-      },
-      blurb: {
-        required: false,
-        description: yellowString("Short description to display on the article header")
       },
       imageSearch: {
         required: false,
@@ -125,13 +125,16 @@ function yellowString(string) {
 
 function getHtmlTemplate(id) {
   return (`<div class="article">
-  <cg-diapo />
+  <cg-diapo></cg-diapo>
+  <-- header_portrait is 400x400 -->
+  <-- header_small is (width)x400 -->
 
-  <cg-header id="${id}" />
+  <cg-header id="${id}"></cg-header>
 
   <div class="article-content">
   
     <p>Write your stuff here</p>
+    <cg-figure src="image.webp" caption="My image"></cg-figure>
   
   </div>
 </div>`)
