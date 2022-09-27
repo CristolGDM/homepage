@@ -46,9 +46,10 @@ function headerComponentController(){
 		const rawConfig = await httpGetAsync('./config.json');
 		const config = await JSON.parse(rawConfig);
 
-		const {title, date} = config.articles.find((article) => {return article.id === view.id});
+		const {title, date, blurb} = config.articles.find((article) => {return article.id === view.id});
 
 		view.title = title;
+		view.blurb = blurb;
 		view.date = new Date(date).toLocaleString('default', {month: "long", year: "numeric"});
 	}
 }
