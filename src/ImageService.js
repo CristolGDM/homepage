@@ -94,6 +94,6 @@ export const ImageServiceProvider = angular.module('ImageServiceProvider', [])
 			if(!folderName) {
 				return '';
 			}
-			return `articles/${folderName}/${src}`;
+			return `articles/${folderName}/${src}${src.indexOf(".") === -1 ? ".webp" : ""}`;
 		}
 	}]);
