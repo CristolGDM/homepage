@@ -1,0 +1,66 @@
+<div class="article">
+
+  <cg-header id="bash-alias-lazy-developer--voice-warning"></cg-header>
+
+  <div class="article-content">
+  
+    <p>You implemented build time prediction on your machine, and now you have estimations about when your build/tests are going to finish. It's great, but you still find yourself having to check the clock to see if it's done soon or not, have to remember when each build is going to finish etc. Minor details, but it's still tedious and we don't like tedious around here.</p>
+
+    <p>Enter <a href="https://ss64.com/osx/say.html" target="_blank">say</a> (for MacOS; I think you can do something similar with <a href="https://linux.die.net/man/1/espeak" target="_blank">espeak</a> but I don't have a Linux machine with speakers). It's basically text to speech: give it a string, and it will say it.</p>
+
+    <p>Let's make a quick alias for it (those are settings I like, there are a lot of voices / modulations you can try):</p>
+
+    <cg-code language="bash">
+      myVoice() {
+          #(...&) is necessary to not block script execution 
+          (say -v Samantha "[[rate +190]][[pbas 180]][[volm 0.6]] $1"&)
+      }
+
+      #everything here is the same as before, except the call to myVoice
+      buildApp(){
+        PREVIOUS=$(<~/.output/buildApp.txt)
+        FINISH=`date -v "+${PREVIOUS}S" "+%H:%M"`
+        SECONDS=0
+        echo "Started building. Expecting to finish at $FINISH"
+        ####################
+        #DO YOUR THING HERE#
+        ####################
+        DURATION=$SECONDS
+        if [ $DURATION -gt 150 ]
+        then
+          echo "$((($PREVIOUS + $DURATION)/2))" > ~/.output/buildApp.txt
+          myVoice "Finished building, it took ($(($DURATION / 60))mn $(($DURATION % 60))s)"
+          echo "Finished building, it took ($(($DURATION / 60))mn $(($DURATION % 60))s)"
+        fi
+      }
+    </cg-code>
+
+    <p>Now you will have voice warnings whenever your build is finished. You can check your emails, go do dishes, lie down a bit, you won't miss that your build is finished. As a bonus, your co-workers will really want you to keep working from home.</p>
+
+    <p>Now we could leave it like this, but there are still some problems. You want to be able to turn it on/off easily. Being on all the time is a problem since it might start screaming "FINISHED FORCE PUSHING BRANCH REMOVE-SECRET-CODE-FROM-PROD-OOPS" during a meeting. You could just comment the function every time but it's not super convenient. So let's add a switch.</p>
+
+    <cg-code language="bash">
+      myVoice() {
+        STATUS=$(<~/.output/voicestatus.txt)
+        if [[ "$STATUS" == "on" ]]
+        then
+          (say -v Samantha "[[rate +190]][[pbas 180]][[volm 0.6]] $1"&)
+        else
+          echo "Voice is turned off"
+        fi
+      }
+      
+      voice() {
+        if [[ "$1" == "on" || "$1" == "off" ]]
+        then
+          echo "$1" > ~/.output/voicestatus.txt
+        fi
+      }      
+    </cg-code>
+
+    <p>So now you just have to write <span class="inline-code" >voice off</span> to turn off the voice warnings, and <span class="inline-code">voice on</span> to turn them on. You can do it even during a build, you can do it on a different window, etc.</p>
+
+    <p>Hope this saves you some precious seconds!</p>
+  
+  </div>
+</div>

@@ -68,6 +68,11 @@
       "id": "bash-alias-lazy-developer--build-time-prediction",
       "date": 1648643802494,
       "blurb": "By \"lazy\" I obviously mean \"efficient\""
+    },
+    {
+      "title": "Bash alias for the lazy developer: voice warnings",
+      "id": "bash-alias-lazy-developer--voice-warning",
+      "date": 1664384766822
     }
   ]
 }
