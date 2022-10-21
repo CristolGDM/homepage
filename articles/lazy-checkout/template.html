@@ -1,0 +1,25 @@
+<div class="article">
+  <cg-header id="lazy-checkout"></cg-header>
+
+  <div class="article-content">
+  
+    <p>If you've been working in a big enough company, you have probably ended up working on branches with beautiful names like <span class="inline-code">RSWPRD-23188-adjust-esp-connection-between-ap-rvc-for-SSU-phase2</span>. Rolls off the tongue.</p>
+
+    <p>You could copy paste from <span class="inline-code">git branch</span> every time, or rely on tab completion if your shell support it, but that's still not lazy <i>enough</i>.</p>
+
+    <p>Here is what I call my lazy checkout:</p>
+
+    <cg-code language="bash">
+      checkout(){
+        BRANCH=$(git branch | grep --max-count=1 $1)
+        BRANCHNOSPACE=`echo $BRANCH | sed 's/ *$//g'`
+        echo "Checking out $BRANCHNOSPACE..."
+        git checkout $BRANCH
+      }      
+    </cg-code>
+  
+    <p>Type any word and it will checkout the first branch to include it. So from now on <span class="inline-code">checkout 23188</span>, <span class="inline-code">checkout esp-conn</span>, <span class="inline-code">checkout phase2</span> will all be able to directly point you to that branch.</p>
+
+    <p>There are probably some improvements to make but I hope it saves you some time :)</p>
+  </div>
+</div>

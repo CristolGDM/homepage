@@ -73,6 +73,11 @@
       "title": "Bash alias for the lazy developer: voice warnings",
       "id": "bash-alias-lazy-developer--voice-warning",
       "date": 1664384766822
+    },
+    {
+      "title": "Lazy checkout",
+      "id": "lazy-checkout",
+      "date": 1666273351452
     }
   ]
 }
