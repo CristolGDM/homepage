@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  pixelbreath:
+    container_name: pixelbreath
+    image: nginx:latest
+    volumes:
+      - ./dist-pixel:/usr/share/nginx/html
+    restart: always
+    ports:
+      - "8888:80"
+  cristolgdm:
+    container_name: cristolgdm
+    image: nginx:latest
+    volumes:
+      - ./dist-cgdm:/usr/share/nginx/html
+    restart: always
+    ports:
+      - "8889:80"
